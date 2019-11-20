@@ -38,13 +38,14 @@
 |user_id|string|null: false|
 |image|string|null: false|
 |price|integer|null: false|
-|category_id|integer|null: false|foreign_key: true|
+|category_id|integer|null: false,foreign_key: true|
+|place_id|integer|null :false,foreign_key: true|
+|bland-id|string|null :false,foreign_key: true|
 |ship_way||string|null: false|
 |ship_price|string|null: false|
 |ship_date|string|null :false|
-|place_id|integer|null :false|foreign_key: true|
 |condition|string|null :false|
-|bland-id|string|null :false|foreign_key: true|
+
 
 
 ### Associtaion
