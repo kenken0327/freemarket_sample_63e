@@ -1,24 +1,91 @@
-# README
+# items_usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key:true|
+|custmer_id|references|
 
-Things you may want to cover:
+### Association
+- belongs_to :item
+- belongs_to :user
 
-* Ruby version
+# usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false, index: ture|
+|e-mail|string|null: false|
+|password|string|null: false|
+|name|string|null: false|
+|kana|string|null: false|
+|birthday|datetime|null: false|
+|post_no||string|null: false|
+|tell_no|string|null: false|
+|card_id|integer|
+|image|string|
 
-* System dependencies
 
-* Configuration
+### Association
+- has_many :items,through: :items_users
+- has_many :items_users
 
-* Database creation
 
-* Database initialization
+# itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false,index: ture|
+|user_id|string|null: false|
+|image|string|null: false|
+|category_id|integer|null: false|
+|ship_way||string|null: false|
+|ship_price|string|null: false|
+|ship_date|string|null :false|
+|place_id|integer|null :false|
+|condition|string|null :false|
+|bland-id|string|null :false|
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Associtaion
+- has_many :users,through: :items_users
+- has_many :items_users
+- belongs_to :category
+- belongs_to :bland
+- belongs_to :place
 
-* Deployment instructions
+# cardテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false,foreign_key: true|
+|custmer_id|references|null: false,foreign_key: true|
 
-* ...
+### Association
+- belongs_to :user
+
+# categoryテーブルx13
+|Column|Type|Options|
+|------|----|-------|
+|category|string|
+
+### Association
+- has_many: items
+
+# blandテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|bland|string|
+
+### Associtaion
+- has_many: items
+
+### placeテーブル
+
+|Cokumn|Type|Options|
+|------|----|-------|
+|place|string|
+
+- has_many: items
+
+### 
+
+
