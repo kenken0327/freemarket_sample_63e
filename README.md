@@ -67,6 +67,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |category|string|
+|ancestory|string|
 
 ### Association
 - has_many: items
@@ -88,7 +89,7 @@
 |city|string|
 
 ### Association
-- has_many :prefecutres
+- has_many :prefecutures
 
 # prefectureテーブル
 
