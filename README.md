@@ -84,7 +84,7 @@
 |------|----|-------|
 |place|string|
 
-# Association
+### Association
 - has_many: items
 
 
