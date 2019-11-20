@@ -19,7 +19,7 @@
 |name|string|null: false|
 |kana|string|null: false|
 |birthday|datetime|null: false|
-|post_no||string|null: false|
+|post_no|string|null: false|
 |tell_no|string|null: false|
 |card_id|integer|
 |image|string|
@@ -56,12 +56,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false,foreign_key: true|
-|custmer_id|references|null: false,foreign_key: true|
+|card_info|string|
 
 ### Association
 - belongs_to :user
 
-# categoryテーブルx13
+# categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
 |category|string|
