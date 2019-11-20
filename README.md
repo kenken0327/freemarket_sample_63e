@@ -41,7 +41,7 @@
 |category_id|integer|null: false,foreign_key: true|
 |place_id|integer|null :false,foreign_key: true|
 |bland-id|string|null :false,foreign_key: true|
-|ship_way||string|null: false|
+|ship_way|string|null: false|
 |ship_price|string|null: false|
 |ship_date|string|null :false|
 |condition|string|null :false|
