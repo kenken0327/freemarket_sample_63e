@@ -3,8 +3,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|group_id|references|null: false, foreign_key:true|
-|custmer_id|references|
+|item_id|references|null: false, foreign_key: true|
+|buy|string|
 
 ### Association
 - belongs_to :item
@@ -78,14 +78,15 @@
 ### Associtaion
 - has_many: items
 
-### placeテーブル
+# placeテーブル
 
 |Cokumn|Type|Options|
 |------|----|-------|
 |place|string|
 
+# Association
 - has_many: items
 
-### 
+
 
 
