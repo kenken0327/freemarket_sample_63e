@@ -80,14 +80,25 @@
 ### Associtaion
 - has_many: items
 
-# placeテーブル
+# addressテーブル
 
-|Cokumn|Type|Options|
+|Column|Type|Options|
 |------|----|-------|
-|place|string|
+|prefecture_id|integer|
+|city|string|
 
 ### Association
-- has_many: items
+- has_many :prefecutres
+
+# prefectureテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+
+### Asscociation
+- belongs_to_active_hash :address
+
+
 
 
 
