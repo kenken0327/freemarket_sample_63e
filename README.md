@@ -19,15 +19,16 @@
 |name|string|null: false|
 |kana|string|null: false|
 |birthday|datetime|null: false|
-|post_no|string|null: false|
-|tell_no|string|null: false|
-|card_id|integer|
+|post_no|integer|null: false|
+|tell_no|integer|null: false|
+|card_id|integer|foreign_key: true|
 |image|string|
 
 
 ### Association
 - has_many :items,through: :items_users
 - has_many :items_users
+- has-one :card
 
 
 # itemsテーブル
@@ -37,13 +38,13 @@
 |user_id|string|null: false|
 |image|string|null: false|
 |price|integer|null: false|
-|category_id|integer|null: false|
+|category_id|integer|null: false|foreign_key: true|
 |ship_way||string|null: false|
 |ship_price|string|null: false|
 |ship_date|string|null :false|
-|place_id|integer|null :false|
+|place_id|integer|null :false|foreign_key: true|
 |condition|string|null :false|
-|bland-id|string|null :false|
+|bland-id|string|null :false|foreign_key: true|
 
 
 ### Associtaion
@@ -56,7 +57,7 @@
 # cardテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false,foreign_key: true|
+|user_id|references|
 |card_info|string|
 
 ### Association
