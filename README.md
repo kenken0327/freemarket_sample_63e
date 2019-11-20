@@ -1,24 +1,106 @@
-# README
+# transactionテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+|buy|string|default: :1|
 
-Things you may want to cover:
+### Association
+- belongs_to :item
+- belongs_to :user
 
-* Ruby version
+# usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false, index: ture|
+|e-mail|string|null: false|
+|password|string|null: false|
+|name|string|null: false|
+|kana|string|null: false|
+|birthday|datetime|null: false|
+|post_no|integer|null: false|
+|tell_no|integer|null: false|
+|card_id|integer|foreign_key: true|
+|image|string|
 
-* System dependencies
 
-* Configuration
+### Association
+- has_many :items,through: :items_users
+- has_many :items_users
+- has-one :card
 
-* Database creation
 
-* Database initialization
+# itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false,index: ture|
+|user_id|string|null: false|
+|image|string|null: false|
+|price|integer|null: false|
+|category_id|integer|null: false,foreign_key: true|
+|place_id|integer|null :false,foreign_key: true|
+|bland-id|string|null :false,foreign_key: true|
+|ship_way|string|null: false|
+|ship_price|string|null: false|
+|ship_date|string|null :false|
+|condition|string|null :false|
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Associtaion
+- has_many :users,through: :items_users
+- has_many :items_users
+- belongs_to :category
+- belongs_to :bland
+- belongs_to :place
 
-* Deployment instructions
+# cardテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|
+|card_info|string|
 
-* ...
+### Association
+- belongs_to :user
+
+# categoryテーブル
+|Column|Type|Options|
+|------|----|-------|
+|category|string|
+|ancestory|string|
+
+### Association
+- has_many: items
+
+# blandテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|bland|string|
+
+### Associtaion
+- has_many: items
+
+# addressテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|prefecture_id|integer|
+|city|string|
+
+### Association
+- has_many :prefecutures
+
+# prefectureテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+
+### Asscociation
+- belongs_to_active_hash :address
+
+
+
+
+
+
