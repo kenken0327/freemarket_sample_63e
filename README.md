@@ -1,10 +1,10 @@
-# items_usersテーブル
+# transactionテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
-|buy|string|
+|buy|string|default: :1|
 
 ### Association
 - belongs_to :item
@@ -36,6 +36,7 @@
 |name|string|null: false,index: ture|
 |user_id|string|null: false|
 |image|string|null: false|
+|price|integer|null: false|
 |category_id|integer|null: false|
 |ship_way||string|null: false|
 |ship_price|string|null: false|
