@@ -26,8 +26,8 @@
 
 
 ### Association
-- has_many :items,through: :items_users
-- has_many :items_users
+- has_many :items,through: :transaction
+- has_many :transaction
 - has-one :card
 
 
@@ -48,8 +48,8 @@
 
 
 ### Associtaion
-- has_many :users,through: :items_users
-- has_many :items_users
+- has_many :users,through: :transaction
+- has_many :transaction
 - belongs_to :category
 - belongs_to :bland
 - belongs_to :place
