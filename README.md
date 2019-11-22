@@ -1,4 +1,4 @@
-# transactionテーブル
+# transactionsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -10,6 +10,7 @@
 - belongs_to :item
 - belongs_to :user
 
+
 # usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -20,7 +21,6 @@
 |kana|string|null: false|
 |birthday|datetime|null: false|
 |self_introduction|text|
-|post_no|integer|null: false|
 |tell_no|integer|null: false|
 |card_id|integer|foreign_key: true|
 |address_id|integer|foreign_key: true|
@@ -30,7 +30,8 @@
 ### Association
 - has_many :items,through: :transaction
 - has_many :transaction
-- has-one :card
+- has_one :card
+- has_one :address
 
 
 # itemsテーブル
@@ -56,7 +57,7 @@
 - belongs_to :bland
 - belongs_to :place
 
-# cardテーブル
+# cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|
@@ -65,7 +66,7 @@
 ### Association
 - belongs_to :user
 
-# categoryテーブル
+# categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |category|string|
@@ -74,7 +75,7 @@
 ### Association
 - has_many: items
 
-# blandテーブル
+# blandsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -83,23 +84,27 @@
 ### Associtaion
 - has_many: items
 
-# addressテーブル
+# addressesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
+|user_id|integer|
 |prefecture_id|integer|
+|post_no|integer|
 |city|string|
+|town|string|
 
 ### Association
-- has_many :prefecutures
+- belongs_to_active_hash :prefecture
+- belongs_to :users
 
-# prefectureテーブル
+# prefecturesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 
 ### Asscociation
-- belongs_to_active_hash :address
+- has_many_active_hash :address
 
 
 
