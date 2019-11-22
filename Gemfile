@@ -69,13 +69,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   gem 'unicorn', '5.4.1'
 end
-
-require "capistrano/setup"
-require "capistrano/deploy"
-require 'capistrano/rbenv'
-require 'capistrano/bundler'
-require 'capistrano/rails/assets'
-require 'capistrano/rails/migrations'
-require 'capistrano3/unicorn'
-
-Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
