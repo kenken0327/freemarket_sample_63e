@@ -23,6 +23,7 @@
 |post_no|integer|null: false|
 |tell_no|integer|null: false|
 |card_id|integer|foreign_key: true|
+|address_id|integer|foreign_key: true|
 |image|string|
 
 
