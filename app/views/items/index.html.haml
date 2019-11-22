@@ -1,0 +1,25 @@
+= render 'shared/header'
+
+.main
+  .main-box
+    .main-box__ad
+    .main-box__show
+      %h2.main-box__show__heading
+        全ての商品一覧
+      .main-box__show__frame
+        %ul.main-box__show__frame__list
+          %li.main-box__show__frame__list__ca
+            %a{href: '#', class: "choice1"}
+              レディース
+    .main-box__items
+      .main-box__items__box
+        .main-box__items__box__heading
+          .main-box__items__box__heading__text
+            新着アイテム
+          .main-box__items__box__heading__more
+            %a{href: '#', class: "more"}
+              もっと見る
+        .main-box__items__box__frame
+          %ul.main-box__items__box__frame__list
+            %li.main-box__items__box__frame__list__it
+              .main-box__items__box__frame__list__it__img
