@@ -19,6 +19,7 @@
 |name|string|null: false|
 |kana|string|null: false|
 |birthday|datetime|null: false|
+|self_introduction|text|
 |post_no|integer|null: false|
 |tell_no|integer|null: false|
 |card_id|integer|foreign_key: true|
