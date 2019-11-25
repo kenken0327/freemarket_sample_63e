@@ -3,7 +3,7 @@
     .header-box__search
       //ロゴ//
       .header-box__search__logo
-        = link_to image_tag "/assets/SVG/fmarket_logo_red.svg", alt: "Mercari", width: "140"
+        = link_to image_tag "/images/SVG/fmarket_logo_red.svg", alt: "Mercari", width: "140"
       //検索フォーム//
       %form#form01{action: "search"}
         //検索欄//
@@ -22,20 +22,20 @@
           %a{href: '#', class: "select1"}
             = icon "fas", "tag", class: "tag"
             ブランドから探す
-      %ul.header-box__nav__list
-        %li.header-box__nav__list__a
+      %ul.nav__list
+        %li.nav__list__a
           %a{href: '#', class: "select2"}
             = icon "far", "heart", class: "heart"
             いいね！一覧
-        %li.header-box__nav__list__b
+        %li.nav__list__b
           %a{href: '#', class: "select2"}
             = icon "far", "bell", class: "bell"
             お知らせ
-        %li.header-box__nav__list__b
+        %li.nav__list__b
           %a{href: '#', class: "select2"}
             = icon "fa", "check", class: "check"
             やることリスト
-        %li.header-box__nav__list__a
+        %li.nav__list__c
           %a{href: '#', class: "select2"}
-            = image_tag "", alt: "Unknown", class: "user-image"
+            = image_tag "/images/user.png", alt: "Unknown", class: "user-image"
             マイページ
