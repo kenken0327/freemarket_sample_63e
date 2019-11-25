@@ -8,7 +8,6 @@ server '52.192.56.173', user: 'ec2-user', roles: %w{app db web}
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-server "i-031a5bf5664e158f4", user: "ec2-user", roles: %w{app db web}
 
 set :rails_env, "production"
 set :unicorn_rack_env, "production"
