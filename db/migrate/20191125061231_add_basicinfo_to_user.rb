@@ -8,6 +8,6 @@ class AddBasicinfoToUser < ActiveRecord::Migration[5.2]
     add_column :users, :tell_no, :integer
     add_column :users, :image, :string
     add_column :users, :address_id, :string
-
+  
   end
 end
