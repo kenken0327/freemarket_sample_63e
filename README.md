@@ -88,15 +88,17 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|
-|prefecture_id|integer|
-|post_no|integer|
-|city|string|
-|town|string|
+|user_id|references|foregin_key: true|
+|prefecture_id|integer|null: false|
+|post_no|integer|null: false|
+|city|string|null: false|
+|town|string|null: false|
+|building|string|
+|tell|integer|
 
 ### Association
 - belongs_to_active_hash :prefecture
-- belongs_to :users
+- belongs_to :user
 
 # prefecturesテーブル
 - 都道府県は更新がない静的なモデルのため
