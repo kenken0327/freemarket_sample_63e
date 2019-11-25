@@ -3,7 +3,7 @@
     .header-box__search
       //ロゴ//
       .header-box__search__logo
-        = link_to image_tag "/assets/SVG/fmarket_logo_red.svg", alt: "Mercari", width: "140"
+        = link_to image_tag "/images/SVG/fmarket_logo_red.svg", alt: "Mercari", width: "140"
       //検索フォーム//
       %form#form01{action: "search"}
         //検索欄//
@@ -15,27 +15,27 @@
     .header-box__nav
       .header-box__nav__type
         .header-box__nav__type__ca
-          %a{href: '#', class: "select1"}
+          =link_to "#", class: "select1" do
             = icon "fas", "list-ul", class: "list-ul"
             カテゴリーから探す
         .header-box__nav__type__bl
-          %a{href: '#', class: "select1"}
+          =link_to "#", class: "select1" do
             = icon "fas", "tag", class: "tag"
             ブランドから探す
-      %ul.header-box__nav__list
-        %li.header-box__nav__list__a
-          %a{href: '#', class: "select2"}
+      %ul.nav__list
+        %li.nav__list__a
+          =link_to "#", class: "select2" do
             = icon "far", "heart", class: "heart"
             いいね！一覧
-        %li.header-box__nav__list__b
-          %a{href: '#', class: "select2"}
+        %li.nav__list__b
+          =link_to "#", class: "select2" do
             = icon "far", "bell", class: "bell"
             お知らせ
-        %li.header-box__nav__list__b
-          %a{href: '#', class: "select2"}
+        %li.nav__list__b
+          =link_to "#", class: "select2" do
             = icon "fa", "check", class: "check"
             やることリスト
-        %li.header-box__nav__list__a
-          %a{href: '#', class: "select2"}
-            = image_tag "", alt: "Unknown", class: "user-image"
+        %li.nav__list__c
+          =link_to "#", class: "select2" do
+            = image_tag "/images/user.png", alt: "Unknown", class: "user-image"
             マイページ
