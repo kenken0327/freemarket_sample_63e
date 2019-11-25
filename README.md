@@ -39,7 +39,7 @@
 |------|----|-------|
 |name|string|null: false,index: ture|
 |user_id|string|null: false|
-|image|string|null: false|
+|image|text|null: false|
 |price|integer|null: false|
 |category_id|integer|null: false,foreign_key: true|
 |place_id|integer|null :false,foreign_key: true|
@@ -99,9 +99,9 @@
 - belongs_to :users
 
 # prefecturesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
+- 都道府県は更新がない静的なモデルのため
+- prefecturemモデルにハッシュ型でidと都道府県を
+- 格納しようと考えています。
 
 ### Asscociation
 - has_many_active_hash :address
