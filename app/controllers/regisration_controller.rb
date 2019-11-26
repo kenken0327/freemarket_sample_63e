@@ -1,6 +1,14 @@
 class RegisrationController < ApplicationController
 
-  def step1
+  def index
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
+
+  def signup
     @user = User.new # 新規インスタンス作成
   end
 
@@ -44,10 +52,10 @@ class RegisrationController < ApplicationController
 
   def done
     sign_in User.find(session[:id]) unless user_signed_in?
-    redirect_to regisration_index_path
+    @user = User.find(session[:id])
+    redirect_to regisration_path(@user)
   end
   
-
   private
   def user_params
     params.require(:user).permit(

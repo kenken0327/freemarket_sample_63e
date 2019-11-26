@@ -32,10 +32,10 @@
             = icon "far", "bell", class: "bell"
             お知らせ
         %li.nav__list__b
-          =link_to "#", class: "select2" do
+          =link_to destroy_user_session_path, class: "select2" do
             = icon "fa", "check", class: "check"
-            やることリスト
+            ログアウト
         %li.nav__list__c
           =link_to "#", class: "select2" do
             = image_tag "/images/user.png", alt: "Unknown", class: "user-image"
-            = current_user.name
+            = @user.name
