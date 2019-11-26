@@ -1,4 +1,5 @@
 = form_for @user,url: regisration_index_path, method: :post, html: {class: 'second-wrapper__box'} do |f|
+  = current_user.nickname
   = f.fields_for :address do |b| 
     都道府県
     = b.collection_select :prefecture_id, Prefecture.all, :id, :name
@@ -13,3 +14,6 @@
     電話番号
     = b.text_field :tell
   = f.submit "次へ"
+
+
+  

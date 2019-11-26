@@ -13,18 +13,14 @@ class RegisrationController < ApplicationController
     session[:name] = user_params[:name]
     session[:kana] = user_params[:kana]
     session[:birthday] = user_params[:birthday]
-
     @user = User.new # 新規インスタンス作成
   end
 
   def step3
     session[:tell_no] = user_params[:tell_no]
     @user = User.new
+    @user.build_address
   end
-
-
-
-
 
   def create
     @user = User.new(
@@ -37,6 +33,7 @@ class RegisrationController < ApplicationController
       birthday: session[:birthday], 
       tell_no: session[:tell_no], 
     )
+    @user.build_address(user_params[:address_attributes])
     if @user.save
       session[:id] = @user.id
       redirect_to  done_regisration_index_path
@@ -47,11 +44,9 @@ class RegisrationController < ApplicationController
 
   def done
     sign_in User.find(session[:id]) unless user_signed_in?
-    redirect_to new_address_path
+    redirect_to regisration_index_path
   end
   
-  def show
-  end
 
   private
   def user_params
@@ -63,9 +58,9 @@ class RegisrationController < ApplicationController
       :name, 
       :kana, 
       :birthday, 
-      :tell_no,)
+      :tell_no,address_attributes: 
+    [:id,:prefecture_id,:post_no,:city,:town,:building,:tell]
+  )
+
   end
-
-  
-
 end
