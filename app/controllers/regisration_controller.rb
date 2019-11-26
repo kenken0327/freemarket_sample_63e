@@ -29,11 +29,10 @@ class RegisrationController < ApplicationController
 
   def step5
     @address= Address.new(address_params)
-    redirect_to 
+    redirect_to action: :show
   end
 
   def create
-    binding.pry
     @user = User.new(
       nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
       email: session[:email],
@@ -46,7 +45,7 @@ class RegisrationController < ApplicationController
     )
     if @user.save
       session[:id] = @user.id
-      redirect_to  edit_regisration_path(@user)
+      redirect_to  step4_regisration_path(@user)
     else
       redirect_to  root_path
     end
@@ -78,7 +77,7 @@ class RegisrationController < ApplicationController
       :city,
       :building,
       :tell,
-    ).merge(user_id: current_user_id)
+    ).merge(user_id: current_user)
 end
 
 end
