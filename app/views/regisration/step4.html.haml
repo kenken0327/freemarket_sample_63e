@@ -1,0 +1,14 @@
+= form_for @address, url: step5_regisration_index_path, method: :post, html: {class: 'second-wrapper__box'} do |f|
+  都道府県
+  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--",multiple: true
+  郵便番号
+  = f.text_field :post_no,multiple: true
+  市町村区
+  = f.text_field :city,multiple: true
+  番地以下
+  = f.text_field :town,multiple: true
+  建物名など
+  = f.text_field :building,multiple: true
+  電話番号
+  = f.text_field :tell,multiple: true
+  = f.submit "次へ"

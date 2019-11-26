@@ -22,12 +22,18 @@ class RegisrationController < ApplicationController
     @user = User.new
   end
 
-  def edit
-    @user = User.find(params[:id])
 
+  def step4
+    @address= Address.new
+  end
+
+  def step5
+    @address= Address.new(address_params)
+    redirect_to 
   end
 
   def create
+    binding.pry
     @user = User.new(
       nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
       email: session[:email],
@@ -46,6 +52,9 @@ class RegisrationController < ApplicationController
     end
   end
   
+  def show
+  end
+
 
   private
   def user_params
@@ -60,4 +69,16 @@ class RegisrationController < ApplicationController
       :tell_no,
       :id,)
   end
+
+  def address_params
+    params.require(:address).permit(
+      :post_no,
+      :prefecture_id,
+      :town,
+      :city,
+      :building,
+      :tell,
+    ).merge(user_id: current_user_id)
+end
+
 end
