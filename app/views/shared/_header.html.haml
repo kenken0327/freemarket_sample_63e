@@ -38,4 +38,4 @@
         %li.nav__list__c
           =link_to "#", class: "select2" do
             = image_tag "/images/user.png", alt: "Unknown", class: "user-image"
-            マイページ
+            = current_user.name

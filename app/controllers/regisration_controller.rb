@@ -28,8 +28,14 @@ class RegisrationController < ApplicationController
   end
 
   def step5
+    binding.pry
     @address= Address.new(address_params)
-    redirect_to action: :show
+    if
+    @address.save
+    redirect_to action: :index
+    else
+    redirect_to action: :step4
+    end
   end
 
   def create
@@ -45,10 +51,15 @@ class RegisrationController < ApplicationController
     )
     if @user.save
       session[:id] = @user.id
-      redirect_to  step4_regisration_path(@user)
+      redirect_to  done_regisration_index_path
     else
       redirect_to  root_path
     end
+  end
+
+  def done
+    sign_in User.find(session[:id]) unless user_signed_in?
+    redirect_to step4_regisration_index_path
   end
   
   def show
@@ -71,10 +82,10 @@ class RegisrationController < ApplicationController
 
   def address_params
     params.require(:address).permit(
-      :post_no,
       :prefecture_id,
-      :town,
+      :post_no,
       :city,
+      :town,
       :building,
       :tell,
     ).merge(user_id: current_user)

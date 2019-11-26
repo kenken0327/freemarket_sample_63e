@@ -7,10 +7,9 @@ Rails.application.routes.draw do
       get 'step1'
       get 'step2'
       get 'step3'
-    end
-    member do
       get 'step4' 
-      post "step5"
+      post 'step5'
+      get 'done'
   end
 end
 
