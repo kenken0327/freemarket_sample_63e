@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
-  belongs_to :users
-  belongs_to :category
-  belongs_to :bland
+  has_many :transactions
+  has_many :users, through: :transactions
+  mount_uploader :image, ImageUploader
+  validates :name, presence: true
 end
