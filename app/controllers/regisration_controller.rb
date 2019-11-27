@@ -17,10 +17,13 @@ class RegisrationController < ApplicationController
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
-    session[:password_confirmation] = user_params[:password_confirmation]
-    session[:name] = user_params[:name]
-    session[:kana] = user_params[:kana]
-    session[:birthday] = user_params[:birthday]
+    session[:last_name] = user_params[:last_name]
+    session[:first_name] = user_params[:first_name]
+    session[:last_kana] = user_params[:last_kana]
+    session[:first_kana] = user_params[:first_kana]
+    session[:year_id] = user_params[:year_id]
+    session[:month_id] = user_params[:month_id]
+    session[:date_id] = user_params[:date_id]
     @user = User.new # 新規インスタンス作成
   end
 
@@ -35,10 +38,13 @@ class RegisrationController < ApplicationController
       nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
       email: session[:email],
       password: session[:password],
-      password_confirmation: session[:password_confirmation],
-      name: session[:name], 
-      kana: session[:kana],
-      birthday: session[:birthday], 
+      last_name: session[:last_name],
+      first_name:session[:first_name],
+      last_kana:session[:last_kana],
+      first_kana:session[:last_kana],
+      year_id:session[:year_id],
+      month_id: session[:month_id], 
+      date_id: session[:date_id],
       tell_no: session[:tell_no], 
     )
     @user.build_address(user_params[:address_attributes])
@@ -62,10 +68,13 @@ class RegisrationController < ApplicationController
       :nickname, 
       :email, 
       :password, 
-      :password_confirmation, 
-      :name, 
-      :kana, 
-      :birthday, 
+      :last_name, 
+      :first_name, 
+      :last_kana, 
+      :first_kana, 
+      :year_id,
+      :month_id,
+      :date_id,
       :tell_no,address_attributes: 
     [:id,:prefecture_id,:post_no,:city,:town,:building,:tell]
   )

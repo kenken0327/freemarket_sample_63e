@@ -72,8 +72,8 @@
                   お名前（全角）
                 %span.require
                   必須
-            = f.text_field :name,placeholder: "例）山田" ,class:"signup-panel__inherit__input-default__main__1"
-            = f.text_field :name,placeholder: "例）彩",class:"signup-panel__inherit__input-default__main__2"
+            = f.text_field :last_name,placeholder: "例）山田" ,class:"signup-panel__inherit__input-default__main__1"
+            = f.text_field :first_name,placeholder: "例）彩",class:"signup-panel__inherit__input-default__main__2"
 
             .signup-panel__inherit__form-group__name
               .signup-panel__inherit__form-group__name__detail
@@ -81,8 +81,8 @@
                   お名前カナ（全角）
                 %span.require
                   必須
-            = f.text_field :kana,placeholder: "例）ヤマダ",class:"signup-panel__inherit__input-default__main__3"
-            = f.text_field :kana,placeholder: "例）アヤ",class:"signup-panel__inherit__input-default__main__4"
+            = f.text_field :last_kana,placeholder: "例）ヤマダ",class:"signup-panel__inherit__input-default__main__3"
+            = f.text_field :first_kana,placeholder: "例）アヤ",class:"signup-panel__inherit__input-default__main__4"
 
             .signup-panel__inherit__form-group__name
               .signup-panel__inherit__form-group__name__detail
@@ -94,25 +94,18 @@
               .signup-panel__inherit__form-group__birthday__1
                 .birthday__icon
                   🔻
-                = f.date_select :birthday, class: "select",start_year: 1930,end_year: (Time.now.year - 18),default: Date.new(1989, 1, 1)
-
+                = f.collection_select :year_id, Year.all, :id,:name, prompt: "---",class:"select"
               年
 
               .signup-panel__inherit__form-group__birthday__2
                 .birthday__icon
                   🔻
-                %select{name: "month", class: "select"}
-                  %option{value: ""}--
-                  %option{value: "1"} 1
-                  %option{value: "2"} 2
+                = f.collection_select :month_id, Month.all, :id,:name, prompt: "---",class:"select"
               月
               .signup-panel__inherit__form-group__birthday__3
                 .birthday__icon
                   🔻
-                %select{name: "date", class: "select"}
-                  %option{value: ""}--
-                  %option{value: "1"} 1
-                  %option{value: "2"} 2
+                = f.collection_select :date_id, Day.all, :id, :name, prompt: "---",class:"select"
               日
               = f.submit"次へ進む",class:"next-current_page"
 
