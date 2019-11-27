@@ -12,7 +12,7 @@ class RegisrationController < ApplicationController
     @user = User.new # 新規インスタンス作成
   end
 
-  def step2
+  def phone
     # step1で入力された値をsessionに保存
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :regisration do
     collection do
       get 'signup'
-      get 'step2'
+      get 'phone'
       get 'step3'
       get 'step4'
       get 'done'
