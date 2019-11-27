@@ -27,7 +27,8 @@ class RegisrationController < ApplicationController
     @user = User.new # 新規インスタンス作成
   end
 
-  def step3
+  def address
+    @last_name = session[:last_name]
     session[:tell_no] = user_params[:tell_no]
     @user = User.new
     @user.build_address

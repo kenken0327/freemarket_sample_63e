@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     collection do
       get 'signup'
       get 'phone'
-      get 'step3'
+      get 'address'
       get 'step4'
       get 'done'
     end
