@@ -1,4 +1,5 @@
 %header.signup-header
+
   .signup-header__containar
     %h1
       %a
@@ -25,13 +26,16 @@
 
 .container-login-signin
   .main
-
     .signup-panel
       %p.signup-panel__title 会員情報登録
 
       .signup-panel__content
         .signup-panel__inherit
           = form_for @user, url: phone_regisration_index_path, method: :get do |f|
+            - if @user.errors.any?
+              %h2= "#{@user.errors.full_messages.count}?????????????"
+              - @user.errors.full_messages.each do |message|
+                %li= message
             .signup-panel__inherit__form-group
               %label.nickname
                 ニックネーム

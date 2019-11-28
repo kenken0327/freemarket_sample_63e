@@ -10,6 +10,11 @@ class RegisrationController < ApplicationController
 
   def signup
     @user = User.new # 新規インスタンス作成
+    if @user.save
+      redirect_to action: :phone
+    else
+      render "signup",alert: t('flash.users.uncreate')   
+    end
   end
 
   def phone

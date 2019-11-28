@@ -15,6 +15,17 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :address
 
+  validates :nickname, presence: true, uniqueness: true
+  validates :last_name, presence: true, format: {with: /\A[一-龥]+\z/}
+  validates :first_name, presence: true, format: {with: /\A[一-龥]+\z/}
+  validates :last_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/}
+  validates :first_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/}
+  validates :year_id, presence: true
+  validates :month_id, presence: true
+  validates :date_id, presence: true
+  validates :tell_no, presence: true, format: {with: /\A\d{3}-\d{4}-\d{4}\z/}
+  
+
 
   
 end
