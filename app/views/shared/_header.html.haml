@@ -32,7 +32,7 @@
             = icon "far", "bell", class: "bell"
             お知らせ
         %li.nav__list__b
-          =link_to destroy_user_session_path, class: "select2" do
+          =link_to destroy_user_session_path, method: :delete,class: "select2" do
             = icon "fa", "check", class: "check"
             ログアウト
         %li.nav__list__c

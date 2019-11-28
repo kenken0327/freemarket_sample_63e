@@ -31,9 +31,9 @@
 
       .signup-panel__content
         .signup-panel__inherit
-          = form_for @user, url: phone_regisration_index_path, method: :get do |f|
+          = form_for @user, url: signup_validates_regisration_index_path, method: :post do |f|
             - if @user.errors.any?
-              %h2= "#{@user.errors.full_messages.count}?????????????"
+              %h2= "#{@user.errors.full_messages.count}"
               - @user.errors.full_messages.each do |message|
                 %li= message
             .signup-panel__inherit__form-group

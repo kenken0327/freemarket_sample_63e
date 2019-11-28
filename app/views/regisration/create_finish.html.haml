@@ -1,0 +1,55 @@
+%header.signup-header-5
+  .signup-header-5__containar
+    %h1.signup-header-5__containar__title
+      .signup-header-5__containar__title__img
+        = image_tag "/assets/SVG/fmarket_logo_red.svg", alt: "Mercari",class: "sign-up_img"
+
+
+    %nav.signup-bar-5
+      %ol.signup-bar-5__to
+        %li.signup-bar-5__to-do
+          会員情報
+          .progress-status1-5
+        %li.signup-bar-5__to-do
+          電話番号認証
+          .progress-status2-5
+        %li.signup-bar-5__to-do
+          お届け先住所入力
+          .progress-status3-5
+        %li.signup-bar-5__to-do
+          支払い方法
+          .progress-status4-5
+        %li.li--active-5
+          完了
+          .progress-status5-5
+
+
+.sing-up-finish-main
+  .sing-up-finish-main__content
+    .sing-up-finish-main__content__panel
+      %p.sign-up-finish-panel 会員登録完了
+      .sign-up-finish-text
+        %p.sign-up-finish-text-content
+          ありがとうございます。
+          %br
+          会員登録が完了しました。
+        %button.new-start
+          = link_to  regisration_path(current_user.id) do
+            Fmarketをはじめる
+
+    .image-cloth
+      = image_tag src="https://cdn.pixabay.com/photo/2016/11/19/15/40/clothes-1839935_1280.jpg", size: "700x350"
+
+%footer.user-footer
+  %nav
+    %ul.user-footer-container
+      %li.user-footer-menu
+        .user-footer-menu__1 プライバシーポリシー 
+      %li.user-footer-menu
+        .user-footer-menu__1 Fmarket利用規約
+      %li.user-footer-menu
+        .user-footer-menu__1 特定商品に関する表記 
+  .user-footer__link
+    = image_tag "/assets/SVG/logo_gray.svg", alt: "Mercari", class:".user-footer-img", width: "80", height: "60"  
+    %p.user-footer__end
+      %small.user-footer__year ©︎2019 Fmarket

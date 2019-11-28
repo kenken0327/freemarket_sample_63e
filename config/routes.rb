@@ -5,13 +5,16 @@ Rails.application.routes.draw do
   resources :regisration do
     collection do
       get 'signup'
+      post 'signup_validates'
       get 'phone'
+      post 'phone_validates'
+      post 'register'
       get 'address'
-      get 'step4'
-      get 'done'
+      post 'address_create'
+      get 'create_finish'
     end
   end
-
 end
+
 
 

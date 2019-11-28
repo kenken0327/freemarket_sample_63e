@@ -3,8 +3,6 @@
     %h1
       %a
         = image_tag "/assets/SVG/fmarket_logo_red.svg", alt: "Mercari"
-
-
     %nav.signup-bar
       %ol
         %li
@@ -36,58 +34,57 @@
               お名前
             %span.require-5
               必須
-            %input.signup-panel-5__inherit__input-default{placeholder: "@last_name"}
+            %input.signup-panel-5__inherit__input-default{placeholder: current_user.last_name}
           .signup-panel-5__inherit__form-group__center
-            %input.signup-panel-5__inherit__input-default{placeholder: "例）彩"}
+            %input.signup-panel-5__inherit__input-default{placeholder: current_user.first_name}
 
           .signup-panel-5__inherit__form-group__end
             %label.new-user-create
               お名前カナ
             %span.require-5
               必須
-            %input.signup-panel-5__inherit__input-default{placeholder: "例）ヤマダ"}
+            %input.signup-panel-5__inherit__input-default{placeholder: current_user.last_kana}
 
           .signup-panel-5__inherit__form-group__center
-            %input.signup-panel-5__inherit__input-default{placeholder: "例）アヤ"}
+            %input.signup-panel-5__inherit__input-default{placeholder: current_user.first_kana}
 
           .signup-panel-5__inherit__form-group__end
-            = form_for @user,url: regisration_index_path, method: :post do |f|
-              = f.fields_for :address do |b| 
-                %label.new-user-cre 
-                  郵便番号
-                %span.require-5
-                  必須
-                = b.text_field :post_no,placeholder: "例）123ー4567",class:"signup-panel-5__inherit__input-default"
-            
-                %label.new-user-create
-                  都道府県
-                %span.require-5
-                  必須
-                = b.collection_select :prefecture_id, Prefecture.all, :id, :name,class:"signup-panel-5__inherit__input-default"
+            = form_for @address,url: address_create_regisration_index_path, method: :post do |f|
+              %label.new-user-cre 
+                郵便番号
+              %span.require-5
+                必須
+              = f.text_field :post_no,placeholder: "例）123ー4567",class:"signup-panel-5__inherit__input-default"
+          
+              %label.new-user-create
+                都道府県
+              %span.require-5
+                必須
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name,class:"signup-panel-5__inherit__input-default"
 
-                %label.new-user-create
-                  市町村区
-                %span.require-5
-                  必須
-                = b.text_field :city,placeholder: "例）横浜市緑区",class:"signup-panel-5__inherit__input-default"
+              %label.new-user-create
+                市町村区
+              %span.require-5
+                必須
+              = f.text_field :city,placeholder: "例）横浜市緑区",class:"signup-panel-5__inherit__input-default"
 
-                %label.new-user-create
-                  番地
-                %span.require-5
-                  必須
-                =b.text_field :town,placeholder:" 例）青山1-1-1",class:"signup-panel-5__inherit__input-default"
+              %label.new-user-create
+                番地
+              %span.require-5
+                必須
+              = f.text_field :town,placeholder:" 例）青山1-1-1",class:"signup-panel-5__inherit__input-default"
 
-                %label.new-user-create
-                  建物名
-                %span.any-5
-                  任意
-                =b.text_field :building,placeholder: "例）柳ビル103",class:"input.signup-panel-5__inherit__input-default"
+              %label.new-user-create
+                建物名
+              %span.any-5
+                任意
+              = f.text_field :building,placeholder: "例）柳ビル103",class:"input.signup-panel-5__inherit__input-default"
 
-                %label.new-user-create
-                  電話
-                %span.any-5
-                  任意
-                =b.text_field :tell,placeholder:"例）09012345678",class:"signup-panel-5__inherit__input-default"
+              %label.new-user-create
+                電話
+              %span.any-5
+                任意
+              = f.text_field :tell,placeholder:"例）09012345678",class:"signup-panel-5__inherit__input-default"
 
               = f.submit"お支払い方法等登録へ",class:"next-current_page-5"
           

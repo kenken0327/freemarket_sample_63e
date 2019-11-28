@@ -7,13 +7,10 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   has_one :address
-
-  
   belongs_to_active_hash :year
   belongs_to_active_hash :month
   belongs_to_active_hash :day
 
-  accepts_nested_attributes_for :address
 
   validates :nickname, presence: true, uniqueness: true
   validates :last_name, presence: true, format: {with: /\A[一-龥]+\z/}
@@ -23,9 +20,6 @@ class User < ApplicationRecord
   validates :year_id, presence: true
   validates :month_id, presence: true
   validates :date_id, presence: true
-  validates :tell_no, presence: true, format: {with: /\A\d{3}-\d{4}-\d{4}\z/}
-  
-
-
+  validates :tell_no, presence: true
   
 end
