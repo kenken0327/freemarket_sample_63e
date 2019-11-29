@@ -56,33 +56,7 @@ class RegisrationController < ApplicationController
   def phone
     @user = User.new # 新規インスタンス作成
   end
-
-  def phone_validates
-    session[:tell_no] = phone_params[:tell_no]
-
-    @user = User.new(
-      nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
-      email: session[:email],
-      password: session[:password],
-      last_name: session[:last_name],
-      first_name:session[:first_name],
-      last_kana:session[:last_kana],
-      first_kana:session[:first_kana],
-      year_id:session[:year_id],
-      month_id: session[:month_id], 
-      date_id: session[:date_id],
-      tell_no: session[:tell_no],)
-
-    @user.valid? 
-    skip_basicinfo_validate(@user.errors) 
-
-    if @user.errors.messages.blank? && @user.errors.details.blank?
-       session[:id] = @user.id
-      redirect_to  regisration_index_path
-    end
-  end
   
-
   def create
     @user = User.new(
       nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
@@ -128,6 +102,7 @@ class RegisrationController < ApplicationController
   def create_finish
   end
 
+  
   private
 
   def user_params
@@ -154,28 +129,4 @@ class RegisrationController < ApplicationController
     errors.details.delete(:tell_no)
   end
 
-  def skip_basicinfo_validate(errors) 
-    errors.messages.delete(:nickname) 
-    errors.messages.delete(:email)
-    errors.messages.delete(:password) #stepの回数や入力するデータに合わせて変更してください
-    errors.messages.delete(:last_name)
-    errors.messages.delete(:first_name)
-    errors.messages.delete(:last_kana)
-    errors.messages.delete(:first_kana)
-    errors.messages.delete(:year_id)
-    errors.messages.delete(:month_id)
-    errors.messages.delete(:date_id)
-    errors.details.delete(:first_name)
-    errors.details.delete(:nickname) 
-    errors.details.delete(:email)
-    errors.details.delete(:password) #stepの回数や入力するデータに合わせて変更してください
-    errors.details.delete(:last_name)
-    errors.details.delete(:first_name)
-    errors.details.delete(:last_kana)
-    errors.details.delete(:first_kana)
-    errors.details.delete(:year_id)
-    errors.details.delete(:month_id)
-    errors.details.delete(:date_id)
-
-  end
 end

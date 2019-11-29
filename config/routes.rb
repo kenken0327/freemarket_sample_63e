@@ -7,7 +7,6 @@ Rails.application.routes.draw do
       get 'signup'
       post 'signup_validates'
       get 'phone'
-      post 'phone_validates'
       post 'register'
       get 'address'
       post 'address_create'

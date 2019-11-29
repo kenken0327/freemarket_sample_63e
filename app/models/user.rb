@@ -11,7 +11,6 @@ class User < ApplicationRecord
   belongs_to_active_hash :month
   belongs_to_active_hash :day
 
-
   validates :nickname, presence: true, uniqueness: true
   validates :last_name, presence: true, format: {with: /\A[一-龥]+\z/}
   validates :first_name, presence: true, format: {with: /\A[一-龥]+\z/}

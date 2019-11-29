@@ -1,0 +1,56 @@
+.user-header-login
+  %h1.user-header-login-fmarket
+    .user-header-login-fmarket-link
+      = link_to root_path do
+        = image_tag "/assets/SVG/fmarket_logo_red.svg", alt: "Mercari",class:"fmarket-1"
+
+.container-login-6
+  .signup-panel-6
+    .signup-panel-6__title
+      %p.not-acount
+        アカウントをお持ちでない方はこちら
+      .not-acount-new-create
+        = link_to "#",class: "singup-new" do
+          新規会員登録
+          
+    .signup-panel-6__content
+      %button#facebook-2
+        %i.fab.fa-facebook-square.facebook-icon-2
+        Facebookでログイン
+        
+      %button#Google-2
+        %i.fab.fa-google.google-icon-2
+        Googleでログイン
+
+    .form-for-group-1
+      .form-for-group-1__personal
+        .form-for-group-1__personal__container
+          %input.personal-input-email{placeholder: "メールアドレス"}
+
+        .form-for-group-2__personal__container
+          %input.personal-input-password{placeholder: "パスワード"}
+
+        .not-lobot-2
+          .not-lobot-2__hidden
+            %input.not-lobot-2__hidden__form-group
+
+        %button.next-current_page
+          ログイン
+
+        = link_to "#",class: "wrong-pass" do
+          パスワードをお忘れの方
+
+%footer.user-footer
+  %nav
+    %ul.user-footer-container
+      %li.user-footer-menu
+        .user-footer-menu__1 プライバシーポリシー 
+      %li.user-footer-menu
+        .user-footer-menu__1 Fmarket利用規約
+      %li.user-footer-menu
+        .user-footer-menu__1 特定商品に関する表記 
+  .user-footer__link
+    = link_to root_path do
+      = image_tag "/assets/SVG/logo_gray.svg", alt: "Mercari", class:".user-footer-img", width: "80", height: "60"  
+    %p.user-footer__end
+      %small.user-footer__year ©︎2019 Fmarket
