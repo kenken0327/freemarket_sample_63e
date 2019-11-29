@@ -95,7 +95,7 @@ class RegisrationController < ApplicationController
   def address_create
     @address = Address.new(address_params)
     if @address.save
-      redirect_to create_finish_regisration_index_path
+      redirect_to new_card_path
     end
   end
 

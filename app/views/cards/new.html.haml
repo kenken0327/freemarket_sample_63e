@@ -1,25 +1,68 @@
+%header.signup-header-4
+  .signup-header-4__containar
+    %h1.signup-header-4__containar__title
+      .signup-header-4__containar__title__img
+        = image_tag "/images/SVG/fmarket_logo_red.svg", alt: "Mercari",class: "sign-up_img"
+
+
+    %nav.signup-bar-4
+      %ol.signup-bar-4__to
+        %li.signup-bar-4__to-do
+          会員情報
+          .progress-status1-4
+        %li.signup-bar-4__to-do
+          電話番号認証
+          .progress-status2-4
+        %li.signup-bar-4__to-do
+          お届け先住所入力
+          .progress-status3-4
+        %li.li--active-4
+          支払い方法
+          .progress-status4-4
+        %li.signup-bar-4__to-do
+          完了
+          .progress-status5-4
+
 .content__title
   %h2 クレジットカード情報入力
-.content__credit-card
-  .content__credit-card__inner
-    = form_with url: cards_path, method: :post, html: { name: "inputForm" } do |f| -# createアクションのパスを指定
-      = f.label :カード番号, class: 'label'
-      %span 必須
-      = f.text_field :card_number, type: 'text', class: 'input-number', placeholder: '半角数字のみ', maxlength: "16"
-      .cards-expire
-        = f.label :有効期限, class: 'label'
+  .content__credit-card
+    .content__credit-card__inner
+      = form_with url: cards_path, method: :post do |f| # createアクションのパスを指定
+        = f.label :カード番号, class: 'label'
         %span 必須
-        %br
-        .cards-expire__wrap
-          = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'input-expire'
-          %span.expire-text 月
+        = f.text_field :card_number, type: 'text', class: 'input-number', placeholder: '半角数字のみ', maxlength: "16"
+        .cards-expire
+          = f.label :有効期限, class: 'label'
+          %span 必須
           %br
-        .cards-expire__wrap
-          = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'input-expire'
-          %span.expire-text 年
-      .cards-expire
-        = f.label :セキュリティコード, class: 'label'
-        %span 必須
-        = f.text_field :cvc, type: 'text', class: 'input-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
-      .content-bottom#card_token
-        = f.submit '追加する', class: 'content-bottom--add-btn', id: 'token_submit'
+          .cards-expire__wrap
+            = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'input-expire'
+            %span.expire-text 月
+            %br
+          .cards-expire__wrap
+            = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'input-expire'
+            %span.expire-text 年
+        .cards-expire
+          = f.label :セキュリティコード, class: 'label'
+          %span 必須
+          = f.text_field :cvc, type: 'text', class: 'input-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+        .content-bottom#card_token
+          = f.submit '追加する', class: 'content-bottom--add-btn', id: 'token_submit'
+            
+%footer.user-footer
+  %nav
+    %ul.user-footer-container
+      %li.user-footer-menu
+        .user-footer-menu__1 プライバシーポリシー 
+      %li.user-footer-menu
+        .user-footer-menu__1 Fmarket利用規約
+      %li.user-footer-menu
+        .user-footer-menu__1 特定商品に関する表記 
+  .user-footer__link
+    = link_to root_path do
+      = image_tag "/assets/SVG/logo_gray.svg", alt: "Mercari", class:".user-footer-img", width: "80", height: "60"  
+    %p.user-footer__end
+      %small.user-footer__year ©︎2019 Fmarket
+      
+      
+     

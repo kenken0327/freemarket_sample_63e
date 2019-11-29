@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get 'create_finish'
     end
   end
-  resources :careds
+  resources :cards
 
 
 end
