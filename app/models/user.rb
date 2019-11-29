@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_one :address
   has_many :transactions
   has_many :items, through: :transactions
+  has_many :cards
   belongs_to_active_hash :year
   belongs_to_active_hash :month
   belongs_to_active_hash :day
