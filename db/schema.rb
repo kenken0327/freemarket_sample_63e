@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2019_11_25_074532) do
+ActiveRecord::Schema.define(version: 2019_11_28_054403) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -24,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_074532) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -38,17 +38,17 @@ ActiveRecord::Schema.define(version: 2019_11_25_074532) do
     t.integer "buyer"
     t.integer "saler"
     t.index ["name"], name: "index_items_on_name"
-
+  end
 
   create_table "transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "item_id"
-    t.string "buy", default: "出哝中"
+    t.string "buy", default: "出品中"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_transactions_on_item_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
-
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
