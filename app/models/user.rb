@@ -7,6 +7,8 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   has_one :address
+  has_many :transactions
+  has_many :items, through: :transactions
   belongs_to_active_hash :year
   belongs_to_active_hash :month
   belongs_to_active_hash :day
@@ -20,5 +22,6 @@ class User < ApplicationRecord
   validates :month_id, presence: true
   validates :date_id, presence: true
   validates :tell_no, presence: true
-  
+
+
 end

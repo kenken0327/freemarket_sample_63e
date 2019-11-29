@@ -20,6 +20,7 @@
             =link_to "#", class: "more" do
               もっと見る
         .main-box__items__box__frame
+        -@items.each do |item|
           %ul.i-list
             %li.item
               .item-box
@@ -33,9 +34,20 @@
                         ¥
                         1400
                       = image_tag "/images/cloth.png", alt: "商品画像", class: "product"
-
+            %li.item
+              .item-box
+                =link_to "#", class: "field" do
+                  %figure.card
+                    %figcaption
+                      %span
+                        = item.name
+                    .style
+                      %span.price
+                        ¥
+                        1400
+                      = image_tag item.image.url, alt:"商品画像です"
 .exhibit
-  =link_to "#", class: "button" do
+  =link_to "/items/new", class: "button" do
     .button-mark
       .button-mark__text
         出品
