@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @user = User.find(current_user.id)
     @items = Item.all
   end
   
@@ -14,7 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.users << current_user
     if @item.save!
-      redirect_to :root
+      redirect_to items_path
     else
       render action: :new
     end
