@@ -5,7 +5,7 @@ $(function(){
   submit.addEventListener('click', function(e){  // 追加するボタンが押されたらイベント発火
     console.log("Hello")
     e.preventDefault();  // ボタンを一旦無効化
-    Payjp.setPublicKey("公開鍵");
+    Payjp.setPublicKey("pk_test_5cf244f8de9e4a97c3dbf614");
     var card = {  // 入力されたカード情報を取得
       number: document.getElementById("card_number").value,
       exp_month: document.getElementById("exp_month").value,

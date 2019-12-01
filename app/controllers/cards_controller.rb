@@ -16,7 +16,7 @@ class CardsController < ApplicationController
  # indexアクションはここでは省略
 
   def create #PayjpとCardのデータベースを作成
-    Payjp.api_key = '秘密鍵'
+    Payjp.api_key = 'sk_test_7fd03f8392a97edcc9f995db'
     if params['payjp-token'].blank?
       redirect_to items_path
     else
