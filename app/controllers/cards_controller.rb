@@ -16,10 +16,9 @@ class CardsController < ApplicationController
  # indexアクションはここでは省略
 
   def create #PayjpとCardのデータベースを作成
-    Payjp.api_key = 'sk_test_7fd03f8392a97edcc9f995db'
-
+    Payjp.api_key = '秘密鍵'
     if params['payjp-token'].blank?
-      redirect_to 
+      redirect_to items_path
     else
       # トークンが正常に発行されていたら、顧客情報をPAY.JPに登録します。
       customer = Payjp::Customer.create(
