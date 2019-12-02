@@ -28,14 +28,14 @@
             = icon "far", "heart", class: "heart"
             いいね！一覧
         %li.nav__list__b
-          =link_to "#", class: "select2" do
+          =link_to "/users/sign_in", class: "select2" do
             = icon "far", "bell", class: "bell"
-            お知らせ
+            ログイン
         %li.nav__list__b
-          =link_to "#", class: "select2" do
+          =link_to destroy_user_session_path, method: :delete,class: "select2" do
             = icon "fa", "check", class: "check"
-            やることリスト
+            ログアウト
         %li.nav__list__c
-          =link_to "#", class: "select2" do
+          =link_to "/users/sign_up", class: "select2" do
             = image_tag "/images/user.png", alt: "Unknown", class: "user-image"
-            マイページ
+            = @user.nickname

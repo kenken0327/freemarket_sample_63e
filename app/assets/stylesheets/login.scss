@@ -1,0 +1,285 @@
+.user-header-login {
+  background: rgb(245, 245, 245);
+  height: 128px;
+  text-align: center;
+  .user-header-login-fmarket{
+    background: rgb(245, 245, 245);
+    padding: 40px 0 0;
+    
+    .user-header-login-fmarket-link{
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      margin:0 auto;
+      .fmarket-1 {
+        width: 185px;
+        height: 49px;
+      }
+    }
+  }
+}
+
+.container-login-6 {
+  background: rgb(245, 245, 245);
+  text-align: center;
+
+  .signup-panel-6 {
+    height:731px;
+    width: 456px;
+    margin: 0 auto;
+    background-color: white;
+
+    &__title {
+      padding: 40px 64px;
+      width: 328px;
+      height: 64px;
+      .not-acount{
+        font-size: 14px;
+        height: 14px;
+        display: block;
+        font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      }
+      .not-acount-new-create{
+        display: block;
+        margin: 10px 0 0;
+        border: 1px solid #0099e8;
+        background: #0099e8;
+      }
+      .singup-new{
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+        line-height: 40px;
+        text-decoration: none;
+        display: block;
+        font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      }
+    }  
+        
+    &__content{
+      border-top: 1px solid #eee;
+      height: 116px;
+      padding: 32px 64px;
+    }
+
+    #facebook-2 {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+      appearance: none;
+      background: #385185;
+      color: #fff;
+      margin: 0;
+      display: block;
+      line-height: 48px;
+      width :100%;
+      font-size:14px;
+      text-decoration: none;
+      text-align: center;
+      position: relative;
+      padding: 0;
+      border: 1px solid transparent;
+    }
+    .fa-facebook-square{
+      height: 26px;
+      width: 26px;
+    }
+    .facebook-icon-2{
+      font-size: 26px;
+      position: absolute;
+      top: 13px;
+      left: 15px;
+    }
+
+    #Google-2 {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+      appearance: none;
+      color:#333;
+      background-color: #fff;
+      margin-top: 16px;
+      display: block;
+      line-height: 48px;
+      width :100%;
+      font-size:14px;
+      text-decoration: none;
+      text-align: center;
+      position: relative;
+      padding: 0;
+      border: #979797 solid 1px;
+    }
+    .google-icon-2{
+      font-size: 20px;
+      position: absolute;
+      top: 13px;
+      left: 15px;
+    }
+  }
+  .form-for-group-1{
+    width: 456px;
+    height: 406px;
+    &__personal{
+      height: 350px;
+      width: 328px;
+      padding: 24px 64px 32px;
+      &__container{
+        height: 48px;
+        width: 328px;
+        .personal-input-email{
+          padding: 10px 16px 8px;
+          height: 28px;
+          width: 294px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+      }
+      .form-for-group-2__personal__container{
+        height: 48px;
+        width: 328px;
+        margin-top: 24px;
+        .personal-input-password{
+          padding: 10px 16px 8px;
+          height: 28px;
+          width: 294px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+      }
+      .not-lobot-2{
+        width: 328px;
+        height: 78px;
+        margin-top: 24px;
+        &__hidden{
+          width: 328px;
+          height: 78px;
+          margin: 0;
+          border-width: 0;
+          &__form-group{
+            margin-right: 24px;
+            padding: 0;
+            width: 302px;
+            height: 78px;
+            border: 1px solid #ccc;
+          }
+        }
+      }
+      
+      .next-current_page{
+        width: 326px;
+        line-height: 48px;
+        margin-top: 24px;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        font-size: 14px;
+      }
+      
+      .wrong-pass{
+        width: 341px;
+        height: 21px;
+        margin-top: 40px;
+        display: block;
+        color: #0099e8;
+        text-decoration: none;
+        font-size: 14px;
+        display: flex
+      }
+    }
+  }
+}
+
+
+
+.footer {
+  background: rgb(245, 245, 245);
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  padding: 40px 0;
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 0 0 16px;
+    font-size: 12px;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+
+  & li:first-child {
+    display: inline-block;
+    margin: 0;
+  }
+
+  p {
+    margin: 8px 0 0;
+
+    small {
+      font-size: 13px;
+    }
+  }
+
+
+  &__logo img {
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
+  }
+}
+
+
+
+.user-footer {
+  background: rgb(245, 245, 245);
+  text-align: center;
+  
+  height: 220px;
+  margin: 0 auto;
+  padding: 40px 0;
+  .user-footer-container {
+    list-style: none;
+  }
+  .user-footer-menu{
+    display: inline-block;
+    margin: 0 0 0 16px;
+    font-size: 12px;
+    &__1{
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  li:first-child {
+    display: inline-block;
+    margin: 0;
+  }
+  .user-footer__link {
+    .user-footer-img{
+      width: 80px;
+      height: 65px;
+      margin: 40px auto 0;
+    }
+  }
+  .user-footer__end{
+    margin: 8px 0 0;
+
+    .user-footer__year{
+      font-size: 13px;
+    }
+  }
+}
