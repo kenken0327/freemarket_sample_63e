@@ -95,16 +95,18 @@ class RegisrationController < ApplicationController
   def address_create
     @address = Address.new(address_params)
     @address.valid? 
-  if  @address.errors.messages.blank? && @address.errors.details.blank?
-      @address.save
-      redirect_to create_finish_regisration_index_path
+    if @address.errors.messages.blank? && @address.errors.details.blank?
+        @address.save
+        redirect_to create_finish_regisration_index_path
+    else
+      render :address
     end
   end
 
   def create_finish
   end
 
-  
+
   private
 
   def user_params
