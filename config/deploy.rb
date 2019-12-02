@@ -52,6 +52,7 @@ namespace :deploy do
   end
 
   desc 'upload master.key'
+
   task :upload do
     on roles(:app) do |host|
       if test "[ ! -d #{shared_path}/config ]"

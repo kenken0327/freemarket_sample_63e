@@ -1,3 +1,22 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
+  root to: "regisration#index"
+
+  resources :items
+  resources :regisration do
+    collection do
+      get 'signup'
+      post 'signup_validates'
+      get 'phone'
+      post 'register'
+      get 'address'
+      post 'address_create'
+      get 'create_finish'
+    end
+  end
+
+
 end
+
+
+

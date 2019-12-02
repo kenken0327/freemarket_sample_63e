@@ -1,0 +1,41 @@
+.header
+  .header-box
+    .header-box__search
+      //ロゴ//
+      .header-box__search__logo
+        = link_to image_tag "/images/SVG/fmarket_logo_red.svg", alt: "Mercari", width: "140"
+      //検索フォーム//
+      %form#form01{action: "search"}
+        //検索欄//
+        %input#input01{type: "search", name: "keyword", placeholder: "何かお探しですか？"}
+          //検索ボタン//
+          %button#submit01
+            = icon "fas", "search"
+        
+    .header-box__nav
+      .header-box__nav__type
+        .header-box__nav__type__ca
+          =link_to "#", class: "select1" do
+            = icon "fas", "list-ul", class: "list-ul"
+            カテゴリーから探す
+        .header-box__nav__type__bl
+          =link_to "#", class: "select1" do
+            = icon "fas", "tag", class: "tag"
+            ブランドから探す
+      %ul.nav__list
+        %li.nav__list__a
+          =link_to "#", class: "select2" do
+            = icon "far", "heart", class: "heart"
+            いいね！一覧
+        %li.nav__list__b
+          =link_to "/users/sign_in", class: "select2" do
+            = icon "far", "bell", class: "bell"
+            ログイン
+        %li.nav__list__b
+          =link_to destroy_user_session_path, method: :delete,class: "select2" do
+            = icon "fa", "check", class: "check"
+            ログアウト
+        %li.nav__list__c
+          =link_to "/users/sign_up", class: "select2" do
+            = image_tag "/images/user.png", alt: "Unknown", class: "user-image"
+            = @user.nickname
