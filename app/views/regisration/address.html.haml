@@ -53,11 +53,11 @@
               - if @address.errors.any?
                 %h2= "#{@address.errors.full_messages.count}"
               - @address.errors.full_messages.each do |message|
-              %label.new-user-cre 
-                郵便番号
-              %span.require-5
-                必須
-              = f.text_field :post_no,placeholder: "例）123ー4567",class:"signup-panel-5__inherit__input-default"
+                %label.new-user-cre 
+                  郵便番号
+                %span.require-5
+                  必須
+                = f.text_field :post_no,placeholder: "例）123ー4567",class:"signup-panel-5__inherit__input-default"
           
               %label.new-user-create
                 都道府県
