@@ -71,20 +71,24 @@ class RegisrationController < ApplicationController
       date_id: session[:date_id],
       tell_no: user_params[:tell_no], 
     )
-    if @user.save
-      sign_in User.find(@user.id) unless user_signed_in?
-      session.delete(:nickname)
-      session.delete(:email)
-      session.delete(:password)
-      session.delete(:last_name)
-      session.delete(:first_name)
-      session.delete(:last_kana)
-      session.delete(:first_kana)
-      session.delete(:tell_no)
-      session.delete(:year_id)
-      session.delete(:month_id)
-      session.delete(:day_id)
-      redirect_to  address_regisration_index_path
+      @user.valid? 
+    if @user.errors.messages.blank? && @user.errors.details.blank?
+        @user.save
+        sign_in User.find(@user.id) unless user_signed_in?
+        session.delete(:nickname)
+        session.delete(:email)
+        session.delete(:password)
+        session.delete(:last_name)
+        session.delete(:first_name)
+        session.delete(:last_kana)
+        session.delete(:first_kana)
+        session.delete(:tell_no)
+        session.delete(:year_id)
+        session.delete(:month_id)
+        session.delete(:day_id)
+        redirect_to  address_regisration_index_path
+      else
+     render :phone
     end
   end
 
