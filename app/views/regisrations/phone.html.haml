@@ -31,7 +31,7 @@
       %p.signup-panel__title 電話番号の確認
       .signup-panel__content-2
         .signup-panel__inherit-2
-          = form_for @user, url: regisration_index_path, method: :post do |f|
+          = form_for @user, url: regisrations_path, method: :post do |f|
             - if @user.errors.any?
               - @user.errors.full_messages.each do |message|
                 %li= message

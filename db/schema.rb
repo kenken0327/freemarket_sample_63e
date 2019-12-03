@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2019_11_29_081733) do
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "prefecture_id", null: false
-    t.integer "post_no", null: false
+    t.string "post_no", null: false
     t.string "city", null: false
     t.string "town", null: false
     t.string "building"
@@ -70,8 +70,6 @@ ActiveRecord::Schema.define(version: 2019_11_29_081733) do
     t.string "tell_no", null: false
     t.text "self_info"
     t.string "image"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addresses", "users"

@@ -1,4 +1,4 @@
-class RegisrationController < ApplicationController
+class RegisrationsController < ApplicationController
 
   def index
     
@@ -9,11 +9,10 @@ class RegisrationController < ApplicationController
   end
 
   def signup
-    @user = User.new # 新規インスタンス作成
+    @user = User.new 
   end
 
-  def signup_validates  #signup1で入力された情報のバリデーションチャックをするためのアクション
-    # createアクションにデータを渡すためにsessionに代入
+  def signup_validates
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -25,7 +24,6 @@ class RegisrationController < ApplicationController
     session[:month_id] = user_params[:month_id]
     session[:date_id] = user_params[:date_id]
 
-    # バリデーションチャックするためにインスタンスを作成
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -38,15 +36,12 @@ class RegisrationController < ApplicationController
       month_id: session[:month_id],
       date_id: session[:date_id]
     )
-    #バリデーションチャック
-    @user.valid?  #無効な値の場合はfalseとインスタンスに対してエラーメッセージを追加してくれる
-
-    #今回はstep1でphonenumberを入力しないので設定しているpresence: trueに引っかかっている
-    #このメソッドでphonenumberのエラー内容を削除してバリデーションを通過させる。
+   
+    @user.valid? 
     skip_phonenumber_validate(@user.errors) 
 
     if @user.errors.messages.blank? && @user.errors.details.blank?
-      redirect_to phone_regisration_index_path  #step1で入力したデータにバリデーションエラーがない場合はstep2に遷移する
+      redirect_to phone_regisrations_path  
     else
       render :signup
     end
@@ -54,12 +49,12 @@ class RegisrationController < ApplicationController
 
 
   def phone
-    @user = User.new # 新規インスタンス作成
+    @user = User.new
   end
   
   def create
     @user = User.new(
-      nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
+      nickname: session[:nickname], 
       email: session[:email],
       password: session[:password],
       last_name: session[:last_name],
@@ -71,20 +66,27 @@ class RegisrationController < ApplicationController
       date_id: session[:date_id],
       tell_no: user_params[:tell_no], 
     )
-    if @user.save
-      sign_in User.find(@user.id) unless user_signed_in?
-      session.delete(:nickname)
-      session.delete(:email)
-      session.delete(:password)
-      session.delete(:last_name)
-      session.delete(:first_name)
-      session.delete(:last_kana)
-      session.delete(:first_kana)
-      session.delete(:tell_no)
-      session.delete(:year_id)
-      session.delete(:month_id)
-      session.delete(:day_id)
-      redirect_to  address_regisration_index_path
+      @user.valid? 
+    if @user.errors.messages.blank? && @user.errors.details.blank?
+        if @user.save
+        sign_in User.find(@user.id) unless user_signed_in?
+        session.delete(:nickname)
+        session.delete(:email)
+        session.delete(:password)
+        session.delete(:last_name)
+        session.delete(:first_name)
+        session.delete(:last_kana)
+        session.delete(:first_kana)
+        session.delete(:tell_no)
+        session.delete(:year_id)
+        session.delete(:month_id)
+        session.delete(:date_id)
+        redirect_to  address_regisrations_path
+        else
+        render :phone
+        end
+    else
+    render :phone
     end
   end
 
@@ -95,9 +97,12 @@ class RegisrationController < ApplicationController
   def address_create
     @address = Address.new(address_params)
     @address.valid? 
-    if  @address.errors.messages.blank? && @address.errors.details.blank?
-        @address.save
-      redirect_to new_card_path
+    if @address.errors.messages.blank? && @address.errors.details.blank?
+        if @address.save
+        redirect_to new_card_path
+        else 
+        render :address
+        end
     else
       render :address
     end
@@ -106,7 +111,7 @@ class RegisrationController < ApplicationController
   def create_finish
   end
 
-  
+
   private
 
   def user_params
@@ -129,7 +134,7 @@ class RegisrationController < ApplicationController
   end
 
   def skip_phonenumber_validate(errors)
-    errors.messages.delete(:tell_no)  #stepの回数や入力するデータに合わせて変更してください
+    errors.messages.delete(:tell_no)  
     errors.details.delete(:tell_no)
   end
 

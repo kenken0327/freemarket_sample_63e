@@ -15,10 +15,9 @@ ja:
         date_id: 誕生日
         tell_no: 電話番号
       address:
-        prefecture_id: 都道府県
         post_no: 郵便番号
-        city: 市区町村
-        town: 番地
+        town: 市区町村
+        city: 番地
         
   errors:
     messages:

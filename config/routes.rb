@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "regisration#index"
+  root to: "regisrations#index"
 
   
   resources :items
-  resources :regisration do
+  resources :regisrations do
     collection do
       get 'signup'
       post 'signup_validates'
