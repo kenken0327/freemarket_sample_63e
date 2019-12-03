@@ -11,7 +11,7 @@ FactoryBot.define do
     year_id               {"1"}
     month_id              {"1"}
     date_id               {"1"}
-    tell_no               {"09033334444"}
+    tell_no               {"090-3333-4444"}
   end
 
 end

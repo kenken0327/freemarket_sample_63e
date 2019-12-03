@@ -1,4 +1,4 @@
-class RegisrationController < ApplicationController
+class RegisrationsController < ApplicationController
 
   def index
     

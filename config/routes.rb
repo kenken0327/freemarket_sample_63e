@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "regisration#index"
 
   resources :items
-  resources :regisration do
+  resources :regisrations do
     collection do
       get 'signup'
       post 'signup_validates'
