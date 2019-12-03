@@ -29,6 +29,13 @@ end
     expect(response).to render_template :create_finish
     end
   end  
+    
+  describe 'POST #signup_validates' do
+  let(:user) { create(:user) }
+  it "データベースに新しいユーザーが登録されること" do
+  expect{
+    post :signup_validates, params: { nickname:"ジャバ"}}.to change(User, :count).by(1)
+    end
+  end
 end
-
 

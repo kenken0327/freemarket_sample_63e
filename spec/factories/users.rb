@@ -13,5 +13,4 @@ FactoryBot.define do
     date_id               {"1"}
     tell_no               {"090-3333-4444"}
   end
-
 end
