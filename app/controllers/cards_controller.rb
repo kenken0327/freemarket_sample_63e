@@ -5,26 +5,25 @@ class CardsController < ApplicationController
   def index
   end
 
-  def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
+  def new 
     card = Card.where(user_id: current_user.id).first
     if card.present?
       redirect_to create_finish_regisration_index_path 
     end
   end
 
- # indexアクションはここでは省略
 
-  def create #PayjpとCardのデータベースを作成
+  def create 
     Payjp.api_key = 'sk_test_7fd03f8392a97edcc9f995db'
     if params['payjp-token'].blank?
       redirect_to items_path
     else
-      # トークンが正常に発行されていたら、顧客情報をPAY.JPに登録します。
+      
       customer = Payjp::Customer.create(
-        description: 'test', # 無くてもOK。PAY.JPの顧客情報に表示する概要です。
+        description: 'test'
         email: current_user.email,
-        card: params['payjp-token'], # 直前のnewアクションで発行され、送られてくるトークンをここで顧客に紐付けて永久保存します。
-        metadata: {user_id: current_user.id} # 無くてもOK。
+        card: params['payjp-token'],
+        metadata: {user_id: current_user.id} 
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
