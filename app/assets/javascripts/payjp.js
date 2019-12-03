@@ -1,11 +1,10 @@
 $(function(){
-
+  const KEY = gon.new_key;
   var submit = document.getElementById("token_submit");
 
   submit.addEventListener('click', function(e){  // 追加するボタンが押されたらイベント発火
-    console.log("Hello")
     e.preventDefault();  // ボタンを一旦無効化
-    Payjp.setPublicKey("pk_test_5cf244f8de9e4a97c3dbf614");
+    Payjp.setPublicKey(KEY);
     var card = {  // 入力されたカード情報を取得
       number: document.getElementById("card_number").value,
       exp_month: document.getElementById("exp_month").value,
@@ -19,7 +18,7 @@ $(function(){
         if (status === 200) {
           $("#card_number").removeAttr("name");
           $("#exp_month").removeAttr("name");
-          $("#exp_year").removeAttr("name"); 
+          $("#exp_year").removeAttr("name");
           $("#cvc").removeAttr("name");
           $("#card_token").append(
             $('<input type="hidden" name="payjp-token">').val(response.id)

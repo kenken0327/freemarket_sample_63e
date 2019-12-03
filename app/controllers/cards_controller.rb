@@ -6,6 +6,7 @@ class CardsController < ApplicationController
   end
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
+    gon.new_key = ENV['PAYJP_PUBLIC_KEY']
     card = Card.where(user_id: current_user.id).first
     if card.present?
       redirect_to create_finish_regisration_index_path 
@@ -15,7 +16,7 @@ class CardsController < ApplicationController
  # indexアクションはここでは省略
 
   def create #PayjpとCardのデータベースを作成
-    Payjp.api_key = 'sk_test_7fd03f8392a97edcc9f995db'
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     if params['payjp-token'].blank?
       redirect_to items_path
     else
