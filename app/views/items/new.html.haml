@@ -8,7 +8,7 @@
         = form_for @item do |f|
           .main-container__sell__inner__box
             %h3.main-container__sell__inner__box__top
-              =f.label :image, "出品画像"
+              =f.label :images, multiple: true,"出品画像"
             %span.main-container__sell__inner__box__require
               必須
             %p.main-container__sell__inner__box__content
