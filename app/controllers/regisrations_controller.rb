@@ -85,7 +85,7 @@ class RegisrationsController < ApplicationController
         session.delete(:tell_no)
         session.delete(:year_id)
         session.delete(:month_id)
-        session.delete(:day_id)
+        session.delete(:date_id)
         redirect_to  address_regisration_index_path
       else
      render :phone
