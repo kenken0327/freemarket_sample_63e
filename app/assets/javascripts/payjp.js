@@ -4,7 +4,7 @@ $(function(){
 
   submit.addEventListener('click', function(e){  
     e.preventDefault();  
-    Payjp.setPublicKey("pk_test_5cf244f8de9e4a97c3dbf614");
+    Payjp.setPublicKey("公開鍵");
     var card = {
       number: document.getElementById("card_number").value,
       exp_month: document.getElementById("exp_month").value,

@@ -14,7 +14,7 @@ class CardsController < ApplicationController
 
 
   def create 
-    Payjp.api_key = 'sk_test_7fd03f8392a97edcc9f995db'
+    Payjp.api_key = '秘密鍵'
     if params['payjp-token'].blank?
       redirect_to items_path
     else
