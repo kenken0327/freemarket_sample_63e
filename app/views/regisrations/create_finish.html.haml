@@ -2,7 +2,7 @@
   .signup-header-5__containar
     %h1.signup-header-5__containar__title
       .signup-header-5__containar__title__img
-        = image_tag "/assets/SVG/fmarket_logo_red.svg", alt: "Mercari",class: "sign-up_img"
+        = image_tag "/images/SVG/fmarket_logo_red.svg", alt: "Mercari",class: "sign-up_img"
 
 
     %nav.signup-bar-5
@@ -34,7 +34,7 @@
           %br
           会員登録が完了しました。
         %button.new-start
-          = link_to  regisration_path(current_user.id) do
+          = link_to  items_path(current_user.id) do
             Fmarketをはじめる
 
     .image-cloth
