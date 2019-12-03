@@ -16,7 +16,7 @@ ja:
         tell_no: 電話番号
       address:
         post_no: 郵便番号
-        town: 市町村区
+        town: 市区町村
         city: 番地
         
   errors:

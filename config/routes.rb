@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "regisrations#index"
 
+  
   resources :items
   resources :regisrations do
     collection do
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
       get 'create_finish'
     end
   end
+  resources :cards
 
 
 end

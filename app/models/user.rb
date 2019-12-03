@@ -7,6 +7,8 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   has_one :address
+  has_many :items
+  has_many :cards
   belongs_to_active_hash :year
   belongs_to_active_hash :month
   belongs_to_active_hash :day

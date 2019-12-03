@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_121803) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "name", null: false
     t.text "image"
     t.integer "price"
@@ -72,4 +73,5 @@ ActiveRecord::Schema.define(version: 2019_11_25_121803) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
+  add_foreign_key "items", "users"
 end
