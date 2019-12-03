@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validates :year_id, presence: true
   validates :month_id, presence: true
   validates :date_id, presence: true
-  validates :tell_no, presence: true
+  validates :tell_no, presence: true, format: {with: /\A\d{3}[-]\d{4}[-]\d{4}\z/}
 
 
 end
