@@ -49,7 +49,7 @@
             %input.signup-panel-5__inherit__input-default{placeholder: current_user.first_kana}
 
           .signup-panel-5__inherit__form-group__end
-            = form_for @address,url: address_create_regisration_index_path, method: :post do |f|
+            = form_for @address,url: address_create_regisrations_path, method: :post do |f|
               - if @address.errors.any?
                 %h2= "#{@address.errors.full_messages.count}"
                 - @address.errors.full_messages.each do |message|

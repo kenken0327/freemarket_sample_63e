@@ -41,7 +41,7 @@ class RegisrationsController < ApplicationController
     skip_phonenumber_validate(@user.errors) 
 
     if @user.errors.messages.blank? && @user.errors.details.blank?
-      redirect_to phone_regisration_index_path  
+      redirect_to phone_regisrations_path  
     else
       render :signup
     end
@@ -68,7 +68,7 @@ class RegisrationsController < ApplicationController
     )
       @user.valid? 
     if @user.errors.messages.blank? && @user.errors.details.blank?
-        @user.save
+        if @user.save
         sign_in User.find(@user.id) unless user_signed_in?
         session.delete(:nickname)
         session.delete(:email)
@@ -81,9 +81,12 @@ class RegisrationsController < ApplicationController
         session.delete(:year_id)
         session.delete(:month_id)
         session.delete(:date_id)
-        redirect_to  address_regisration_index_path
-      else
-     render :phone
+        redirect_to  address_regisrations_path
+        else
+        render :phone
+        end
+    else
+    render :phone
     end
   end
 
@@ -95,8 +98,11 @@ class RegisrationsController < ApplicationController
     @address = Address.new(address_params)
     @address.valid? 
     if @address.errors.messages.blank? && @address.errors.details.blank?
-        @address.save
-        redirect_to create_finish_regisration_index_path
+        if @address.save
+        redirect_to create_finish_regisrations_path
+        else 
+        render :address
+        end
     else
       render :address
     end
