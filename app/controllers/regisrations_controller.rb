@@ -9,11 +9,10 @@ class RegisrationsController < ApplicationController
   end
 
   def signup
-    @user = User.new # 新規インスタンス作成
+    @user = User.new 
   end
 
-  def signup_validates  #signup1で入力された情報のバリデーションチャックをするためのアクション
-    # createアクションにデータを渡すためにsessionに代入
+  def signup_validates
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -25,7 +24,6 @@ class RegisrationsController < ApplicationController
     session[:month_id] = user_params[:month_id]
     session[:date_id] = user_params[:date_id]
 
-    # バリデーションチャックするためにインスタンスを作成
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -38,15 +36,12 @@ class RegisrationsController < ApplicationController
       month_id: session[:month_id],
       date_id: session[:date_id]
     )
-    #バリデーションチャック
-    @user.valid?  #無効な値の場合はfalseとインスタンスに対してエラーメッセージを追加してくれる
-
-    #今回はstep1でphonenumberを入力しないので設定しているpresence: trueに引っかかっている
-    #このメソッドでphonenumberのエラー内容を削除してバリデーションを通過させる。
+   
+    @user.valid? 
     skip_phonenumber_validate(@user.errors) 
 
     if @user.errors.messages.blank? && @user.errors.details.blank?
-      redirect_to phone_regisration_index_path  #step1で入力したデータにバリデーションエラーがない場合はstep2に遷移する
+      redirect_to phone_regisration_index_path  
     else
       render :signup
     end
@@ -54,12 +49,12 @@ class RegisrationsController < ApplicationController
 
 
   def phone
-    @user = User.new # 新規インスタンス作成
+    @user = User.new
   end
   
   def create
     @user = User.new(
-      nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
+      nickname: session[:nickname], 
       email: session[:email],
       password: session[:password],
       last_name: session[:last_name],
@@ -133,7 +128,7 @@ class RegisrationsController < ApplicationController
   end
 
   def skip_phonenumber_validate(errors)
-    errors.messages.delete(:tell_no)  #stepの回数や入力するデータに合わせて変更してください
+    errors.messages.delete(:tell_no)  
     errors.details.delete(:tell_no)
   end
 
