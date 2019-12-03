@@ -95,9 +95,12 @@ class RegisrationController < ApplicationController
   def address_create
     @address = Address.new(address_params)
     @address.valid? 
-    if  @address.errors.messages.blank? && @address.errors.details.blank?
-        @address.save
-      redirect_to new_card_path
+    if @address.errors.messages.blank? && @address.errors.details.blank?
+        if @address.save
+        redirect_to new_card_path
+        else 
+        render :address
+        end
     else
       render :address
     end
