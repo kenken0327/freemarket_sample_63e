@@ -99,7 +99,7 @@ class RegisrationsController < ApplicationController
     @address.valid? 
     if @address.errors.messages.blank? && @address.errors.details.blank?
         if @address.save
-        redirect_to create_finish_regisrations_path
+        redirect_to new_card_path
         else 
         render :address
         end
