@@ -1,9 +1,9 @@
 class CardsController < ApplicationController
   require "payjp"
-  before_action :set_card
+  before_action :set_card, 
+  before_cation :find_card, only:[:index, :pay]
 
   def index
-    card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to new_card_path
     else
@@ -14,7 +14,6 @@ class CardsController < ApplicationController
   end
 
   def pay
-    card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
       :amount => 4500
@@ -65,4 +64,7 @@ class CardsController < ApplicationController
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
 
-end
+  def find_card
+    @card = Card.where(user_id: current_user.id).first
+  end
+
