@@ -30,11 +30,11 @@ end
     end
   end  
     
-  describe 'POST #signup_validates' do
+  describe 'POST #create' do
   let(:user) { create(:user) }
   it "データベースに新しいユーザーが登録されること" do
   expect{
-    post :signup_validates, params: { nickname:"ジャバ"}}.to change(User, :count).by(1)
+    post :create, params: { nickname:"ジャバ"}}.to change(User, :count).by(1)
     end
   end
 end
