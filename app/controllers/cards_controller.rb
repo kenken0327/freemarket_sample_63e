@@ -19,7 +19,6 @@ class CardsController < ApplicationController
       :customer => card.customer_id
       :currency => 'jpy'
     )
-  
     redirect_to done_cards_path
   end
   
