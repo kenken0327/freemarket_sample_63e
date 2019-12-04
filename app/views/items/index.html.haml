@@ -32,7 +32,7 @@
                       .style
                         %span.price
                           ¥
-                          = item.price
+                          = item.price.to_i
                         = image_tag item.image_url,alt: "商品画像",class: "product"
                      
 .exhibit
