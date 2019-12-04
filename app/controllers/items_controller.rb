@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.users << current_user
     if @item.save!
       redirect_to items_path
     else
@@ -24,6 +23,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :image, :price, :ship_way, :ship_price, :ship_date, :condition,saler: current_user.id)
+    params.require(:item).permit(:name, :image, :price, :ship_way, :ship_price, :ship_date, :condition,:saler).merge(user_id: current_user.id)
   end
 end

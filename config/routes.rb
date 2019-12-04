@@ -15,9 +15,12 @@ Rails.application.routes.draw do
       get 'create_finish'
     end
   end
-  resources :cards
-
-
+  resources :cards do
+    collection do
+      get 'done'
+      post 'pay'
+    end
+  end
 end
 
 

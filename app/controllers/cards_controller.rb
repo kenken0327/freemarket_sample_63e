@@ -1,11 +1,31 @@
 class CardsController < ApplicationController
   require "payjp"
-  before_action :set_card
+  before_action :set_card,  only:[:index, :new, :create,:pay]
 
   def index
+    if card.blank?
+      redirect_to new_card_path
+    else
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 
-  def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+      :amount => 4500
+      :customer => card.customer_id
+      :currency => 'jpy'
+    )
+    redirect_to done_cards_path
+  end
+  
+  def done
+  end
+
+  def new
     gon.new_key = ENV['PAYJP_PUBLIC_KEY']
     card = Card.where(user_id: current_user.id).first
     if card.present?
@@ -13,19 +33,19 @@ class CardsController < ApplicationController
     end
   end
 
- # indexアクションはここでは省略
+ 
 
-  def create #PayjpとCardのデータベースを作成
+  def create
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     if params['payjp-token'].blank?
       redirect_to items_path
     else
-      # トークンが正常に発行されていたら、顧客情報をPAY.JPに登録します。
+     
       customer = Payjp::Customer.create(
-        description: 'test', # 無くてもOK。PAY.JPの顧客情報に表示する概要です。
+        description: 'test',
         email: current_user.email,
-        card: params['payjp-token'], # 直前のnewアクションで発行され、送られてくるトークンをここで顧客に紐付けて永久保存します。
-        metadata: {user_id: current_user.id} # 無くてもOK。
+        card: params['payjp-token'], 
+        metadata: {user_id: current_user.id}
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
@@ -42,4 +62,5 @@ class CardsController < ApplicationController
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
 
-end
+
+
