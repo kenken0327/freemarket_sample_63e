@@ -8,6 +8,9 @@ class RegisrationsController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def login
+  end
+
   def signup
     @user = User.new 
   end

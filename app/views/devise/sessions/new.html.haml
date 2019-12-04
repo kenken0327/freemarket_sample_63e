@@ -10,7 +10,7 @@
       %p.not-acount
         アカウントをお持ちでない方はこちら
       .not-acount-new-create
-        = link_to signup_new_users_path,class: "singup-new" do
+        = link_to signup_regisrations_path ,class: "singup-new" do
           新規会員登録
           
     .signup-panel-6__content
@@ -34,10 +34,10 @@
           .not-lobot-2__hidden
             %input.not-lobot-2__hidden__form-group
 
-        %button.next-current_page
+        %p.next-current_page
           ログイン
-        = link_to purchase_confirmation_users_path,class: "wrong-pass" do
-          パスワードをお忘れの方
+          = link_to user_session_path ,method: :post,class: "wrong-pass" do
+            パスワードをお忘れの方
 
 %footer.user-footer
   %nav
