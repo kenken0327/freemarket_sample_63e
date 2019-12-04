@@ -1,12 +1,11 @@
 %h2 購入を確定しますか？
-%p Apple MacBook Pro 13インチ
-%p ¥135,000(送料込み)
+%p 唾奇バイナル「愛のままに」
+%p ¥4,500(送料込み)
 %br
 %h3 支払い方法
 - if @default_card_information.blank?
   %br /
 - else
-  -#以下カード情報を表示
   = "**** **** **** " + @default_card_information.last4
   - exp_month = @default_card_information.exp_month.to_s
   - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
