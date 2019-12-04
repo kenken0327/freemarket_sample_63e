@@ -1,7 +1,6 @@
 class CardsController < ApplicationController
   require "payjp"
-  before_action :set_card, 
-  before_cation :find_card, only:[:index, :pay]
+  before_action :set_card,  only:[:index, :new, :create,:pay]
 
   def index
     if card.blank?
@@ -64,7 +63,5 @@ class CardsController < ApplicationController
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
 
-  def find_card
-    @card = Card.where(user_id: current_user.id).first
-  end
+
 
