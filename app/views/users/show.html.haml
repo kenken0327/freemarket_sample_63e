@@ -1,0 +1,25 @@
+.wrapper
+  =render 'devise/user/user_header'
+
+.container-login-signin
+
+  %main.main
+
+    .signup-panel
+      %p.signup-panel__title 新規会員登録
+
+      .signup-panel__inherit
+        .sign-up-btn
+          = button_to new_user_registration_path, method: :get,class: "btn-mail" do
+            = fa_icon "far envelope", class: "mail-icon"
+            メールアドレスで登録
+      
+        %button#facebook
+          %i.fab.fa-facebook-square.facebook-icon
+          Facebookで登録
+          
+        %button#Google
+          %i.fab.fa-google.google-icon
+          Googleで登録
+
+= render "devise/user/user_footer"
