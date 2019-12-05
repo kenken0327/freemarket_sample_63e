@@ -1,0 +1,20 @@
+
+.show
+  .show__image
+    %p.image
+      = image_tag @item.image.url, alt: "商品画像です"
+    .show__image__box
+    %p.name
+      【出品者】
+      = @item.user.nickname
+    %p
+      【商品名】
+      = @item.name
+    %p
+      【値段】
+      = @item.price
+      = link_to check_card_path(@item) do
+        %p トップページへ
+      
+      
+
