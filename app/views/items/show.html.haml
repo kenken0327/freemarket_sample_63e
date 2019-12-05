@@ -1,20 +1,208 @@
+= render 'shared/header'
 
-.show
-  .show__image
-    %p.image
-      = image_tag @item.image.url, alt: "商品画像です"
-    .show__image__box
-    %p.name
-      【出品者】
-      = @item.user.nickname
-    %p
-      【商品名】
-      = @item.name
-    %p
-      【値段】
-      = @item.price
-      = link_to check_card_path(@item) do
-        %p トップページへ
-      
-      
+%section.item-detail
+  %h1.item-name
+    ジャケット
+  //divタグだが、命名を繋げると都合が悪くなるので個別に命名//
+  .clear-content
+    .item-photos
+      .slide-photos
+        .main-slide
+          .slide-stage{style: "left: -600px,width: 1500px;"}
+            .slide-item#item-slice{style: "width: 300px;"}
+              .slide-inner
+                = image_tag "/images/cloth.png", alt: "Unknown", class: "slide-lazy", style: "opacity: 1;"
+        .sub-slide#mini-slide
+          .mini-slide
+            .slide-inner
+              = image_tag "/images/cloth.png", alt: "Unknown"
+          .mini-slide
+            .slide-inner
+              = image_tag "/images/cloth.png", alt: "Unknown"
+          .mini-slide
+            .slide-inner
+              = image_tag "/images/cloth.png", alt: "Unknown"
+          .mini-slide
+            .slide-inner
+              = image_tag "/images/cloth.png", alt: "Unknown"
+          .mini-slide
+            .slide-inner
+              = image_tag "/images/cloth.png", alt: "Unknown"
+    %table.item-table
+      %tbody
+        %tr
+          %th
+            出品者
+          %td
+            =link_to "ユーザー", "#"
+            %div
+              .item-rating
+                = icon "fa", "laugh", class: "laugh"
+                %span
+                  0
+              .item-rating
+                = icon "fa", "meh", class: "meh"
+                %span
+                  0
+              .item-rating
+                = icon "fa", "frown-open", class: "frown-open"
+                %span
+                  0
+        %tr
+          %th
+            カテゴリー
+          %td
+            =link_to "レディース", "#"
+            =link_to "#" do
+              = icon "fa", "chevron-right", class: "chevron-right"
+              トップス 
+            =link_to "#" do
+              = icon "fa", "chevron-right", class: "chevron-right"
+              ニット/セーター
+        %tr
+          %th
+            ブランド
+          %td
+            =link_to "ルイヴィトン", "#", class: "table-bland"
+        %tr
+          %th
+            商品のサイズ
+          %td
+            M
+        %tr
+          %th
+            商品の状態
+          %td
+            
+            未使用に近い
+        %tr
+          %th
+            配送料の負担
+          %td
+            送料込み(出品者負担)
+        %tr
+          %th
+            配送の方法
+          %td
+            未定
+        %tr
+          %th
+            配送元地域
+          %td
+            =link_to "千葉県", "#", class: "table-place"
+        %tr
+          %th
+            発送日の目安
+          %td
+            2~3日で発送
+  .price-box
+    %span.price-bold
+      ¥1000
+    %span.item-tax
+      (税込)
+    %span.shipping-fee
+      送料込み
+  = link_to "購入画面に進む", "#", class: "buy-button"
+  .item-description
+    %p.des-text
+      FIJI water
 
+      キャンペーン期間中に定期購入プレミアムサービスに申し込んだ方限定のプレゼント商品です
+
+      ⚫︎ハードカバー
+      ⚫︎マンスリータイプ
+      ⚫︎外寸：約Ｗ134×Ｈ188mm
+      ●2019年12月始まり
+  .item-options
+    .item-options__left
+      .like-button
+        = icon "far", "heart", class: "heart-button"
+        %span
+          いいね!
+        %span
+          0
+      =link_to "#", class: "report-item" do
+        = icon "far", "flag", class: "flag"
+        %span
+          不適切な商品の報告
+    .item-options__right
+      =link_to "#", class: "safety-effort" do
+        = icon "fas", "lock", class: "lock"
+        %span
+          あんしん・あんぜんへの取り組み
+.comment-box
+  .comment-box__message
+    .comment-box__message__area
+      = form_with(class: "message-form") do |f|
+        %p
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = f.text_area "#", class: "textarea-default"
+        = f.submit 'コメントする', class: "comment-submit__button"
+%ul.pre-next__item
+  %li.nav-link__pre
+    =link_to "#", class: "linktopre" do
+      = icon "fa", "chevron-left", class: "chevron-left"
+      ニット帽 グレー
+  %li.nav-link__next
+    =link_to "#", class: "linktonext" do
+      = icon "fa", "chevron-right", class: "chevron-right"
+      HARE ニット
+.social-media
+  .text-center
+  %ul.media-box
+    %li
+      =link_to "#", class: "share-button1" do
+        = icon "fab", "facebook-square", class: "facebook-square"
+    %li
+      =link_to "#", class: "share-button2" do
+        = icon "fab", "twitter", class: "twitter"
+    %li
+      =link_to "#", class: "share-button3" do
+        = icon "fab", "pinterest", class: "pinterest"
+.another-items
+  %section.another-box
+    %h2.another-head
+      =link_to "ユーザーさんのその他の出品", "#"
+    .another-clearfix
+      %section.a-items__box
+        =link_to "#" do
+          %figure.a-items__box__photo
+            = image_tag "/images/cloth.png", alt: "Mercari"
+          .a-items__box__body
+            %h3.another-name
+              ニットパーカー
+            .another-price__num
+              .another-price__num__text
+                ¥2,000
+              .another-price__num__like
+                = icon "far", "heart", class: "heart-button"
+                %span
+                  11
+  %section.another-box
+    %h2.another-head
+      =link_to "ルイヴィトンのニット/セーター その他の商品", "#"
+    .another-clearfix
+      %section.a-items__box
+        =link_to "#" do
+          %figure.a-items__box__photo
+            = image_tag "/images/cloth.png", alt: "Mercari"
+          .a-items__box__body
+            %h3.another-name
+              ニットパーカー
+            .another-price__num
+              .another-price__num__text
+                ¥2,000
+              .another-price__num__like
+                = icon "far", "heart", class: "heart-button"
+                %span
+                  11
+%nav.location-bottom
+  %ul
+    %li{itemscope: true, itemtype: "#"}
+      =link_to "#", itemprop: "url" do
+        %span{itemprop: "title"}
+          Fマーケット
+      = icon "fa", "chevron-right", class: "chevron-right_t"
+    %li{itemscope: true, itemtype: "#"}
+      %span{itemprop: "title"}
+        ジャケット
