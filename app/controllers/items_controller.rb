@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @user = User.find(current_user.id)
-    @items = Item.all
+    @items = Item.where.not(user_id:current_user.id)
   end
   
   def new
@@ -19,6 +19,8 @@ class ItemsController < ApplicationController
       render action: :new
     end
   end
+
+
 
 
   private
