@@ -36,6 +36,6 @@
             = icon "fa", "check", class: "check"
             ログアウト
         %li.nav__list__c
-          =link_to "/users/sign_up", class: "select2" do
+          =link_to user_path(current_user), class: "select2" do
             = image_tag "/images/user.png", alt: "Unknown", class: "user-image"
             = @user.nickname
