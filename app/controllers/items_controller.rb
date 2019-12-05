@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @user = User.find(current_user.id)
-    @items = Item.all
+    @items = Item.where.not(user_id:current_user.id)
   end
   
   def new
@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
 
   def show
     @user = User.find(current_user.id)
+    @item = Item.find(params[:id])
   end
 
 

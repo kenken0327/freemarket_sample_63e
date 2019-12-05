@@ -2,21 +2,23 @@ class CardsController < ApplicationController
   require "payjp"
   before_action :set_card
 
-  def index
+  def check
+    @item = Item.find(params[:id])
     if @card.blank?
       redirect_to new_card_path
     else
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 
   def pay
+    item = Item.find(params[:id])
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-      :amount => 4500,
-      :customer => card.customer_id,
+      :amount => item.price,
+      :customer => @card.customer_id,
       :currency => 'jpy',)
     redirect_to done_cards_path
   end

@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   resources :cards do
     collection do
       get 'done'
+    end
+    member do
+      get 'check'
       post 'pay'
     end
   end
