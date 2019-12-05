@@ -18,7 +18,7 @@
         %figure
           = image_tag "/images/user.png", alt: "Unknown", class: "mypage-user", width: "60", height: "60"
         %h2.bold
-          = @user.nickname
+          = current_user.nickname
         .eva
           .eva-left
             評価

@@ -25,7 +25,7 @@
         .set-nickname
           %figure
             = image_tag "/images/user.png", alt: "Unknown", class: "user-image__p"
-          = f.text_field :nickname, value: @user.nickname, placeholder: "名前", class: "input-default"
+          = f.text_field :nickname, value: current_user.nickname, placeholder: "名前", class: "input-default"
         .set-text
           = f.text_area :self_introduction, value: "", placeholder: "こんにちは！買ってください！", class: "textarea-default"
           = f.submit '変更する', class: "profile-button"
