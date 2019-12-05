@@ -2,7 +2,7 @@
 
 %section.item-detail
   %h1.item-name
-    ジャケット
+    = @item.name
   //divタグだが、命名を繋げると都合が悪くなるので個別に命名//
   .clear-content
     .item-photos
@@ -11,7 +11,7 @@
           .slide-stage{style: "left: -600px,width: 1500px;"}
             .slide-item#item-slice{style: "width: 300px;"}
               .slide-inner
-                = image_tag "/images/cloth.png", alt: "Unknown", class: "slide-lazy", style: "opacity: 1;"
+                = image_tag @item.image.url, alt: "Unknown", class: "slide-lazy", style: "opacity: 1;"
         .sub-slide#mini-slide
           .mini-slide
             .slide-inner
@@ -97,12 +97,13 @@
             2~3日で発送
   .price-box
     %span.price-bold
-      ¥1000
+      =@item.price
     %span.item-tax
       (税込)
     %span.shipping-fee
       送料込み
-  = link_to "購入画面に進む", "#", class: "buy-button"
+  = link_to check_card_path(@item), class: "buy-button" do
+    購入画面に進む
   .item-description
     %p.des-text
       FIJI water
