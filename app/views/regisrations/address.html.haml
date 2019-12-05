@@ -50,33 +50,39 @@
 
           .signup-panel-5__inherit__form-group__end
             = form_for @address,url: address_create_regisrations_path, method: :post do |f|
-              - if @address.errors.any?
-                %h2= "#{@address.errors.full_messages.count}"
-                - @address.errors.full_messages.each do |message|
-                  %li= message
               %label.new-user-create
                 郵便番号
               %span.require-5
                 必須
               = f.text_field :post_no,placeholder: "例）123ー4567",class:"signup-panel-5__inherit__input-default"
-          
+              - if @address.errors.any?
+                %ul.error
+                  %li= @address.errors.full_messages_for(:post_no).first
+            
               %label.new-user-create
                 都道府県
               %span.require-5
                 必須
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name,class:"signup-panel-5__inherit__input-default"
-
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name,prompt:"---",class:"signup-panel-5__inherit__input-default"
+              - if @address.errors.any?
+                %ul.error
+                  %li= @address.errors.full_messages_for(:prefecture_id).first
               %label.new-user-create
                 市町村区
               %span.require-5
                 必須
               = f.text_field :city,placeholder: "例）横浜市緑区",class:"signup-panel-5__inherit__input-default"
-
+              - if @address.errors.any?
+                %ul.error
+                  %li= @address.errors.full_messages_for(:city).first
               %label.new-user-create
                 番地
               %span.require-5
                 必須
               = f.text_field :town,placeholder:" 例）青山1-1-1",class:"signup-panel-5__inherit__input-default"
+              - if @address.errors.any?
+                %ul.error
+                  %li= @address.errors.full_messages_for(:town).first
 
               %label.new-user-create
                 建物名

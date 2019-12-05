@@ -2,10 +2,12 @@ ja:
   activerecord:
     errors:
       messages:
+        prompt: 選択してください
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+        
   date:
     abbr_day_names:
     - 日
@@ -108,6 +110,7 @@ ja:
   errors:
     format: "%{attribute}%{message}"
     messages:
+      prompt: 選択してください
       accepted: を受諾してください
       blank: を入力してください
       confirmation: と%{attribute}の入力が一致しません
