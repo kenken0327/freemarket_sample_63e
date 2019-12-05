@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_11_28_054403) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.text "images"
+    t.text "image"
     t.integer "price"
     t.string "ship_way"
     t.string "ship_price"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2019_11_28_054403) do
     t.datetime "updated_at", null: false
     t.integer "buyer"
     t.integer "saler"
+    t.text "description"
+    t.integer "ship_place"
     t.index ["name"], name: "index_items_on_name"
   end
 
