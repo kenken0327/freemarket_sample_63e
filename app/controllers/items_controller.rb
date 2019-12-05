@@ -20,6 +20,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(current_user.id)
+  end
+
 
   private
   def item_params
