@@ -22,7 +22,8 @@
         
       %button#Google-2
         %i.fab.fa-google.google-icon-2
-        Googleでログイン
+        = link_to  user_google_omniauth_authorize_path do
+          Googleでログイン
 
     .form-for-group-1
       .form-for-group-1__personal

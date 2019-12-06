@@ -88,6 +88,7 @@ gem 'payjp'
 gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'gon'
+gem 'omniauth-google-oauth2'
 
 
 

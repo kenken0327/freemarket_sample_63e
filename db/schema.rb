@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 2019_11_29_081733) do
     t.string "image"
     t.string "uid"
     t.string "provider"
+    t.string "meta"
+    t.string "token"
   end
 
   add_foreign_key "addresses", "users"

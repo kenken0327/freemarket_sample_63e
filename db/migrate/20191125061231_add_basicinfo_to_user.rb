@@ -13,5 +13,7 @@ class AddBasicinfoToUser < ActiveRecord::Migration[5.2]
     add_column :users, :image, :string
     add_column :users, :uid, :string
     add_column :users, :provider ,:string
+    add_column :users, :meta, :string
+    add_column :users, :token, :string
   end
 end
