@@ -14,6 +14,8 @@ ja:
         month_id: 誕生日月
         date_id: 誕生日
         tell_no: 電話番号
+      item:
+        name: "名前"
       address:
         post_no: 郵便番号
         town: 市区町村

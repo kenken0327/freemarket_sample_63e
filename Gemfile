@@ -82,11 +82,8 @@ gem 'pry-rails'
 gem 'devise'
 gem 'active_hash'
 gem 'rails-i18n'
-gem 'payjp'
 gem 'jquery-rails'
+gem 'ancestry'
+gem 'payjp'
 gem 'dotenv-rails'
 gem 'gon'
-
-
-
-
