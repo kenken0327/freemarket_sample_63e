@@ -2,6 +2,8 @@ class CardsController < ApplicationController
   require "payjp"
   before_action :set_card
 
+
+
   def check
     @item = Item.find(params[:id])
     if @card.blank?
@@ -27,7 +29,7 @@ class CardsController < ApplicationController
   end
 
   def new
-    gon.new_key = ENV['PAYJP_PUBLIC_KEY']
+    gon.new_key ="pk_test_5cf244f8de9e4a97c3dbf614"
     card = Card.where(user_id: current_user.id).first
     if card.present?
       redirect_to create_finish_regisration_index_path 

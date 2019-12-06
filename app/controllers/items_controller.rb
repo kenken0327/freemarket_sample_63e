@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @user = User.find(current_user.id)
-    @items = Item.where.not(user_id:current_user.id)
+    @items = Item.where.not(saler: current_user.id)
   end
   
   def new
