@@ -1,0 +1,267 @@
+.user-header-login {
+  background: rgb(245, 245, 245);
+  height: 128px;
+  text-align: center;
+  .user-header-login-fmarket{
+    background: rgb(245, 245, 245);
+    padding: 40px 0 0;
+    
+    .user-header-login-fmarket-link{
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      margin:0 auto;
+      .fmarket-1 {
+        width: 185px;
+        height: 49px;
+      }
+    }
+  }
+}
+
+.purchase-container {
+  background: rgb(245, 245, 245);
+  text-align: center;
+  &__main{
+    height: 820px;
+    width: 780px;
+    margin: 0 auto;
+    padding: 0;
+    &__signup-panel{
+      max-width: 700px;
+      height: 919px;
+      margin: 0 auto;
+      background-color: white;
+
+      &__title {
+        padding: 16px;
+        font-size: 22px;
+        font-weight: bold;
+        height: 33px;
+        width:668px;
+      }  
+          
+      &__content-2{
+        border-top: 1px solid #eee;
+        height: 340px;
+        width: 525px;
+        padding: 24px 87.5px 0px;
+      }
+      &__inherit-2{
+        height: 340px;
+        width: 320px;
+        margin: 0 102.5px 0;
+        
+        .buy-item-content{
+          height: 64px;
+          display: block;
+          display: flex;
+          .buy-item-name{
+          width: 240px;
+          margin: 0 0 0 16px;
+          text-align: left;
+          height: 64px;
+          }
+        }
+        .form-buy-item{
+          width: 100%;
+          text-align: center;
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+          color: #333;
+          height: 230px;
+          .buy-item-price{
+            margin-top:8px;
+            line-height: 1.5;
+            height: 33px;
+            font-size: 22px;
+            font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+            .buy-item-postage{
+              margin-left: 8px;
+              font-size: 14px;
+              font-weight: 400;
+            }
+          }
+          .buy-item-method-point{
+            margin-top:16px;
+            height: 48px;
+            list-style: none;
+            &__buy-point{
+              margin: 0;
+              list-style: none;
+              background: #ccc;
+              height: 48px;
+              &__not-have-point{
+                background: #ccc;
+                padding: 16px;
+                border: 1px solid #ccc;
+                height: 14px;
+                font-size: 14px;
+              }
+            }
+          }
+          .buy-item-method-payment{
+            height: 60px;
+            border:0;
+            display: flex;
+            width: 320px;
+              &__content{
+                border: 0;
+                height: 60px;
+              &__credit{
+                padding: 16px 0;
+                width: 169px;
+                height: 28px;
+                text-align: left;
+                font-size: 18px;
+                font-weight: 600;
+                font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+                &__number{
+                  padding: 16px 0;
+                  text-align: right;
+                  width: 151px;
+                  height: 28px;
+                  
+                  .payment-credit{
+                    font-size: 28px;
+                    margin: 0;
+                    padding: 0;
+                    font-weight: 540;
+                    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+                  }
+                }
+              }
+            }
+          }
+          .buy-credit{
+            margin: 8px 0 0;
+            width: 318px;
+            height: 48px;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+          }
+        }
+      }
+    }
+  }
+}
+.shipping-address-content{
+  border-top: 1px solid #eee;
+  height: 121px;
+  width: 525px;
+  padding: 24px 87.5px 0;
+  margin-top: 40px;
+  &__display{
+    max-width: 320px;
+    margin: 0 auto;
+    height: 121px;
+    .shipping-address{
+      color:#333;
+      font-size: 14px;
+      margin: 0;
+      height: 14px;
+      width: 320px;
+      font-weight: bold;
+      text-align: left;
+    }
+  }
+}
+.shipping-address-buy-user{
+  display: block;
+  height: 76px;
+  width: 320px;
+  margin-top: 8px;
+  font-size: 14px;
+  color:#333;
+  text-align: left;
+}   
+.shipping-address-text{
+  margin-top: 8px;
+} 
+.shipping-address-change{
+  color: #0099e8;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: right;
+}      
+  
+.method-payment-user{
+  padding: 24px 12.5% 40px;
+  margin-top: 40px;
+  border-top: 1px solid #f5f5f5;
+  height: 92px;
+  width: 525px;
+  &__buy{
+    margin: 0 102px;
+    height: 92px;
+    .payment-method-credit{
+      font-size: 14px;
+      height: 14px;
+      color: #333;
+      font-weight: 600;
+      text-align: left;
+    }
+    .payment-method-credit-number{
+      margin-top: 8px;
+      height: 38px;
+      font-size: 12px;
+      text-align: left;
+    }
+    .credit-visa-img{
+      text-align: left;
+    }
+    .credit-card-number-change{
+      color: #0099e8;
+      text-decoration: none;
+      font-size: 14px;
+      text-align: right;
+    }      
+  }
+}
+
+  .user-footer {
+    background: rgb(245, 245, 245);
+    text-align: center;
+    height: 220px;
+    margin: 0 auto;
+    padding: 40px 0;
+    .user-footer-container {
+      list-style: none;
+    }
+    .user-footer-menu{
+      display: inline-block;
+      margin: 0 0 0 16px;
+      font-size: 12px;
+      &__1{
+        text-decoration: none;
+        color: black;
+      }
+    }
+  
+    li:first-child {
+      display: inline-block;
+      margin: 0;
+    }
+    .user-footer__link {
+      width: 80px;
+      height: 65px;
+      margin: 40px auto 0;
+      .user-footer-img{
+        width: 80px;
+        height: 65px;
+        margin: 40px auto 0;
+      }
+    }
+    .user-footer__end{
+      margin: auto;
+      padding: 0;
+      width: 456px;
+      height: 14px;
+      .user-footer__year{
+        font-size: 13px;
+      }
+    }
+  }

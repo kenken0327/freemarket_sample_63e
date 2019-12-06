@@ -20,31 +20,20 @@
             =link_to "#", class: "more" do
               もっと見る
         .main-box__items__box__frame
-        -@items.each do |item|
           %ul.i-list
-            %li.item
-              .item-box
-                =link_to "#", class: "field" do
-                  %figure.card
-                    %figcaption
-                      %span
-                        子供服  スウェット生地  コスプレや室内着  お出かけにも
-                    .style
-                      %span.price
-                        ¥
-                        1400
-                      = image_tag "/images/cloth.png", alt: "商品画像", class: "product"
-            %li.item
-              .item-box
-                =link_to "#", class: "field" do
-                  %figure.card
-                    %figcaption
-                      %span
-                        = item.name
-                    .style
-                      %span.price
-                        ¥
-                        1400
+            -@items.each do |item|
+              %li.item
+                .item-box
+                  =link_to item_path(item), class: "field" do
+                    %figure.card
+                      %figcaption
+                        %span
+                          = item.name
+                      .style
+                        %span.price
+                          ¥
+                          = item.price.to_i
+                        = image_tag item.image_url,alt: "商品画像",class: "product"
                      
 .exhibit
   =link_to "/items/new", class: "button" do
