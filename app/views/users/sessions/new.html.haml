@@ -16,11 +16,14 @@
     .signup-panel-6__content
       %button#facebook-2
         %i.fab.fa-facebook-square.facebook-icon-2
-        Facebookでログイン
+        = link_to user_facebook_omniauth_authorize_path do
+          Facebookでログイン
+
         
       %button#Google-2
         %i.fab.fa-google.google-icon-2
-        Googleでログイン
+        = link_to  user_google_omniauth_authorize_path do
+          Googleでログイン
 
     .form-for-group-1
       .form-for-group-1__personal
