@@ -49,6 +49,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'omniauth'
   gem 'omniauth-facebook'
+  gem 'omniauth-google-oauth2'
 end
 
 group :development do
@@ -88,7 +89,7 @@ gem 'payjp'
 gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'gon'
-gem 'omniauth-google-oauth2'
+
 
 
 
