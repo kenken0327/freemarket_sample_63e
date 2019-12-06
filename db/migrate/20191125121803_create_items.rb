@@ -8,6 +8,10 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :ship_price
       t.string :ship_date
       t.string :condition
+      t.integer :buyer
+      t.integer :saler
+      t.text :description
+      t.string :ship_place
       t.timestamps
     end
   end
