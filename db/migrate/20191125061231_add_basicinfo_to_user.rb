@@ -11,5 +11,7 @@ class AddBasicinfoToUser < ActiveRecord::Migration[5.2]
     add_column :users, :tell_no, :string,null: false
     add_column :users, :self_info, :text
     add_column :users, :image, :string
+    add_column :users, :uid, :string
+    add_column :users, :provider ,:string
   end
 end

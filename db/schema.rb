@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 2019_11_29_081733) do
     t.string "tell_no", null: false
     t.text "self_info"
     t.string "image"
+    t.string "uid"
+    t.string "provider"
   end
 
   add_foreign_key "addresses", "users"
