@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @user = User.find(current_user.id)
-    @items = Item.all
+    @items = Item.where.not(saler: current_user.id)
   end
   
   def new
@@ -22,8 +22,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(current_user.id)
+    @item = Item.find(params[:id])
+  end
+
   private
-  def item_params
-    params.require(:item).permit(:name, :image, :price, :ship_way, :ship_price, :description, :ship_date, :condition, :category_id, :ship_place, saler: current_user.id)
+  def item_param
+    params.require(:item).permit(:name, :image, :price, :ship_way, :ship_price,
+      :description, :ship_date, :condition, :category_id, :ship_place, saler: current_user.id).merge(user_id: current_user.id）
   end
 end

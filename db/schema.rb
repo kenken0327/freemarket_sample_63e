@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_051321) do
+
+ActiveRecord::Schema.define(version: 2019_11_29_081733) do
+
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "prefecture_id", null: false
-    t.integer "post_no", null: false
+    t.string "post_no", null: false
     t.string "city", null: false
     t.string "town", null: false
     t.string "building"
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_12_06_051321) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "name", null: false
     t.text "image", null: false
     t.integer "price", null: false
@@ -58,6 +61,8 @@ ActiveRecord::Schema.define(version: 2019_12_06_051321) do
     t.bigint "category_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name"
+    t.index ["user_id"], name: "index_items_on_user_id"
+
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -79,11 +84,11 @@ ActiveRecord::Schema.define(version: 2019_12_06_051321) do
     t.string "tell_no", null: false
     t.text "self_info"
     t.string "image"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "users"
+
 end

@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "regisration#index"
+  root to: "items#index"
 
   resources :items
-  resources :regisration do
+  resources :regisrations do
     collection do
+      get 'login'
       get 'signup'
       post 'signup_validates'
       get 'phone'
@@ -14,8 +15,15 @@ Rails.application.routes.draw do
       get 'create_finish'
     end
   end
-
-
+  resources :cards do
+    collection do
+      get 'done'
+    end
+    member do
+      get 'check'
+      post 'pay'
+    end
+  end
 end
 
 

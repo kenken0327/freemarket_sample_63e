@@ -9,14 +9,18 @@ ja:
         last_name: 名字
         first_name: 名前
         last_kana: カナ（名字）
-        first_name: カナ（名前）
+        first_kana: カナ（名前）
         year_id: 誕生日年
         month_id: 誕生日月
         date_id: 誕生日
         tell_no: 電話番号
       item:
         name: "名前"
-  
+      address:
+        post_no: 郵便番号
+        town: 市区町村
+        city: 番地
+        
   errors:
     messages:
       not_found: "は見つかりませんでした"
