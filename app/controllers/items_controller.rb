@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = Item.new(item_param)
     @parents = Category.all.order("id ASC").limit(13)
     if @item.save
       redirect_to items_path
@@ -30,6 +30,6 @@ class ItemsController < ApplicationController
   private
   def item_param
     params.require(:item).permit(:name, :image, :price, :ship_way, :ship_price,
-      :description, :ship_date, :condition, :category_id, :ship_place, saler: current_user.id).merge(user_id: current_user.id）
+      :description, :ship_date, :condition, :category_id, :ship_place, :saler).merge(user_id: current_user.id)
   end
 end
