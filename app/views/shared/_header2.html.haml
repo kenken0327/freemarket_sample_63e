@@ -4,7 +4,6 @@
       //ロゴ//
       .header-box__search__logo
         = link_to image_tag "/images/SVG/fmarket_logo_red.svg", alt: "Mercari", width: "140"
-      //検索フォーム//
       %form#form01{action: "search"}
         //検索欄//
         %input#input01{type: "search", name: "keyword", placeholder: "何かお探しですか？"}
@@ -36,6 +35,6 @@
             = icon "fa", "check", class: "check"
             やることリスト
         %li.nav__list__c
-          =link_to "#", class: "select2" do
+          =link_to root_path, class: "select2" do
             = image_tag "/images/user.png", alt: "Unknown", class: "user-image"
             = @user.nickname
