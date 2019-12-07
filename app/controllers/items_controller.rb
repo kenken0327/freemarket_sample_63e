@@ -35,7 +35,10 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
-    redirect_to users_path
+    if @item.save
+      redirect_to users_path
+    else
+      render action: :edit
   end
 
   def destroy
