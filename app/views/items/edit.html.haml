@@ -9,7 +9,7 @@
     #main-container__sell
       .main-container__sell__inner
         %h2.main-container__sell__inner__top 商品の情報を入力
-        = form_with model: @item, url: item_path, method: :patch, local: true do |f|
+        = form_with model:@item, local: true do |f|
           .main-container__sell__inner__box
             %h3.main-container__sell__inner__box__top
               出品画像

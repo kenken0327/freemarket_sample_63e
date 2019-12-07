@@ -1,20 +1,20 @@
 class ItemsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :set_item, only: [:show,:edit,:update,:destroy]
+  before_action :set_user, only: [:index,:show]
+  before_action :set_category, only:[:new,:create,:edit,:update]
 
   def index
-    @user = User.find(current_user.id)
     @items = Item.where.not(saler: current_user.id)
   end
   
   def new
     @item = Item.new
-    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def create
     @item = Item.new(item_params)
-    @parents = Category.all.order("id ASC").limit(13)
     if @item.save
       redirect_to items_path
     else
@@ -23,22 +23,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
-    @item = Item.find(params[:id])
+
   end
 
   def edit
-    @item = Item.find(params[:id])
-    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def update
-    @item = Item.find(params[:id])
     @item.update(item_params)
-    if @item.save
-      redirect_to users_path
-    else
-      render action: :edit
+    redirect_to users_path
   end
 
   def destroy
@@ -52,4 +45,18 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :image, :price, :ship_way, :ship_price,
       :description, :ship_date, :condition, :category_id, :ship_place, :saler).merge(user_id: current_user.id)
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(current_user.id)
+  end
+
+  def set_category
+    @parents = Category.all.order("id ASC").limit(13)
+  end
+
+
 end
