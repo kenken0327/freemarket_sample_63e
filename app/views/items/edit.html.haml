@@ -9,7 +9,7 @@
     #main-container__sell
       .main-container__sell__inner
         %h2.main-container__sell__inner__top 商品の情報を入力
-        = form_with model: @item, url: items_path, method: :post, local: true do |f|
+        = form_with model: @item, url: item_path, method: :patch, local: true do |f|
           .main-container__sell__inner__box
             %h3.main-container__sell__inner__box__top
               出品画像
@@ -184,8 +184,8 @@
                   加盟店規則
                 に同意したことになります。
             = f.hidden_field :saler,value: current_user.id
-            = f.submit "出品する", class: "main-container__sell__inner__btn-box__btn"
-            = link_to items_path, class: "main-container__sell__inner__btn-box__btn__gray" do
+            = f.submit "編集を完了する", class: "main-container__sell__inner__btn-box__btn"
+            = link_to users_path, class: "main-container__sell__inner__btn-box__btn__gray" do
               もどる
 
 = render '/shared/user_footer'

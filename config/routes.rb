@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users ,only: [:index,:show,:edit,:update]
   resources :items
-  resources :regisrations ,only:[:index,:show] do
+  resources :regisrations ,only:[:index,:show,:create] do
     collection do
       get 'login'
       get 'signup'

@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_param)
+    @item = Item.new(item_params)
     @parents = Category.all.order("id ASC").limit(13)
     if @item.save
       redirect_to items_path
@@ -29,21 +29,23 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def update
+    @item = Item.find(params[:id])
     @item.update(item_params)
-    redirect_to action: :show
+    redirect_to users_path
   end
 
   def destroy
     @item.destroy
-    redirect_to user_path
+    redirect_to users_path
   end
 
 
   private
-  def item_param
+  def item_params
     params.require(:item).permit(:name, :image, :price, :ship_way, :ship_price,
       :description, :ship_date, :condition, :category_id, :ship_place, :saler).merge(user_id: current_user.id)
   end
