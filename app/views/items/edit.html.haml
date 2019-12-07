@@ -1,11 +1,15 @@
-= render 'devise/shared/user_header'
+
+%head
+  %script{ src: "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
+  %script{ src: "/js/item.js"}
+= render '/shared/user_header'
 
 %main.main
   %section.main-container
     #main-container__sell
       .main-container__sell__inner
         %h2.main-container__sell__inner__top 商品の情報を入力
-        = form_with model: @item, url: items_path, method: :post, local: true do |f|
+        = form_with model:@item, local: true do |f|
           .main-container__sell__inner__box
             %h3.main-container__sell__inner__box__top
               出品画像
@@ -21,6 +25,9 @@
                   ドラックアンドドロップ
                   またはクリックしてファイルをアップロード
                 %i.main-container__sell__inner__box__upload__files__camera.fas.fa-camera
+                - if @item.errors.any?
+                  %ul
+                    %li.formError= @item.errors.full_messages_for(:image).first
 
           .main-container__sell__inner__form
             .main-container__sell__inner__form__content
@@ -29,15 +36,20 @@
                 %span.main-container__sell__inner__form__content__label__require
                   必須
               .main-container__sell__inner__form__content__field
-                -# %input.main-container__sell__inner__form__content__field__input{placeholder: "商品名（必須40字まで）"}
                 = f.text_field :name, class: "main-container__sell__inner__form__content__field__input", placeholder: "商品名（必須40字まで）"
+              - if @item.errors.any?
+                %ul
+                  %li.formError= @item.errors.full_messages_for(:name).first
             .main-container__sell__inner__form__text
               %label.main-container__sell__inner__form__text__label
                 商品の説明
                 %span.main-container__sell__inner__form__text__label__require
                   必須
-              -# %textarea.main-container__sell__inner__form__text__area{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
               = f.text_area :description, class: "main-container__sell__inner__form__text__area", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+            - if @item.errors.any?
+              %ul
+                %li.formError= @item.errors.full_messages_for(:description).first
+
           .main-container__sell__inner__clearfix
             %h3.main-container__sell__inner__clearfix__top
               商品の詳細
@@ -49,22 +61,11 @@
                     必須
                 %div
                   .main-container__sell__inner__clearfix__form__box1__select
-                    %select{class: "main-container__sell__inner__clearfix__form__box1__select__1"}
-                      %option{value: "---"}---
-                      %option{value: "1"}レディース
-                      %option{value: "2"}メンズ
-                      %option{value: "3"}ベビー・キッズ
-                      %option{value: "4"}インテリア・住まい・子物
-                      %option{value: "5"}本・音楽・ゲーム
-                      %option{value: "6"}おもちゃ・ホビー・グッズ
-                      %option{value: "7"}コスメ・香水・美容
-                      %option{value: "8"}家電・スマホ・カメラ
-                      %option{value: "9"}スポーツ・レジャー
-                      %option{value: "10"}ハンドメイド
-                      %option{value: "11"}チケット
-                      %option{value: "12"}自転車・オートバイ
-                      %option{value: "13"}その他
+                    = f.collection_select :category_id, @parents, :id, :name, {prompt: "---"}, {class: "main-container__sell__inner__clearfix__form__box1__select__1"}
                     %i.fas.fa-angle-down
+                    - if @item.errors.any?
+                      %ul
+                        %li.formError= @item.errors.full_messages_for(:category_id).first
 
             .main-container__sell__inner__clearfix__form2
               .main-container__sell__inner__clearfix__form2__box1
@@ -74,15 +75,11 @@
                     必須
                 %div
                   .main-container__sell__inner__clearfix__form2__box1__select
-                    = f.select :condition, [["---","---"],["新品、未使用","新品、未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"]], {}, {class: "main-container__sell__inner__clearfix__form2__box1__select__1"}
-                      -# %option{value: "---"}---
-                      -# %option{value: "新品、未使用"}新品、未使用
-                      -# %option{value: "未使用に近い"}未使用に近い
-                      -# %option{value: "目立った傷や汚れなし"}目立った傷や汚れなし
-                      -# %option{value: "やや傷や汚れあり"}やや傷や汚れあり
-                      -# %option{value: "傷や汚れあり"}傷や汚れあり
-                      -# %option{value: "全体的に状態が悪い"}全体的に状態が悪い
+                    = f.select :condition, Item.conditions.keys, {prompt: "---"}, {class: "main-container__sell__inner__clearfix__form2__box1__select__1"}
                     %i.fas.fa-angle-down
+                  - if @item.errors.any?
+                    %ul
+                      %li.formError= @item.errors.full_messages_for(:condition).first
           
           .main-container__sell__inner__sell
             %h3.main-container__sell__inner__sell__top
@@ -95,11 +92,11 @@
                   %span.main-container__sell__inner__sell__form__box1__require
                     必須
                 .main-container__sell__inner__sell__form__box1__select
-                  %select{name: "ship_way", class: "main-container__sell__inner__sell__form__box1__select__1"}
-                    %option{value: "---"}---
-                    %option{value: "送料込み(出品者負担)"}送料込み(出品者負担)
-                    %option{value: "着払い(購入者負担)"}着払い(購入者負担)
+                  = f.select :ship_price, Item.ship_prices.keys, {prompt: "---"}, {class: "main-container__sell__inner__sell__form__box1__select__1"}
                   %i.fas.fa-angle-down
+                  - if @item.errors.any?
+                    %ul
+                      %li.formError= @item.errors.full_messages_for(:ship_price).first
 
               .main-container__sell__inner__sell__form__box2
                 %label.main-container__sell__inner__sell__form__box2__label
@@ -107,18 +104,11 @@
                   %span.main-container__sell__inner__sell__form__box2__require
                     必須
                 .main-container__sell__inner__sell__form__box2__select
-                  %select{name: "ship_place", class: "main-container__sell__inner__sell__form__box2__select__1"}
-                    %option{value: "---"}---
-                    %option{value: "未定"}未定
-                    %option{value: "らくらくメルカリ便"}らくらくメルカリ便
-                    %option{value: "ゆうメール"}ゆうメール
-                    %option{value: "レターパック"}レターパック
-                    %option{value: "普通郵便(定型、定形外)"}普通郵便(定型、定形外)
-                    %option{value: "クロネコヤマト"}クロネコヤマト
-                    %option{value: "ゆうパック"}ゆうパック
-                    %option{value: "クリックポスト"}クリックポスト
-                    %option{value: "ゆうパケット"}ゆうパケット
+                  = f.select :ship_way, Item.ship_ways.keys, {prompt: "---"}, {class: "main-container__sell__inner__sell__form__box2__select__1"}
                   %i.fas.fa-angle-down
+                - if @item.errors.any?
+                  %ul
+                    %li.formError= @item.errors.full_messages_for(:ship_way).first
 
               .main-container__sell__inner__sell__form__box4
                 %label.main-container__sell__inner__sell__form__box4__label
@@ -126,11 +116,11 @@
                   %span.main-container__sell__inner__sell__form__box4__require
                     必須
                 .main-container__sell__inner__sell__form__box4__select
-                  -# %select{neme: "ship_date", class: "main-container__sell__inner__sell__form__box3__select__1"}
-                  = f.collection_select :place_id, Prefecture.all, :id, :name, prompt: "---"
+                  = f.collection_select :ship_place, Prefecture.all, :id, :name, {prompt: "---"}, {class: "main-container__sell__inner__sell__form__box4__select__1"}
                   %i.fas.fa-angle-down
-
-
+                - if @item.errors.any?
+                  %ul
+                    %li.formError= @item.errors.full_messages_for(:ship_place).first
 
               .main-container__sell__inner__sell__form__box3
                 %label.main-container__sell__inner__sell__form__box3__label
@@ -138,12 +128,11 @@
                   %span.main-container__sell__inner__sell__form__box3__require
                     必須
                 .main-container__sell__inner__sell__form__box3__select
-                  %select{neme: "ship_date", class: "main-container__sell__inner__sell__form__box3__select__1"}
-                    %option{value: "---"}---
-                    %option{value: "1~2日で発送"}1~2日で発送
-                    %option{value: "2~3日で発送"}2~3日で発送
-                    %option{value: "4~7日で発送"}4~7日で発送
+                  = f.select :ship_date, Item.ship_dates.keys, {prompt: "---"}, {class: "main-container__sell__inner__sell__form__box3__select__1"}
                   %i.fas.fa-angle-down
+                  - if @item.errors.any?
+                    %ul
+                      %li.formError= @item.errors.full_messages_for(:ship_date).first
 
           .main-container__sell__inner__price
             %h3.main-container__sell__inner__price__top
@@ -160,8 +149,11 @@
                     .main-container__sell__inner__price__form__box1__price__clearfix__input
                       ¥
                       .main-container__sell__inner__price__form__box1__price__clearfix__input__default
-                        -# %input.main-container__sell__inner__price__form__box1__price__clearfix__input__default__box{placeholder: "例）300"}
                         = f.text_field :price, class: "main-container__sell__inner__price__form__box1__price__clearfix__input__default__box", placeholder: "例）300"
+              - if @item.errors.any?
+                %ul
+                  %li.formError= @item.errors.full_messages_for(:price).first
+              %ul.main-container__sell__inner__price__form__box1
                 %li.main-container__sell__inner__price__form__box1__fee
                   .main-container__sell__inner__price__form__box1__fee__left
                     販売手数料(10%)
@@ -175,23 +167,25 @@
           .main-container__sell__inner__btn-box
             .main-container__sell__inner__btn-box__content
               %p.main-container__sell__inner__btn-box__content__sentence
-                = link_to "https://www.mercari.com/jp/help_center/getting_started/prohibited_items/" do
+                = link_to "#" do
                   禁止されている出品
-                、 
-                = link_to "https://www.mercari.com/jp/help_center/getting_started/prohibited_conduct/" do
+                = link_to "#" do
                   行為
                 を必ずご確認ください。
               %p.main-container__sell__inner__btn-box__content__sentence
                 またブランド品でシリアルナンバー等がある場合はご記載ください。
-                = link_to "https://www.mercari.com/jp/help_center/getting_started/counterfeit_goods/" do
+                = link_to "#" do
                   偽ブランドの販売
                 は犯罪であり処罰される可能性があります。
               %p.main-container__sell__inner__btn-box__content__sentence
                 また、出品をもちまして
-                = link_to "https://www.mercari.com/jp/seller_terms/" do
+                = link_to "#" do
                   加盟店規則
-                  に同意したことになります。
-            = f.submit "出品する", class: "main-container__sell__inner__btn-box__btn"
-            = link_to "もどる", "https://www.mercari.com/jp/", class: "main-container__sell__inner__btn-box__btn__gray"
+                に同意したことになります。
+            = f.hidden_field :saler,value: current_user.id
+            = f.submit "編集を完了する", class: "main-container__sell__inner__btn-box__btn"
+            = link_to users_path, class: "main-container__sell__inner__btn-box__btn__gray" do
+              もどる
 
-= render 'devise/shared/user_footer'
+= render '/shared/user_footer'
+

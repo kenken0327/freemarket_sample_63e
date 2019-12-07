@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "items#index"
 
-  resources :items
-  resources :regisrations do
+  resources :users ,only: [:index,:show,:edit,:update]
+  resources :items ,except: [:index]
+  resources :regisrations ,only:[:index,:show,:create] do
     collection do
       get 'login'
       get 'signup'
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
       get 'create_finish'
     end
   end
-  resources :cards do
+  resources :cards , only:[:new,:create]do
     collection do
       get 'done'
     end

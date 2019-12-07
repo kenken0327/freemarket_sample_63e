@@ -34,7 +34,7 @@
           %th
             出品者
           %td
-            =link_to "ユーザー", "#"
+            =link_to @item.user.nickname
             %div
               .item-rating
                 = icon "fa", "laugh", class: "laugh"
@@ -52,7 +52,7 @@
           %th
             カテゴリー
           %td
-            =link_to "レディース", "#"
+            =link_to @item.category.name
             =link_to "#" do
               = icon "fa", "chevron-right", class: "chevron-right"
               トップス 
@@ -63,7 +63,7 @@
           %th
             ブランド
           %td
-            =link_to "ルイヴィトン", "#", class: "table-bland"
+            =link_to "Only NY", "#", class: "table-bland"
         %tr
           %th
             商品のサイズ
@@ -73,8 +73,8 @@
           %th
             商品の状態
           %td
+            未使用・新品に近い
             
-            未使用に近い
         %tr
           %th
             配送料の負担
@@ -89,7 +89,7 @@
           %th
             配送元地域
           %td
-            =link_to "千葉県", "#", class: "table-place"
+            =link_to @item.ship_place, "#", class: "table-place"
         %tr
           %th
             発送日の目安
@@ -97,23 +97,25 @@
             2~3日で発送
   .price-box
     %span.price-bold
+      ¥
       =@item.price
     %span.item-tax
       (税込)
     %span.shipping-fee
       送料込み
-  = link_to check_card_path(@item), class: "buy-button" do
-    購入画面に進む
+  - if user_signed_in? && current_user.id != @item.user_id
+    = link_to check_card_path(@item), class: "buy-button" do
+      購入画面に進む
+  - if user_signed_in? && current_user.id == @item.user_id
+    = link_to edit_item_path(@item), class: "buy-button" do
+      商品を編集する
+
+    = link_to item_path(@item),method: :delete ,class: "buy-button" do
+      商品を削除する
+      
   .item-description
     %p.des-text
-      FIJI water
-
-      キャンペーン期間中に定期購入プレミアムサービスに申し込んだ方限定のプレゼント商品です
-
-      ⚫︎ハードカバー
-      ⚫︎マンスリータイプ
-      ⚫︎外寸：約Ｗ134×Ｈ188mm
-      ●2019年12月始まり
+      = @item.description
   .item-options
     .item-options__left
       .like-button
