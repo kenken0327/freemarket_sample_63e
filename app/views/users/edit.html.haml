@@ -21,13 +21,13 @@
     .profile-container
       %h2.profile-head
         プロフィール
-      = form_with() do|f|
+      = form_with model: @user, local: true do|f|
         .set-nickname
           %figure
             = image_tag "/images/user.png", alt: "Unknown", class: "user-image__p"
           = f.text_field :nickname, value: current_user.nickname, placeholder: "名前", class: "input-default"
         .set-text
-          = f.text_area :self_introduction, value: "", placeholder: "こんにちは！買ってください！", class: "textarea-default"
+          = f.text_area :self_info, class: "textarea-default"
           = f.submit '変更する', class: "profile-button"
 
 
