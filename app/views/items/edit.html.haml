@@ -167,20 +167,19 @@
           .main-container__sell__inner__btn-box
             .main-container__sell__inner__btn-box__content
               %p.main-container__sell__inner__btn-box__content__sentence
-                = link_to "https://www.mercari.com/jp/help_center/getting_started/prohibited_items/" do
+                = link_to "#" do
                   禁止されている出品
-                、
-                = link_to "https://www.mercari.com/jp/help_center/getting_started/prohibited_conduct/" do
+                = link_to "#" do
                   行為
                 を必ずご確認ください。
               %p.main-container__sell__inner__btn-box__content__sentence
                 またブランド品でシリアルナンバー等がある場合はご記載ください。
-                = link_to "https://www.mercari.com/jp/help_center/getting_started/counterfeit_goods/" do
+                = link_to "#" do
                   偽ブランドの販売
                 は犯罪であり処罰される可能性があります。
               %p.main-container__sell__inner__btn-box__content__sentence
                 また、出品をもちまして
-                = link_to "https://www.mercari.com/jp/seller_terms/" do
+                = link_to "#" do
                   加盟店規則
                 に同意したことになります。
             = f.hidden_field :saler,value: current_user.id
