@@ -1,4 +1,4 @@
-.header
+.pro-header
   .header-box
     .header-box__search
       //ロゴ//
@@ -28,14 +28,14 @@
             = icon "far", "heart", class: "heart"
             いいね！一覧
         %li.nav__list__b
-          =link_to "/users/sign_in", class: "select2" do
+          =link_to "#", class: "select2" do
             = icon "far", "bell", class: "bell"
-            ログイン
+            お知らせ
         %li.nav__list__b
-          =link_to destroy_user_session_path, method: :delete,class: "select2" do
+          =link_to "#", class: "select2" do
             = icon "fa", "check", class: "check"
-            ログアウト
+            やることリスト
         %li.nav__list__c
-          =link_to user_path(current_user), class: "select2" do
+          =link_to "#", class: "select2" do
             = image_tag "/images/user.png", alt: "Unknown", class: "user-image"
-            = @user.nickname
+            マイページ
