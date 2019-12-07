@@ -15,9 +15,12 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
+    if @user.update_attributes(user_params)
     redirect_to action: :show
+    else
+    refirect_to action: :edit
   end
-
+  
 private
 
   def user_params
