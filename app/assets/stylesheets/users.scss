@@ -24,6 +24,7 @@
 
 $color-blue: rgb(14, 94, 241);
 $color-white: rgb(255, 255, 255);
+$color-white: #fff;
 
 //================================= INDEX =================================//
 
@@ -86,8 +87,6 @@ body {
     }
   }
 }
-
-
 
 //================================= MAIN =================================//
 
@@ -436,7 +435,6 @@ body {
           position: relative;
         }
 
-
           .mail-icon {
             font-size: 20px;
             position: absolute;
@@ -445,7 +443,7 @@ body {
             color: #fff;
             background-color: #ea352d;
           }
-                     
+
         #facebook {
           color: white;
           background-color: #385185;
@@ -494,7 +492,6 @@ body {
   }
 }
 
-
 .user-footer {
   background: rgb(245, 245, 245);
   text-align: center;
@@ -538,11 +535,6 @@ body {
     }
   }
 }
-
-//================================= STYLE&COLOR =================================//
-
-$color-white: #fff;
-
 
 //================================= EDITPROFILE =================================//
 .profile-container{
