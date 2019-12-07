@@ -105,7 +105,7 @@
         設定
       %ul.mypage-choice__list
         %li
-          =link_to "#", class: "list-item__active" do
+          =link_to edit_user_path(@user), class: "list-item__active" do
             プロフィール
             = icon "fas", "chevron-right", class: "chevron-right"
         %li
