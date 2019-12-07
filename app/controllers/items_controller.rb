@@ -27,6 +27,21 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item.update(item_params)
+    redirect_to action: :show
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to user_path
+  end
+
+
   private
   def item_param
     params.require(:item).permit(:name, :image, :price, :ship_way, :ship_price,

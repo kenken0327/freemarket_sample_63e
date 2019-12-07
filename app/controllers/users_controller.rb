@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def index
+    @user = User.find(current_user.id)
+    @items = Item.where(saler: current_user.id)
+  end
+
   def show
     @user = User.find(current_user.id)
   end
