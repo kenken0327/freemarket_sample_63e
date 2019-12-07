@@ -31,8 +31,13 @@ class ItemsController < ApplicationController
 
   def update
     @item.update(item_params)
+    if @item.update_attributes(item_params)
     redirect_to users_path
+    else
+    render action: :edit
+    end
   end
+
 
   def destroy
     @item.destroy
