@@ -27,6 +27,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if current_user.id != @item.user_id
+      render action: :show
+    end
   end
 
   def update
@@ -40,6 +43,9 @@ class ItemsController < ApplicationController
 
 
   def destroy
+    if current_user.id != @item.user_id
+      render action: :show
+    end
     @item.destroy
     redirect_to users_path
   end

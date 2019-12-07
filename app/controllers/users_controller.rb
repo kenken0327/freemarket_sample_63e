@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     redirect_to action: :show
     else
     refirect_to action: :edit
+    end
   end
   
 private

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "items#index"
 
   resources :users ,only: [:index,:show,:edit,:update]
-  resources :items
+  resources :items ,except: [:index]
   resources :regisrations ,only:[:index,:show,:create] do
     collection do
       get 'login'
