@@ -1,11 +1,11 @@
 class CardsController < ApplicationController
   require "payjp"
   before_action :set_card
+  before_action :set_item, only[:check,:done]
 
 
 
   def check
-    @item = Item.find(params[:id])
     if @card.blank?
       redirect_to new_card_path
     else
@@ -26,7 +26,6 @@ class CardsController < ApplicationController
   end
 
   def done
-    @item = Item.find(params[:id])
   end
 
   def new
@@ -64,4 +63,7 @@ class CardsController < ApplicationController
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
 
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end
