@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_item, only: [:show,:edit,:update,:destroy,:addbuyid]
+  before_action :set_item, only: [:show,:edit,:update,:destroy,:add_buy_id]
   before_action :set_user, only: [:index,:show]
   before_action :set_category, only:[:new,:create,:edit,:update]
 
