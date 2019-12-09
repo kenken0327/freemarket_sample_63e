@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   resources :users ,only: [:index,:show,:edit,:update]
   resources :items do
     member do
-      patch 'addbuyid'
-      end
+      patch 'add_buy_id'
     end
+  end
   resources :regisrations ,only:[:index,:show,:create] do
     collection do
       get 'login'

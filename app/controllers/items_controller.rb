@@ -50,13 +50,13 @@ class ItemsController < ApplicationController
     redirect_to users_path
   end
 
-  def addbuyid
+  def add_buy_id
     @item.update_column(:buyer,current_user.id)
-      if @item.update_column(:buyer,current_user.id)
+    if @item.update_column(:buyer,current_user.id)
       redirect_to root_path
-      else
+    else
       redirect_to done_card_path
-      end
+    end
   end
 
 
