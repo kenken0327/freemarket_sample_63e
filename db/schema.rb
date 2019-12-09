@@ -46,10 +46,10 @@ ActiveRecord::Schema.define(version: 2019_12_06_051321) do
     t.string "name", null: false
     t.text "image", null: false
     t.integer "price", null: false
-    t.string "ship_way", null: false
-    t.string "ship_price", null: false
-    t.string "ship_date", null: false
-    t.string "condition", null: false
+    t.string "ship_way", default: "0", null: false
+    t.string "ship_price", default: "0", null: false
+    t.string "ship_date", default: "0", null: false
+    t.string "condition", default: "0", null: false
     t.integer "buyer"
     t.integer "saler", null: false
     t.text "description", null: false
