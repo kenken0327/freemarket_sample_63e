@@ -17,12 +17,11 @@ Rails.application.routes.draw do
     end
   end
   resources :cards , only:[:new,:create]do
-    collection do
-      get 'done'
-    end
     member do
       get 'check'
       post 'pay'
+      get 'done'
+      patch 'addbuyid'
     end
   end
 end
