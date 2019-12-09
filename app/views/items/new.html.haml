@@ -184,6 +184,7 @@
                   加盟店規則
                 に同意したことになります。
             = f.hidden_field :saler,value: current_user.id
+            = f.hidden_field :buyer,value: current_user.id
             = f.submit "出品する", class: "main-container__sell__inner__btn-box__btn"
             = link_to items_path, class: "main-container__sell__inner__btn-box__btn__gray" do
               もどる

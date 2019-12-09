@@ -29,16 +29,7 @@ class CardsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def addbuyid
-    @item = Item.find(params[:id])
-    @item.update(buyer_params)
-    if @item.update_attributes(buyer_params)
-    redirect_to root_path
-    else
-    render action: :done
-    end
-  end
-
+ 
 
   def new
     gon.new_key ="pk_test_5cf244f8de9e4a97c3dbf614"
@@ -73,10 +64,6 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
-  end
-
-  def buyer_params
-    params.require(:item).permit(:buyer)
   end
 
 end

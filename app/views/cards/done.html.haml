@@ -1,7 +1,4 @@
-= form_with model:@item,url: addbuyid_card_path,local:true do |f|
+= form_with url: addbuyid_item_path, method: :patch ,local: true do |f|
   = f.hidden_field :buyer, value: current_user.id
-  = f.submit "トップページに戻る"
-
-
-
+  = f.submit "トップページ"
 

@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root to: "items#index"
 
   resources :users ,only: [:index,:show,:edit,:update]
-  resources :items 
+  resources :items do
+    member do
+      patch 'addbuyid'
+      end
+    end
   resources :regisrations ,only:[:index,:show,:create] do
     collection do
       get 'login'
@@ -21,7 +25,6 @@ Rails.application.routes.draw do
       get 'check'
       post 'pay'
       get 'done'
-      patch 'addbuyid'
     end
   end
 end

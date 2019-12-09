@@ -50,11 +50,26 @@ class ItemsController < ApplicationController
     redirect_to users_path
   end
 
+  def addbuyid
+    @item = Item.find(params[:id])
+    @item.update(buy_params)
+      if @item.update_attributes(buy_params)
+      redirect_to root_path
+      else
+      redirect_to done_card_path
+      end
+
+  end
+
 
   private
   def item_params
     params.require(:item).permit(:name, :image, :price, :ship_way, :ship_price,
-      :description, :ship_date, :condition, :category_id, :ship_place, :saler).merge(user_id: current_user.id)
+      :description, :ship_date, :condition, :category_id, :ship_place, :saler, :buyer).merge(user_id: current_user.id)
+  end
+
+  def buy_params
+    params.require(:item).permit(:buyer)
   end
 
   def set_item
