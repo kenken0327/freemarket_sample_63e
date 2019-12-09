@@ -1,0 +1,175 @@
+= render 'shared/header2'
+
+%nav.location
+  %ul.location-pre
+    %li{itemscope: true, itemtype: "#"}
+      =link_to "#", itemprop: "url" do
+        %span{itemprop: "title"}
+          Fマーケット
+    = icon "fas", "chevron-right"
+    %li{itemscope: true, itemtype: "#"}
+      %span{itemprop: "title"}
+        マイページ
+
+%main.major
+  .r-content
+    %section.user-detail
+      =link_to "#", class: "image-content" do
+        %figure
+          = image_tag "/images/user.png", alt: "Unknown", class: "mypage-user", width: "60", height: "60"
+        %h2.bold
+          = current_user.nickname
+        .eva
+          .eva-left
+            評価
+            %span.bold
+              0
+          .eva-right
+            出品数
+            %span.bold
+              0
+    %section.notice-todo
+      %ul.mypage-info
+        %li.info-text
+          =link_to "#" do
+            %h3
+              お知らせ
+        %li.info-text
+          =link_to "#" do
+            %h3
+              やることリスト
+      .tab-text
+        %ul.tab-line#id
+          %li.tab-line__list
+            =link_to "#", class: "mypage-mail" do
+              %figure
+                = image_tag "/images/SVG/logo_red.svg", alt: "Mercari", width: "25"
+              .mail-text
+                .mail-text__area
+                  ご登録のメールアドレスに認証メールを送りました。メールに記載のURLをクリックして、メールアドレスを認証してください。
+                %time
+                  = icon "far", "clock", class: "icon-clock"
+                  %span
+                    7日前
+              = icon "fas", "chevron-right", class: "chevron-right"
+          %li.go-page
+            =link_to "#" do
+              一覧を見る
+    %section.deal
+      %h2.deal-head
+        購入した商品
+      %ul.deal-tab
+        %li.active
+          =link_to "#" do
+            %h3
+              取引中
+        %li
+          =link_to "#" do
+            %h3
+              過去の取引
+      .deal-body
+        %ul.deal-panel#id
+          %li.deal-info
+            過去に取引した商品がありません
+  .l-content
+    %nav.mypage-choice
+      %ul.mypage-choice__list
+        %li
+          =link_to "#", class: "list-item__active" do
+            マイページ
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            お知らせ
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            やることリスト
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            いいね！一覧
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            出品する
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to users_path, class: "list-item" do
+            出品した商品-出品中
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            出品した商品-取引中
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            出品した商品-売却済
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            購入した商品-取引中
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            購入した商品-過去の取引
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            ニュース一覧
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            評価一覧
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            ガイド
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            お問い合わせ
+            = icon "fas", "chevron-right", class: "chevron-right"
+      %h3.mypage-choice__head
+        メルペイ
+      %ul.mypage-choice__list
+        %li
+          =link_to "#", class: "list-item" do
+            売り上げ・振込申請
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            ポイント
+            = icon "fas", "chevron-right", class: "chevron-right"
+      %h3.mypage-choice__head
+        設定
+      %ul.mypage-choice__list
+        %li
+          =link_to edit_user_path, class: "list-item" do
+            プロフィール
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            発送元・お届け先住所変更
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            支払い方法
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            メール/パスワード
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            本人情報
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            電話番号の確認
+            = icon "fas", "chevron-right", class: "chevron-right"
+        %li
+          =link_to "#", class: "list-item" do
+            ログアウト
+            = icon "fas", "chevron-right", class: "chevron-right"
+
