@@ -73,28 +73,28 @@
           %th
             商品の状態
           %td
-            未使用・新品に近い
+            = @item.condition
             
         %tr
           %th
             配送料の負担
           %td
-            送料込み(出品者負担)
+            = @item.ship_price
         %tr
           %th
             配送の方法
           %td
-            未定
+            = @item.ship_way
         %tr
           %th
             配送元地域
           %td
-            =link_to @item.ship_place, "#", class: "table-place"
+            =link_to @item.prefecture.name, "#", class: "table-place"
         %tr
           %th
             発送日の目安
           %td
-            2~3日で発送
+            = @item.ship_date
   .price-box
     %span.price-bold
       ¥
