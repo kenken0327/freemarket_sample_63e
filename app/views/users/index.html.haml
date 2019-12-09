@@ -22,20 +22,6 @@
         出品した商品
       %ul.listing-tab
         %li.active
-          %ul.i-list
-            -@items.each do |item|
-              %li.item
-                .item-box
-                  =link_to item_path(item), class: "field" do
-                    %figure.card
-                      %figcaption
-                        %span
-                          = item.name
-                      .style
-                        %span.price
-                          ¥
-                          = item.price.to_i
-                        = image_tag item.image_url,alt: "商品画像",class: "product"
           =link_to "#" do
             %h3
               出品中
@@ -48,8 +34,21 @@
             %h3
               取引中
       .deal-body
-        %ul.deal-panel#id
-          %li.deal-info
+        %ul.i-list
+          -@items.each do |item|
+            %li.item
+              .item-box
+                =link_to item_path(item), class: "field" do
+                  %figure.card
+                    %figcaption
+                      %span
+                        = item.name
+                    .style
+                      %span.price
+                        ¥
+                        = item.price.to_i
+                      = image_tag item.image_url,alt: "商品画像",class: "product"
+            
     %ul.mypage-pager
       %li.pager-button
         =link_to "#" do
