@@ -29,8 +29,6 @@ class CardsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
- 
-
   def new
     gon.new_key ="pk_test_5cf244f8de9e4a97c3dbf614"
     card = Card.where(user_id: current_user.id).first

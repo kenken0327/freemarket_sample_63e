@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_item, only: [:show,:edit,:update,:destroy]
+  before_action :set_item, only: [:show,:edit,:update,:destroy,:addbuyid]
   before_action :set_user, only: [:index,:show]
   before_action :set_category, only:[:new,:create,:edit,:update]
 
   def index
-    @items = Item.where.not(saler: current_user.id)
+    @items = Item.where.not(saler: current_user.id).where(buyer: nil)
   end
   
   def new
@@ -51,14 +51,12 @@ class ItemsController < ApplicationController
   end
 
   def addbuyid
-    @item = Item.find(params[:id])
-    @item.update(buy_params)
-      if @item.update_attributes(buy_params)
+    @item.update_column(:buyer,current_user.id)
+      if @item.update_column(:buyer,current_user.id)
       redirect_to root_path
       else
       redirect_to done_card_path
       end
-
   end
 
 
@@ -66,10 +64,6 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :image, :price, :ship_way, :ship_price,
       :description, :ship_date, :condition, :category_id, :ship_place, :saler, :buyer).merge(user_id: current_user.id)
-  end
-
-  def buy_params
-    params.require(:item).permit(:buyer)
   end
 
   def set_item
