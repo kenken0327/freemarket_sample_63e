@@ -201,11 +201,6 @@
                   11
 %nav.location-bottom
   %ul
-    %li{itemscope: true, itemtype: "#"}
-      =link_to "#", itemprop: "url" do
-        %span{itemprop: "title"}
-          Fマーケット
-      = icon "fa", "chevron-right", class: "chevron-right_t"
-    %li{itemscope: true, itemtype: "#"}
-      %span{itemprop: "title"}
-        ジャケット
+    %li
+      - breadcrumb :items_show
+      = breadcrumbs separator: " &rsaquo; "

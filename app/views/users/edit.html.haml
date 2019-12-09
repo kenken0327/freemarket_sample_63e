@@ -2,19 +2,9 @@
 
 %nav.location
   %ul.location-pre
-    %li{itemscope: true, itemtype: "#"}
-      =link_to "#", itemprop: "url" do
-        %span{itemprop: "title"}
-          Fマーケット
-    = icon "fas", "chevron-right", class: "chevron-right_t"
-    %li{itemscope: true, itemtype: "#"}
-      =link_to "#", itemprop: "url" do
-        %span{itemprop: "title"}
-          マイページ
-    = icon "fas", "chevron-right", class: "chevron-right_t"
-    %li{itemscope: true, itemtype: "#"}
-      %span{itemprop: "title"}
-        プロフィール
+    %li
+      - breadcrumb :user_edit
+      = breadcrumbs separator: " &rsaquo; "
 
 %main.major
   .r-content

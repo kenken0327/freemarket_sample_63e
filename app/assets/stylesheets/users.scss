@@ -64,10 +64,11 @@ body {
       line-height: 1.2;
       a{
         color: #333;
-        span:hover{
-          border-bottom: 1px solid #888;
-          color: #888;
-        }
+        font-weight: normal;
+      }
+      a:hover{
+        border-bottom: 1px solid #888;
+        color: #888;
       }
     }
     .chevron-right{
