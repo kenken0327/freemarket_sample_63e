@@ -29,10 +29,6 @@
           =link_to show_buy_users_path do
             %h3
               購入済
-        %li
-          =link_to "#" do
-            %h3
-              取引中
       .main-box__items__box__frame
         %ul.i-list
           -@items.each do |item|
@@ -56,5 +52,5 @@
       %li.pager-button
         =link_to "#" do
           = icon "fas", "chevron-right", class: "chevron-right"
-          
+
   = render 'users/shared/sidebar'
