@@ -154,6 +154,6 @@
             電話番号の確認
             = icon "fas", "chevron-right", class: "chevron-right"
         %li
-          =link_to "#", class: "list-item" do
+          =link_to destroy_user_session_path, method: :delete, class: "list-item" do
             ログアウト
             = icon "fas", "chevron-right", class: "chevron-right"
