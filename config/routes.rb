@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "items#index"
 
-  resources :users ,only: [:index,:show,:edit,:update]
+  resources :users ,only: [:index,:show,:edit,:update] do
+    collection do
+      get 'show_buy'
+    end
+  end
   resources :items do
     member do
       patch 'add_buy_id'

@@ -8,14 +8,12 @@
           Fマーケット
     = icon "fas", "chevron-right"
     %li{itemscope: true, itemtype: "#"}
-      =link_to user_path(@user), itemprop: "url" do
-        %span{itemprop: "title"}
-          マイページ
+      %span{itemprop: "title"}
+        マイページ
     = icon "fas", "chevron-right"
     %li{itemscope: true, itemtype: "#"}
-      =link_to show_buy_users_path,itemprop: "url" do
-        %span{itemprop: "title"}
-          出品中した商品-出品中
+      %span{itemprop: "title"}
+        出品中した商品-出品中
 
 %main.major
   .r-content
@@ -23,11 +21,11 @@
       %h2.deal-head
         出品した商品
       %ul.listing-tab
-        %li.active
+        %li
           =link_to users_path do
             %h3
               出品中
-        %li
+        %li.active
           =link_to show_buy_users_path do
             %h3
               購入済
@@ -54,4 +52,5 @@
       %li.pager-button
         =link_to "#" do
           = icon "fas", "chevron-right", class: "chevron-right"
+
   = render 'users/shared/sidebar'
