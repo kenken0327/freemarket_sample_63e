@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2019_12_06_051321) do
     t.integer "buyer"
     t.integer "saler", null: false
     t.text "description", null: false
-    t.string "ship_place", null: false
+    t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
