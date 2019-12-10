@@ -1,3 +1,25 @@
-= form_with url: add_buy_id_item_path(@item), method: :patch ,local: true do |f|
-  = f.submit "トップページへ",class:"new-start"
+%header.signup-header-new
+  .signup-header-new__containar
+    %h1.signup-header-new-panel
+      .signup-header-new-icon
+        = image_tag "/assets/SVG/fmarket_logo_red.svg", alt: "Mercari",class: "sign-up-new-img"
 
+.purchase-container
+  購入が完了しました
+  = form_with url: add_buy_id_item_path(@item), method: :patch ,local: true do |f|
+    = f.submit "トップページへ",class:"new-start"
+
+%footer.user-footer
+  %nav
+    %ul.user-footer-container
+      %li.user-footer-menu
+        .user-footer-menu__1 プライバシーポリシー 
+      %li.user-footer-menu
+        .user-footer-menu__1 Fmarket利用規約
+      %li.user-footer-menu
+        .user-footer-menu__1 特定商品に関する表記 
+  .user-footer__link
+    = link_to root_path do
+      = image_tag "/assets/SVG/logo_gray.svg", alt: "Mercari", class:".user-footer-img", width: "80", height: "60"  
+  %h1.user-footer__end
+    %small.user-footer__year ©︎2019 Fmarket
