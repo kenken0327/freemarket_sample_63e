@@ -1,5 +1,6 @@
 ja:
   activerecord:
+    models:
     attributes:
             user:
               nickname: ニックネーム
@@ -15,8 +16,8 @@ ja:
               date_id: 誕生日
               tell_no: 電話番号
             item:
-              name: "名前"
-              text: "説明文"
+              name: 商品名
+              text: 説明文
             address:
               post_no: 郵便番号
               town: 市区町村
