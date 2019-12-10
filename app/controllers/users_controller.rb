@@ -10,6 +10,11 @@ class UsersController < ApplicationController
   def show
   end
 
+  def show_buy
+    @items = Item.where(buyer: current_user.id)
+  end
+
+
   def edit
   end
 

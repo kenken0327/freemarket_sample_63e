@@ -11,9 +11,9 @@ ja:
               first_name: 名前
               last_kana: カナ（名字）
               first_kana: カナ（名前）
-              year_id: 誕生日年
-              month_id: 誕生日月
-              date_id: 誕生日
+              year_id: ""
+              month_id: ""
+              date_id: ""
               tell_no: 電話番号
             item:
               name: 商品名

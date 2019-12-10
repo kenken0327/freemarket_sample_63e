@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     member do
       patch 'add_buy_id'
     end
+    collection do
+      get 'show_buy'
+    end
   end
   resources :regisrations ,only:[:index,:show,:create] do
     collection do

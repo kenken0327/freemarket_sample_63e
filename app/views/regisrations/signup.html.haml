@@ -55,10 +55,6 @@
               = render partial: 'shared/error_messages', locals: {user: @user, column: "password"}
             .signup-panel__inherit__form-group__end__password
               .signup-panel__inherit__form-group__end__password__checkbox
-                %input.checkbox
-                %i.icon-checkbox
-                %label.passview
-                  パスワードを表示する
 
             .signup-panel__inherit__form-group__identification
               %h3.ident
@@ -122,8 +118,7 @@
                 「次へ進む」のボタンを押すことにより、
                 %a.signup-panel__inherit__form-group__description__text__link{href: ''}利用規約
                 に同意したものとみなします
-            %button.next-current_page{type:"submit"}
-              次へ進む
+              
             
 
             .signup-panel__inherit__form-group__text

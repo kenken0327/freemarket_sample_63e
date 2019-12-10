@@ -29,25 +29,6 @@
 
       .signup-panel-5__content
         .signup-panel-5__inherit
-          .signup-panel-5__inherit__form-group__center
-            %label.new-user-create
-              お名前
-            %span.require-5
-              必須
-            %input.signup-panel-5__inherit__input-default{placeholder: current_user.last_name}
-          .signup-panel-5__inherit__form-group__center
-            %input.signup-panel-5__inherit__input-default{placeholder: current_user.first_name}
-
-          .signup-panel-5__inherit__form-group__end
-            %label.new-user-create
-              お名前カナ
-            %span.require-5
-              必須
-            %input.signup-panel-5__inherit__input-default{placeholder: current_user.last_kana}
-
-          .signup-panel-5__inherit__form-group__center
-            %input.signup-panel-5__inherit__input-default{placeholder: current_user.first_kana}
-
           .signup-panel-5__inherit__form-group__end
             = form_for @address,url: address_create_regisrations_path, method: :post do |f|
               %label.new-user-create
@@ -61,7 +42,7 @@
               %span.require-5
                 必須
               = f.collection_select :prefecture_id, Prefecture.all, :id, :name,class:"signup-panel-5__inherit__input-default"
-              = render partial: 'shared/error_messages', locals: {user: @address, column: "prefecture_id"}
+               = render partial: 'shared/error_messages', locals: {user: @address, column: "prefecture_id"}
               %label.new-user-create
                 市町村区
               %span.require-5
