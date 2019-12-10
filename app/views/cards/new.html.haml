@@ -23,25 +23,27 @@
           .progress-status5-4
 
 .main__credit-container
-  .credit-update__label
-    クレジットカード情報入力
-  .card-form
-    .card-form__box
-      = form_tag(cards_path, method: :post, id: 'charge-form', name: "inputForm") do |f|
-        .card-form__box__number
-          %label{class:'box-group--label', for: 'card_number'} カード番号
-          %span.input-require
-            必須
-          = text_field_tag "number", "", class: 'card-number--input', type: "text", id: 'card_number', maxlength: "16", placeholder: "半角数字のみ"
-          .registration-error{type: "hidden", value: "必須項目です"}
-        
-        .card-form__box__expire
-          %label.box-group--label 有効期限
-          %span.input-require
-            必須
-          .card-expire
-            .card-expire__select-month
-              %select#exp_month{name: "exp_month", type: "text"}
+  .credit__content
+    %section.chapter__container
+      %h2.chapter__head 支払い方法
+      = form_tag(cards_path, method: :post, id: 'charge-form', name: "inputForm", class: "chapter__container__inner") do |f|
+        .form__main__container
+          .form__content
+            %label{class:'payment__card', for: 'card_number'} カード番号
+            %span.require__form
+              必須
+            = text_field_tag "number", "", class: 'number-input__deafult', type: "text", id: 'card_number', maxlength: "16", placeholder: "半角数字のみ"
+            .registration-error{type: "hidden", value: "必須項目です"}
+            .image-credit
+              = image_tag src="http://manual.estore.co.jp/shared/mg_sozai/card_m_all.gif", size: "300x30"
+          .form__content-top__margin
+            %label.payment__card 有効期限
+            %span.require__form
+              必須
+          .select__box-top__margin
+            .select__box__half
+              %select.select__default#exp_month{name: "exp_month", type: "text"}
+                %option{value: ""} --
                 %option{value: "1"}01
                 %option{value: "2"}02
                 %option{value: "3"}03
@@ -54,10 +56,12 @@
                 %option{value: "10"}10
                 %option{value: "11"}11
                 %option{value: "12"}12
-              %i.card-form-expire-icon
-              %span{class: "month"} 月
-            .card-expire__select-year
-              %select#exp_year{name: "exp_year", type: "text"}
+              .expiration-date-icon
+                %i.fas.fa-angle-down
+            %span{class: "month"} 月
+            .select__box__half-2
+              %select.select__default#exp_year{name: "exp_year", type: "text"}
+                %option{value: ""} --
                 %option{value: "2019"}19
                 %option{value: "2020"}20
                 %option{value: "2021"}21
@@ -69,20 +73,21 @@
                 %option{value: "2027"}27
                 %option{value: "2028"}28
                 %option{value: "2029"}29
-              %i.card-form-expire-icon
-              %span{class:"year"} 年
+              .expiration-date-icon
+                %i.fas.fa-angle-down
+            %span{class:"year"} 年
 
-        .card-form__box__security-code
-          %label.security-code{for: "cvc"} セキュリティーコード
-          %span.input-require
-            必須
-          = text_field_tag "cvc", "", class: 'cvc', type: "text", id: "cvc", maxlength: "4" ,placeholder: "カード背面４桁もしくは３桁の番号"
-          .question-form
-            %span.single__code ?
-            %span.single__code__text
-              カード裏面の番号とは？
-        #card_token
-        = submit_tag "追加する", class: "next-current_page-credit", id: "token_submit", type: 'button'
+          .form__content-top__margin-2
+            %label.security-code{for: "cvc"} セキュリティーコード
+            %span.require__form
+              必須
+            = text_field_tag "cvc", "", class: 'cvc', type: "text", id: "cvc", maxlength: "4" ,placeholder: "カード背面４桁もしくは３桁の番号"
+            .single__code
+              = link_to "#",class: "single__code__text" do
+                %i.fas.fa-question-circle
+                %span カード裏面の番号とは？
+          #card_token
+          = submit_tag "次へ進む", class: "next-current_page-credit", id: "token_submit", type: 'button'
 
 %footer.user-footer
   %nav
@@ -96,8 +101,8 @@
   .user-footer__link
     = link_to root_path do
       = image_tag "/assets/SVG/logo_gray.svg", alt: "Mercari", class:".user-footer-img", width: "80", height: "60"  
-    %p.user-footer__end
-      %small.user-footer__year ©︎2019 Fmarket
+  %h1.user-footer__end
+    %small.user-footer__year ©︎2019 Fmarket
       
       
      

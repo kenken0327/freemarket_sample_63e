@@ -1,4 +1,4 @@
-@mixin status_bar-5($width,$color:#ccc) {
+@mixin status_bar($width,$color:#ccc) {
   position: absolute;
   bottom: 5px;
   z-index: -1;
@@ -8,7 +8,7 @@
   height: 2px;
   background:$color;
  }
- @mixin status-5($color:#ccc){
+ @mixin status($color:#ccc){
   width: 12px;
   height: 12px;
   margin: 8px auto 0;
@@ -16,7 +16,7 @@
   background:$color
 }
 
-.signup-header-5 {
+.signup-header{
   height: 128px;
   text-align: center;
   background-color: rgb(245, 245, 245);
@@ -37,6 +37,7 @@
       }
     }
 
+
     .signup-bar-5 {
       border: 0;
       padding: 40px 0 0 24px;
@@ -56,7 +57,7 @@
           position: relative;
           min-width: 60px;
           .progress-status5-5{
-            @include status-5(#ea352d)
+            @include status(#ea352d)
           }
         }
 
@@ -73,36 +74,37 @@
           min-width: 60px;
 
           .progress-status1-5{
-            @include status-5(#ea352d);
+            @include status(#ea352d);
           }
           .progress-status2-5{
-            @include status-5(#ea352d);
+            @include status(#ea352d);
           }
           .progress-status3-5{
-            @include status-5(#ea352d);
+            @include status(#ea352d);
           }
           .progress-status4-5{
-            @include status-5(#ea352d);
+            @include status(#ea352d);
           }
           
 
           .progress-status1-5::before{
-            @include status_bar-5(180%,#ea352d)
+            @include status_bar(180%,#ea352d)
           }
           .progress-status2-5::before{
-            @include status_bar-5(175%,#ea352d)
+            @include status_bar(175%,#ea352d)
           }
           .progress-status3-5::before{
-            @include status_bar-5(125%,#ea352d)
+            @include status_bar(125%,#ea352d)
           }
           .progress-status4-5::before{
-            @include status_bar-5(166%,#ea352d)
+            @include status_bar(166%,#ea352d)
           }
         }
       }
     }
   }
 }
+
 
 .sing-up-finish-main{
   background: rgb(245, 245, 245);
@@ -160,7 +162,6 @@
 .user-footer {
   background: rgb(245, 245, 245);
   text-align: center;
-  
   height: 220px;
   margin: 0 auto;
   padding: 40px 0;
@@ -182,6 +183,9 @@
     margin: 0;
   }
   .user-footer__link {
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
     .user-footer-img{
       width: 80px;
       height: 65px;
@@ -189,8 +193,10 @@
     }
   }
   .user-footer__end{
-    margin: 8px 0 0;
-
+    margin: auto;
+    padding: 0;
+    width: 456px;
+    height: 14px;
     .user-footer__year{
       font-size: 13px;
     }

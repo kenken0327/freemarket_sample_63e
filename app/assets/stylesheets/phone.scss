@@ -16,20 +16,20 @@
   background:$color
 }
 
-.signup-header {
+.signup-header{
   height: 128px;
   text-align: center;
   background-color: rgb(245, 245, 245);
   
   &__containar {
     display: inline-flex;
-    h1 {
+    &__title{
       padding: 40px 35px 0;
-      a {
+      &__img{
         width: 185px;
         height: 49px;
         line-height: 49px;
-        img {
+        .sign-up_img{
           width: 185px;
           height: 49px;
           margin: 0 auto;
@@ -37,56 +37,58 @@
       }
     }
 
-    .signup-bar {
+    .signup-bar-1 {
       border: 0;
       padding: 40px 0 0 24px;
 
-      ol {
+      &__to{
         display: inline-flex;
-        .li--active{
-          font-weight: 600;
+        .li--active-1{
           color: #ea352d;
-          }
-
-        li {
           position: relative;
+          margin: 0 40px 0 0;
           z-index: 1;
           display: inline-block;
-          min-width: 40px;
-          margin: 0 5% 0 0;
           font-size: 12px;
-          color: #888;
-          margin: 0 40px 0 0;
-          position: relative;
           min-width: 60px;
-          font-size: 12px;
-
-          .progress-status1{
+          font-weight: 600;
+          .progress-status2-1{
             @include status(#ea352d);
           }
-          .progress-status2{
-            @include status(#ea352d)
-          }
-          .progress-status3{
-            @include status
-          }
-          .progress-status4{
-            @include status
-          }
-          .progress-status5{
-            @include status
-          }
-
-          .progress-status1::before{
-            @include status_bar(180%,#ea352d)
-          }
-          .progress-status2::before{
+          .progress-status2-1::before{
             @include status_bar(175%)
           }
-          .progress-status3::before{
+        }
+
+          .signup-bar-1__to-do{
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            min-width: 40px;
+            font-size: 12px;
+            color: #888;
+            margin: 0 40px 0 0;
+            position: relative;
+
+          .progress-status1-1{
+            @include status(#ea352d);
+          }
+          .progress-status3-1{
+            @include status
+          }
+          .progress-status4-1{
+            @include status
+          }
+          .progress-status5-1{
+            @include status
+          }
+          .progress-status1-1::before{
+            @include status_bar(210%,#ea352d)
+          }
+          .progress-status3-1::before{
             @include status_bar(125%)
           }
-          .progress-status4::before{
+          .progress-status4-1::before{
             @include status_bar(166%)
           }
         }
@@ -197,38 +199,42 @@
 .user-footer {
   background: rgb(245, 245, 245);
   text-align: center;
-  
   height: 220px;
   margin: 0 auto;
   padding: 40px 0;
-  ul {
+  .user-footer-container {
     list-style: none;
   }
-  li {
+  .user-footer-menu{
     display: inline-block;
     margin: 0 0 0 16px;
     font-size: 12px;
-    a {
+    &__1{
       text-decoration: none;
       color: black;
     }
   }
 
-  & li:first-child {
+  li:first-child {
     display: inline-block;
     margin: 0;
   }
-  a {
-    img {
+  .user-footer__link {
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
+    .user-footer-img{
       width: 80px;
       height: 65px;
       margin: 40px auto 0;
     }
   }
-  p {
-    margin: 8px 0 0;
-
-    small {
+  .user-footer__end{
+    margin: auto;
+    padding: 0;
+    width: 456px;
+    height: 14px;
+    .user-footer__year{
       font-size: 13px;
     }
   }
