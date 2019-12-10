@@ -22,11 +22,11 @@
         出品した商品
       %ul.listing-tab
         %li.active
-          =link_to "#" do
+          =link_to users_path do
             %h3
               出品中
         %li
-          =link_to "#" do
+          =link_to show_buy_users_path do
             %h3
               購入済
         %li
@@ -80,7 +80,7 @@
             出品する
             = icon "fas", "chevron-right", class: "chevron-right"
         %li
-          =link_to "#", class: "list-item__active" do
+          =link_to users_path, class: "list-item__active" do
             出品した商品-出品中
             = icon "fas", "chevron-right", class: "chevron-right"
         %li
@@ -92,8 +92,8 @@
             出品した商品-売却済
             = icon "fas", "chevron-right", class: "chevron-right"
         %li
-          =link_to "#", class: "list-item" do
-            購入した商品-取引中
+          =link_to show_buy_users_path, class: "list-item" do
+            購入した商品-取引済
             = icon "fas", "chevron-right", class: "chevron-right"
         %li
           =link_to "#", class: "list-item" do
