@@ -18,10 +18,6 @@ class User < ApplicationRecord
   validates :first_name, presence: true, format: {with: /\A[一-龥]+\z/}
   validates :last_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/}
   validates :first_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/}
-  validates :year_id, presence: true
-  validates :month_id, presence: true
-  validates :date_id, presence: true
+  validates :year_id,:month_id,:date_id,presence: {message:"選択して下さい"}
   validates :tell_no, presence: true, format: {with: /\A\d{3}[-]\d{4}[-]\d{4}\z/}
-
-
 end
