@@ -28,6 +28,18 @@ end
     get :create_finish
     expect(response).to render_template :create_finish
     end
-  end  
+  end 
+  describe 'POTS #create' do
+  let(:params) {{user: attributes_for(:user) }}
+
+   subject {
+     post :create,
+     params: params
+   }
+  it "ユーザ登録ができるか" do
+    binding.pry
+    expect{ subject }.to change(User, :count).by(1)
+    end
+  end
 end
 
