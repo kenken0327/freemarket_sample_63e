@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     @items = Item.where(buyer: current_user.id)
   end
 
-
   def edit
   end
 
