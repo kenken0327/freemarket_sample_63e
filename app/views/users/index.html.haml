@@ -8,12 +8,14 @@
           Fマーケット
     = icon "fas", "chevron-right"
     %li{itemscope: true, itemtype: "#"}
-      %span{itemprop: "title"}
-        マイページ
+      =link_to users_path, itemprop: "url" do
+        %span{itemprop: "title"}
+          マイページ
     = icon "fas", "chevron-right"
     %li{itemscope: true, itemtype: "#"}
-      %span{itemprop: "title"}
-        出品中した商品-出品中
+      =link_to show_buy_users_path,itemprop: "url" do
+        %span{itemprop: "title"}
+          出品中した商品-出品中
 
 %main.major
   .r-content
