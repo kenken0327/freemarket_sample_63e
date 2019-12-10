@@ -69,7 +69,6 @@ class RegisrationsController < ApplicationController
       date_id: session[:date_id],
       tell_no: user_params[:tell_no], 
     )
-      @user.valid? 
     if @user.errors.messages.blank? && @user.errors.details.blank?
         if @user.save
         sign_in User.find(@user.id) unless user_signed_in?

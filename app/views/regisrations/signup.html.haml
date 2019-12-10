@@ -32,31 +32,27 @@
       .signup-panel__content
         .signup-panel__inherit
           = form_for @user, url: signup_validates_regisrations_path, method: :post do |f|
-            - if @user.errors.any?
-              %h2= "#{@user.errors.full_messages.count}"
-              - @user.errors.full_messages.each do |message|
-                %li= message
             .signup-panel__inherit__form-group
               %label.nickname
                 ニックネーム
               %span.require
                 必須
               = f.text_field :nickname,placeholder: "例） フリマ太郎",class:"signup-panel__inherit__input-default"
-              
+              = render partial: 'shared/error_messages', locals: {user: @user, column: "nickname"}
             .signup-panel__inherit__form-group__center
               %label.email
                 メールアドレス
               %span.require
                 必須
               = f.text_field :email, placeholder: "PC・携帯どちらでも可",class:"signup-panel__inherit__input-default"
-
+              = render partial: 'shared/error_messages', locals: {user: @user, column: "email"}
             .signup-panel__inherit__form-group__end
               %label.password
                 パスワード
               %span.require
                 必須
               = f.text_field :password,placeholder: "7文字以上",class:"signup-panel__inherit__input-default"
-
+              = render partial: 'shared/error_messages', locals: {user: @user, column: "password"}
             .signup-panel__inherit__form-group__end__password
               .signup-panel__inherit__form-group__end__password__checkbox
                 %input.checkbox
@@ -77,8 +73,9 @@
                 %span.require
                   必須
             = f.text_field :last_name,placeholder: "例）山田" ,class:"signup-panel__inherit__input-default__main__1"
+            = render partial: 'shared/error_messages', locals: {user: @user, column: "last_name"}
             = f.text_field :first_name,placeholder: "例）彩",class:"signup-panel__inherit__input-default__main__2"
-
+            = render partial: 'shared/error_messages', locals: {user: @user, column: "first_name"}
             .signup-panel__inherit__form-group__name
               .signup-panel__inherit__form-group__name__detail
                 %label.name
@@ -86,7 +83,9 @@
                 %span.require
                   必須
             = f.text_field :last_kana,placeholder: "例）ヤマダ",class:"signup-panel__inherit__input-default__main__3"
+            = render partial: 'shared/error_messages', locals: {user: @user, column: "last_kana"}
             = f.text_field :first_kana,placeholder: "例）アヤ",class:"signup-panel__inherit__input-default__main__4"
+            = render partial: 'shared/error_messages', locals: {user: @user, column: "first_kana"}
 
             .signup-panel__inherit__form-group__name
               .signup-panel__inherit__form-group__name__detail
@@ -100,26 +99,23 @@
                   🔻
                 = f.collection_select :year_id, Year.all, :id,:name, prompt: "---",class:"select"
               年
-
+              = render partial: 'shared/error_messages', locals: {user: @user, column: "year_id"}
               .signup-panel__inherit__form-group__birthday__2
                 .birthday__icon
                   🔻
                 = f.collection_select :month_id, Month.all, :id,:name, prompt: "---",class:"select"
               月
+              = render partial: 'shared/error_messages', locals: {user: @user, column: "month_id"}
               .signup-panel__inherit__form-group__birthday__3
                 .birthday__icon
                   🔻
                 = f.collection_select :date_id, Day.all, :id, :name, prompt: "---",class:"select"
               日
+              = render partial: 'shared/error_messages', locals: {user: @user, column: "date_id"}
               = f.submit"次へ進む",class:"next-current_page"
 
           %p.caution
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-          .not-lobot
-            %input.not-lobot__hidden
-            .not-lobot__form-group
-              .not-lobo__form-group__main
-              -# %input.not-lobot__hidden2
 
             .signup-panel__inherit__form-group__description
               %p.signup-panel__inherit__form-group__description__text
