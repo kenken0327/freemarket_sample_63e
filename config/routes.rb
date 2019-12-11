@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   root to: "items#index"
 
   resources :users ,only: [:index,:show,:edit,:update]
-  resources :items 
+  resources :items do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
   resources :regisrations ,only:[:index,:show,:create] do
     collection do
       get 'login'

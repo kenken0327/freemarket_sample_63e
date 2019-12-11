@@ -2,6 +2,7 @@
 %head
   %script{ src: "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
   %script{ src: "/js/item.js"}
+  %script{ src: "/js/category.js"}
 = render '/shared/user_header'
 
 %main.main
@@ -61,7 +62,7 @@
                     必須
                 %div
                   .main-container__sell__inner__clearfix__form__box1__select
-                    = f.collection_select :category_id, @parents, :id, :name, {prompt: "---"}, {class: "main-container__sell__inner__clearfix__form__box1__select__1"}
+                    =f.collection_select :category_id, @category_parent_array, :id, {}, class: "main-container__sell__inner__clearfix__form__box1__select__1", id: 'parent_category'
                     %i.fas.fa-angle-down
                     - if @item.errors.any?
                       %ul

@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function(){
+$(document).on('turbolinks:load', function(){
   // 金額入力
   $('#item_price').on("keyup", function(e) {
       var price = $(this).val();
