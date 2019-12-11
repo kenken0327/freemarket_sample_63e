@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       patch 'add_buy_id'
     end
   end
-  resources :regisrations ,only:[:index,:show,:create] do
+  resources :regisrations ,only:[:show,:create] do
     collection do
       get 'login'
       get 'signup'
