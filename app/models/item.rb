@@ -30,6 +30,15 @@ class Item < ApplicationRecord
   enum ship_date:{"1~2日で発送":1,
                   "2~3日で発送":2,
                   "4~7日で発送":3}
+
+  def self.search(search)
+    if search 
+      Item.where('name LIKE (?)', "%#{search}%").where(buyer: nil)
+    else
+      Item.all
+    end
+  end
+
   validates :name, presence: true
   validates :image, presence: { message: "画像がありません" }
   validates :description, length: { in: 1..1000}, presence: true
