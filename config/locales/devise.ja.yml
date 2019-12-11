@@ -16,8 +16,17 @@ ja:
               date_id: ""
               tell_no: 電話番号
             item:
+              image: 画像
               name: 商品名
               text: 説明文
+              category_id: カテゴリー
+              condition: 商品の状態
+              description: 商品の説明
+              ship_price: 配送料の負担
+              ship_way: 配送方法
+              prefecture_id : 配送元の地域
+              ship_date : 配送までの日数
+              price: ""
             address:
               post_no: 郵便番号
               town: 市区町村
