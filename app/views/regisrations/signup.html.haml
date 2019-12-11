@@ -1,53 +1,54 @@
-%header.signup-header
-  .signup-header__containar
-    %h1.signup-header__containar__title
-      .signup-header__containar__title__img
-        = image_tag "/assets/SVG/fmarket_logo_red.svg", alt: "Mercari",class: "sign-up_img"
+.single_container 
+  %header.signup-header
+    .signup-header__containar
+      %h1.signup-header__containar__title
+        .signup-header__containar__title__img
+          = image_tag "/assets/SVG/fmarket_logo_red.svg", alt: "Mercari",class: "sign-up_img"
 
 
-    %nav.signup-bar-0
-      %ol.signup-bar-0__to
-        %li.li--active-0
-          会員情報
-          .progress-status1-0
-        %li.signup-bar-0__to-do
-          電話番号認証
-          .progress-status2-0
-        %li.signup-bar-0__to-do
-          お届け先住所入力
-          .progress-status3-0
-        %li.signup-bar-0__to-do
-          支払い方法
-          .progress-status4-0
-        %li.signup-bar-0__to-do
-          完了
-          .progress-status5-0
+      %nav.signup-bar-0
+        %ol.signup-bar-0__to
+          %li.li--active-0
+            会員情報
+            .progress-status1-0
+          %li.signup-bar-0__to-do
+            電話番号認証
+            .progress-status2-0
+          %li.signup-bar-0__to-do
+            お届け先住所入力
+            .progress-status3-0
+          %li.signup-bar-0__to-do
+            支払い方法
+            .progress-status4-0
+          %li.signup-bar-0__to-do
+            完了
+            .progress-status5-0
 
   .single-container
     .main
-      %p.signup-panel__title 会員情報登録
+      %p.signup__title 会員情報登録
       = form_for @user, url: signup_validates_regisrations_path, method: :post do |f|
         .l-single-container
           .l-single-container__nickname
-            %label.nickname
+            %label
               ニックネーム
             %span.require
               必須
-            = f.text_field :nickname,placeholder: "例） フリマ太郎",class:"text_input"
+            = f.text_field :nickname,placeholder: "例） フリマ太郎",class:"text__input"
             = render partial: 'shared/error_messages', locals: {user: @user, column: "nickname"}
           .l-single-container__form
             %label.email
               メールアドレス
             %span.require
               必須
-            = f.text_field :email, placeholder: "PC・携帯どちらでも可",class:"text_input"
+            = f.text_field :email, placeholder: "PC・携帯どちらでも可",class:"text__input"
             = render partial: 'shared/error_messages', locals: {user: @user, column: "email"}
           .l-single-container__form
             %label.password
               パスワード
             %span.require
               必須
-            = f.text_field :password,placeholder: "7文字以上",class:"signup-panel__inherit__input-default"
+            = f.text_field :password,placeholder: "7文字以上",class:"text__input"
             = render partial: 'shared/error_messages', locals: {user: @user, column: "password"}
 
             .signup-panel__inherit__form-group__identification
@@ -77,42 +78,41 @@
             = render partial: 'shared/error_messages', locals: {user: @user, column: "first_kana"}
 
           .l-single-container__birthday
-            %label.name
-              生年月日
-            %span.require
-              必須
-          .l-single-container__birthday__select
-            .select__box__half-3
+            .l-single-container__birthday__select
+              %label
+                生年月日
+              %span.require
+                必須
               = f.collection_select :year_id, Year.all, :id,:name,{prompt: "---"},{class:"select__default-2"}
               .expiration-date-icon-1
                 %i.fas.fa-angle-down
               年
               = render partial: 'shared/error_messages', locals: {user: @user, column: "year_id"}
-          .l-single-container__birthday__select
-            = f.collection_select :month_id, Month.all, :id,:name, {prompt: "---"},{class:"select__default-2"}
-            .expiration-date-icon-1
-              %i.fas.fa-angle-down
-            月
-            = render partial: 'shared/error_messages', locals: {user: @user, column: "month_id"}
-          .l-single-container__birthday__select
-            = f.collection_select :date_id, Day.all, :id, :name, {prompt: "---"},{class:"select__default-2"}
-            .expiration-date-icon-1
-              %i.fas.fa-angle-down
-            日
-            = render partial: 'shared/error_messages', locals: {user: @user, column: "date_id"}
-            = f.submit"次へ進む",class:"next-current_page"
+            .l-single-container__birthday__select
+              = f.collection_select :month_id, Month.all, :id,:name, {prompt: "---"},{class:"select__default-2"}
+              .expiration-date-icon-1
+                %i.fas.fa-angle-down
+              月
+              = render partial: 'shared/error_messages', locals: {user: @user, column: "month_id"}
+            .l-single-container__birthday__select
+              = f.collection_select :date_id, Day.all, :id, :name, {prompt: "---"},{class:"select__default-2"}
+              .expiration-date-icon-1
+                %i.fas.fa-angle-down
+              日
+              = render partial: 'shared/error_messages', locals: {user: @user, column: "date_id"}
+              = f.submit"次へ進む",class:"next-current_page"
 
-%footer.user-footer
-  %nav
-    %ul.user-footer-container
-      %li.user-footer-menu
-        .user-footer-menu__1 プライバシーポリシー 
-      %li.user-footer-menu
-        .user-footer-menu__1 Fmarket利用規約
-      %li.user-footer-menu
-        .user-footer-menu__1 特定商品に関する表記 
-  .user-footer__link
-    = link_to root_path do
-      = image_tag "/assets/SVG/logo_gray.svg", alt: "Mercari", class:".user-footer-img", width: "80", height: "60"  
-  %h1.user-footer__end
-    %small.user-footer__year ©︎2019 Fmarket
+  %footer.user-footer
+    %nav
+      %ul.user-footer-container
+        %li.user-footer-menu
+          .user-footer-menu__1 プライバシーポリシー 
+        %li.user-footer-menu
+          .user-footer-menu__1 Fmarket利用規約
+        %li.user-footer-menu
+          .user-footer-menu__1 特定商品に関する表記 
+    .user-footer__link
+      = link_to root_path do
+        = image_tag "/assets/SVG/logo_gray.svg", alt: "Mercari", class:".user-footer-img", width: "80", height: "60"  
+    %h1.user-footer__end
+      %small.user-footer__year ©︎2019 Fmarket

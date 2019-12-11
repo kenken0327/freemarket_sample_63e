@@ -115,7 +115,7 @@
   }
 }
 
-.signle-container {
+.single-container {
   display: block;
   .main {
     width: 700px;
@@ -143,9 +143,10 @@
         &__birthday{
           margin-top:50px;
           &__select{
-            margin-top:20px;
+            margin-top:px;
             background-color: #fff;
             position:relative;
+            
             #user_year_id{
               width:100%;
               position: relative;
@@ -190,10 +191,6 @@
                 }
                }
               }
-              
-
-       
-        
           .text__input{
             padding: 10px 16px 8px;
             border-radius: 4px;
