@@ -76,6 +76,7 @@
               生年月日
             %span.require
               必須
+            🔻
             .l-single-container__birthday__select
               = f.collection_select :year_id, Year.all, :id,:name, prompt: "---",class:"select"
             年
