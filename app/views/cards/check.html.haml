@@ -14,9 +14,10 @@
           %h3.buy-item-content
             = image_tag @item.image.url,size: "64x64"
             %p.buy-item-name
-              夏服・お出かけセット
+              =@item.name
           = form_with(class: "form-buy-item") do
             %p.buy-item-price
+              ¥
               =@item.price
               %span.buy-item-postage
                 送料込み
@@ -27,9 +28,10 @@
               .buy-item-method-payment
                 .buy-item-method-payment__content
                   .buy-item-method-payment__content__credit
-                    支払い金額
+                    お支払い金額
                 .buy-item-method-payment__content__credit__number
                   %span.payment-credit
+                    ¥
                     =@item.price
               - if @default_card_information.blank?
                 %br /

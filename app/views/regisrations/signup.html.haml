@@ -69,9 +69,9 @@
                 %span.require
                   必須
             = f.text_field :last_name,placeholder: "例）山田" ,class:"signup-panel__inherit__input-default__main__1"
-            = render partial: 'shared/error_messages', locals: {user: @user, column: "last_name"}
+              = render partial: 'shared/error_messages', locals: {user: @user, column: "last_name"}
             = f.text_field :first_name,placeholder: "例）彩",class:"signup-panel__inherit__input-default__main__2"
-            = render partial: 'shared/error_messages', locals: {user: @user, column: "first_name"}
+              = render partial: 'shared/error_messages', locals: {user: @user, column: "first_name"}
             .signup-panel__inherit__form-group__name
               .signup-panel__inherit__form-group__name__detail
                 %label.name
