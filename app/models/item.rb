@@ -31,7 +31,6 @@ class Item < ApplicationRecord
                   "2~3日で発送":2,
                   "4~7日で発送":3}
 
-  validates :saler, presence: true
   validates :name, presence: true
   validates :image, presence: { message: "画像がありません" }
   validates :description, length: { in: 1..1000}, presence: true
