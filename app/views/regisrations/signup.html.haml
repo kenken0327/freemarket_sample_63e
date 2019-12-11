@@ -23,35 +23,32 @@
           完了
           .progress-status5-0
 
-.container-login-signin
-  .main
-    .signup-panel
+  .single-container
+    .main
       %p.signup-panel__title 会員情報登録
-
-      .signup-panel__content
-        .signup-panel__inherit
-          = form_for @user, url: signup_validates_regisrations_path, method: :post do |f|
-            .signup-panel__inherit__form-group
-              %label.nickname
-                ニックネーム
-              %span.require
-                必須
-              = f.text_field :nickname,placeholder: "例） フリマ太郎",class:"signup-panel__inherit__input-default"
-              = render partial: 'shared/error_messages', locals: {user: @user, column: "nickname"}
-            .signup-panel__inherit__form-group__center
-              %label.email
-                メールアドレス
-              %span.require
-                必須
-              = f.text_field :email, placeholder: "PC・携帯どちらでも可",class:"signup-panel__inherit__input-default"
-              = render partial: 'shared/error_messages', locals: {user: @user, column: "email"}
-            .signup-panel__inherit__form-group__end
-              %label.password
-                パスワード
-              %span.require
-                必須
-              = f.text_field :password,placeholder: "7文字以上",class:"signup-panel__inherit__input-default"
-              = render partial: 'shared/error_messages', locals: {user: @user, column: "password"}
+      = form_for @user, url: signup_validates_regisrations_path, method: :post do |f|
+        .l-single-container
+          .l-single-container__nickname
+            %label.nickname
+              ニックネーム
+            %span.require
+              必須
+            = f.text_field :nickname,placeholder: "例） フリマ太郎",class:"text_input"
+            = render partial: 'shared/error_messages', locals: {user: @user, column: "nickname"}
+          .l-single-container__form
+            %label.email
+              メールアドレス
+            %span.require
+              必須
+            = f.text_field :email, placeholder: "PC・携帯どちらでも可",class:"text_input"
+            = render partial: 'shared/error_messages', locals: {user: @user, column: "email"}
+          .l-single-container__form
+            %label.password
+              パスワード
+            %span.require
+              必須
+            = f.text_field :password,placeholder: "7文字以上",class:"signup-panel__inherit__input-default"
+            = render partial: 'shared/error_messages', locals: {user: @user, column: "password"}
 
             .signup-panel__inherit__form-group__identification
               %h3.ident
@@ -60,58 +57,50 @@
                 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
 
             
-            .signup-panel__inherit__form-group__center
-              %label.name
-                お名前（全角）
-              %span.require
-                必須
-              = f.text_field :last_name,placeholder: "例）山田" ,class:"signup-panel__inherit__input-default__main__1"
-              = render partial: 'shared/error_messages', locals: {user: @user, column: "last_name"}
-              = f.text_field :first_name,placeholder: "例）彩",class:"signup-panel__inherit__input-default__main__2"
-              = render partial: 'shared/error_messages', locals: {user: @user, column: "first_name"}
-            .signup-panel__inherit__form-group__center
-              %label.name
-                お名前カナ（全角）
-              %span.require
-                必須
-              = f.text_field :last_kana,placeholder: "例）ヤマダ",class:"signup-panel__inherit__input-default__main__1"
-              = render partial: 'shared/error_messages', locals: {user: @user, column: "last_kana"}
-              = f.text_field :first_kana,placeholder: "例）アヤ",class:"signup-panel__inherit__input-default__main__2"
-              = render partial: 'shared/error_messages', locals: {user: @user, column: "first_kana"}
+          .l-single-container__form
+            %label.name
+              お名前（全角）
+            %span.require
+              必須
+            = f.text_field :last_name,placeholder: "例）山田" ,class:"text__input"
+            = render partial: 'shared/error_messages', locals: {user: @user, column: "last_name"}
+            = f.text_field :first_name,placeholder: "例）彩",class:"text__input"
+            = render partial: 'shared/error_messages', locals: {user: @user, column: "first_name"}
+          .l-single-container__form
+            %label.name
+              お名前カナ（全角）
+            %span.require
+              必須
+            = f.text_field :last_kana,placeholder: "例）ヤマダ",class:"text__input"
+            = render partial: 'shared/error_messages', locals: {user: @user, column: "last_kana"}
+            = f.text_field :first_kana,placeholder: "例）アヤ",class:"text__input"
+            = render partial: 'shared/error_messages', locals: {user: @user, column: "first_kana"}
 
-            .signup-panel__inherit__form-group__name
-              .signup-panel__inherit__form-group__name__detail
-                %label.name
-                  生年月日
-                %span.require
-                  必須
-            .signup-panel__inherit__form-group__birthday
-              .select__box__half-3
-                = f.collection_select :year_id, Year.all, :id,:name,{prompt: "---"},{class:"select__default-2"}
-                .expiration-date-icon-1
-                  %i.fas.fa-angle-down
+          .l-single-container__birthday
+            %label.name
+              生年月日
+            %span.require
+              必須
+          .l-single-container__birthday__select
+            .select__box__half-3
+              = f.collection_select :year_id, Year.all, :id,:name,{prompt: "---"},{class:"select__default-2"}
+              .expiration-date-icon-1
+                %i.fas.fa-angle-down
               年
               = render partial: 'shared/error_messages', locals: {user: @user, column: "year_id"}
-              .select__box__half-3
-                = f.collection_select :month_id, Month.all, :id,:name, {prompt: "---"},{class:"select__default-2"}
-                .expiration-date-icon-1
-                  %i.fas.fa-angle-down
-              月
-              = render partial: 'shared/error_messages', locals: {user: @user, column: "month_id"}
-              .select__box__half-3
-                = f.collection_select :date_id, Day.all, :id, :name, {prompt: "---"},{class:"select__default-2"}
-                .expiration-date-icon-1
-                  %i.fas.fa-angle-down
-              日
-              = render partial: 'shared/error_messages', locals: {user: @user, column: "date_id"}
+          .l-single-container__birthday__select
+            = f.collection_select :month_id, Month.all, :id,:name, {prompt: "---"},{class:"select__default-2"}
+            .expiration-date-icon-1
+              %i.fas.fa-angle-down
+            月
+            = render partial: 'shared/error_messages', locals: {user: @user, column: "month_id"}
+          .l-single-container__birthday__select
+            = f.collection_select :date_id, Day.all, :id, :name, {prompt: "---"},{class:"select__default-2"}
+            .expiration-date-icon-1
+              %i.fas.fa-angle-down
+            日
+            = render partial: 'shared/error_messages', locals: {user: @user, column: "date_id"}
             = f.submit"次へ進む",class:"next-current_page"
-
-
-
-
-
-
-
 
 %footer.user-footer
   %nav
