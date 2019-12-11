@@ -23,7 +23,7 @@
           .progress-status5-4
 
 .main__credit-container
-  .credit_coneten
+  .credit__content
     %section.chapter__container
       %h2.chapter__head 支払い方法
       = form_tag(cards_path, method: :post, id: 'charge-form', name: "inputForm",class: "chapter__container__inner") do |f|
@@ -75,17 +75,17 @@
                 %i.fas.fa-angle-down
             %span{class:"year"} 年
 
-        .form__content-top__margin-2
-          %label.security-code{for: "cvc"} セキュリティーコード
-          %span.require__form
-            必須
-          = text_field_tag "cvc", "", class: 'cvc', type: "text", id: "cvc", maxlength: "4" ,placeholder: "カード背面４桁もしくは３桁の番号"
-          .single__code
-            = link_to "#",class: "single__code__text" do
-              %i.fas.fa-question-circle
-              %span カード裏面の番号とは？
-        #card_token
-        = submit_tag "追加する", class: "next-current_page-credit", id: "token_submit", type: 'button'
+          .form__content-top__margin-2
+            %label.security-code{for: "cvc"} セキュリティーコード
+            %span.require__form
+              必須
+            = text_field_tag "cvc", "", class: 'cvc', type: "text", id: "cvc", maxlength: "4" ,placeholder: "カード背面４桁もしくは３桁の番号"
+            .single__code
+              = link_to "#",class: "single__code__text" do
+                %i.fas.fa-question-circle
+                %span カード裏面の番号とは？
+          #card_token
+          = submit_tag "次へ進む", class: "next-current_page-credit", id: "token_submit", type: 'button'
 
 %footer.user-footer
   %nav
@@ -99,8 +99,9 @@
   .user-footer__link
     = link_to root_path do
       = image_tag "/assets/SVG/logo_gray.svg", alt: "Mercari", class:".user-footer-img", width: "80", height: "60"  
-    %p.user-footer__end
-      %small.user-footer__year ©︎2019 Fmarket
+  %h1.user-footer__end
+    %small.user-footer__year ©︎2019 Fmarket
+      
       
       
      

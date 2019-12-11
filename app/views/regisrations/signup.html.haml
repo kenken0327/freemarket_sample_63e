@@ -1,28 +1,27 @@
 %header.signup-header
-
   .signup-header__containar
-    %h1
-      %a
-        = image_tag "/images/SVG/fmarket_logo_red.svg", alt: "Mercari"
+    %h1.signup-header__containar__title
+      .signup-header__containar__title__img
+        = image_tag "/assets/SVG/fmarket_logo_red.svg", alt: "Mercari",class: "sign-up_img"
 
 
-    %nav.signup-bar
-      %ol
-        %li.li--active
+    %nav.signup-bar-0
+      %ol.signup-bar-0__to
+        %li.li--active-0
           会員情報
-          .progress-status1
-        %li.li
+          .progress-status1-0
+        %li.signup-bar-0__to-do
           電話番号認証
-          .progress-status2
-        %li
+          .progress-status2-0
+        %li.signup-bar-0__to-do
           お届け先住所入力
-          .progress-status3
-        %li
+          .progress-status3-0
+        %li.signup-bar-0__to-do
           支払い方法
-          .progress-status4
-        %li
+          .progress-status4-0
+        %li.signup-bar-0__to-do
           完了
-          .progress-status5
+          .progress-status5-0
 
 .container-login-signin
   .main
@@ -53,8 +52,6 @@
                 必須
               = f.text_field :password,placeholder: "7文字以上",class:"signup-panel__inherit__input-default"
               = render partial: 'shared/error_messages', locals: {user: @user, column: "password"}
-            .signup-panel__inherit__form-group__end__password
-              .signup-panel__inherit__form-group__end__password__checkbox
 
             .signup-panel__inherit__form-group__identification
               %h3.ident
@@ -62,26 +59,25 @@
               %p.ident-text
                 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
 
-            .signup-panel__inherit__form-group__name
-              .signup-panel__inherit__form-group__name__detail
-                %label.name
-                  お名前（全角）
-                %span.require
-                  必須
-            = f.text_field :last_name,placeholder: "例）山田" ,class:"signup-panel__inherit__input-default__main__1"
-            = render partial: 'shared/error_messages', locals: {user: @user, column: "last_name"}
-            = f.text_field :first_name,placeholder: "例）彩",class:"signup-panel__inherit__input-default__main__2"
-            = render partial: 'shared/error_messages', locals: {user: @user, column: "first_name"}
-            .signup-panel__inherit__form-group__name
-              .signup-panel__inherit__form-group__name__detail
-                %label.name
-                  お名前カナ（全角）
-                %span.require
-                  必須
-            = f.text_field :last_kana,placeholder: "例）ヤマダ",class:"signup-panel__inherit__input-default__main__3"
-            = render partial: 'shared/error_messages', locals: {user: @user, column: "last_kana"}
-            = f.text_field :first_kana,placeholder: "例）アヤ",class:"signup-panel__inherit__input-default__main__4"
-            = render partial: 'shared/error_messages', locals: {user: @user, column: "first_kana"}
+            
+            .signup-panel__inherit__form-group__center
+              %label.name
+                お名前（全角）
+              %span.require
+                必須
+              = f.text_field :last_name,placeholder: "例）山田" ,class:"signup-panel__inherit__input-default__main__1"
+              = render partial: 'shared/error_messages', locals: {user: @user, column: "last_name"}
+              = f.text_field :first_name,placeholder: "例）彩",class:"signup-panel__inherit__input-default__main__2"
+              = render partial: 'shared/error_messages', locals: {user: @user, column: "first_name"}
+            .signup-panel__inherit__form-group__center
+              %label.name
+                お名前カナ（全角）
+              %span.require
+                必須
+              = f.text_field :last_kana,placeholder: "例）ヤマダ",class:"signup-panel__inherit__input-default__main__1"
+              = render partial: 'shared/error_messages', locals: {user: @user, column: "last_kana"}
+              = f.text_field :first_kana,placeholder: "例）アヤ",class:"signup-panel__inherit__input-default__main__2"
+              = render partial: 'shared/error_messages', locals: {user: @user, column: "first_kana"}
 
             .signup-panel__inherit__form-group__name
               .signup-panel__inherit__form-group__name__detail
@@ -90,52 +86,42 @@
                 %span.require
                   必須
             .signup-panel__inherit__form-group__birthday
-              .signup-panel__inherit__form-group__birthday__1
-                .birthday__icon
-                  🔻
-                = f.collection_select :year_id, Year.all, :id,:name, prompt: "---",class:"select"
+              .select__box__half-3
+                = f.collection_select :year_id, Year.all, :id,:name,{prompt: "---"},{class:"select__default-2"}
+                .expiration-date-icon-1
+                  %i.fas.fa-angle-down
               年
               = render partial: 'shared/error_messages', locals: {user: @user, column: "year_id"}
-              .signup-panel__inherit__form-group__birthday__2
-                .birthday__icon
-                  🔻
-                = f.collection_select :month_id, Month.all, :id,:name, prompt: "---",class:"select"
+              .select__box__half-3
+                = f.collection_select :month_id, Month.all, :id,:name, {prompt: "---"},{class:"select__default-2"}
+                .expiration-date-icon-1
+                  %i.fas.fa-angle-down
               月
               = render partial: 'shared/error_messages', locals: {user: @user, column: "month_id"}
-              .signup-panel__inherit__form-group__birthday__3
-                .birthday__icon
-                  🔻
-                = f.collection_select :date_id, Day.all, :id, :name, prompt: "---",class:"select"
+              .select__box__half-3
+                = f.collection_select :date_id, Day.all, :id, :name, {prompt: "---"},{class:"select__default-2"}
+                .expiration-date-icon-1
+                  %i.fas.fa-angle-down
               日
               = render partial: 'shared/error_messages', locals: {user: @user, column: "date_id"}
-              = f.submit"次へ進む",class:"next-current_page"
+            = f.submit"次へ進む",class:"next-current_page"
 
-          %p.caution
-            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-
-            .signup-panel__inherit__form-group__description
-              %p.signup-panel__inherit__form-group__description__text
-                「次へ進む」のボタンを押すことにより、
-                %a.signup-panel__inherit__form-group__description__text__link{href: ''}利用規約
-                に同意したものとみなします
               
             
 
-            .signup-panel__inherit__form-group__text
-              %p.description
-                %a.description__link{href: ''}本人の情報登録について＞
+
 
 %footer.user-footer
   %nav
-    %ul
-      %li
-        %a プライバシーポリシー 
-      %li
-        %a Fmarket利用規約
-      %li
-        %a 特定商品に関する表記 
-  %a
+    %ul.user-footer-container
+      %li.user-footer-menu
+        .user-footer-menu__1 プライバシーポリシー 
+      %li.user-footer-menu
+        .user-footer-menu__1 Fmarket利用規約
+      %li.user-footer-menu
+        .user-footer-menu__1 特定商品に関する表記 
+  .user-footer__link
     = link_to root_path do
-      = image_tag "/assets/SVG/logo_gray.svg", alt: "Mercari", width: "80", height: "60"  
-    %p 
-      %small ©︎2019 Fmarket
+      = image_tag "/assets/SVG/logo_gray.svg", alt: "Mercari", class:".user-footer-img", width: "80", height: "60"  
+  %h1.user-footer__end
+    %small.user-footer__year ©︎2019 Fmarket
