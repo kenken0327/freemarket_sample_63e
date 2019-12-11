@@ -141,9 +141,9 @@
           margin: 24px 0 0;
           }
         &__birthday{
-          margin-top:30px;
+          margin-top:50px;
           &__select{
-            margin-top:8px;
+            margin-top:20px;
             background-color: #fff;
             position:relative;
             #user_year_id{
@@ -160,7 +160,21 @@
               width: 100%;
               -webkit-appearance: none;
               }
-              #user_month_id{
+            #user_month_id{
+              width:100%;
+              position: relative;
+              z-index: 2;
+              height: 48px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: 0;
+              font-size: 16px;
+              line-height: 1.5;
+              cursor: pointer;
+              width: 100%;
+              -webkit-appearance: none;
+              }
+              #user_date_id{
                 width:100%;
                 position: relative;
                 z-index: 2;
@@ -174,9 +188,8 @@
                 width: 100%;
                 -webkit-appearance: none;
                 }
-              
-            }
-          }
+               }
+              }
 
        
         
