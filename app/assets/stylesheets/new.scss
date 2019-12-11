@@ -120,41 +120,39 @@
   .main {
     width: 700px;
     margin: 0 auto;
-    .signup-panel {
-      background-color: white;
-      &__title {
+    background-color: #fff;
+      .signup__title {
         padding: 32px;
         font-size: 22px;
         font-weight: bold;
+        margin: 0 auto;
       }
-    
       .new_user{
         padding: 24px 16px 40px;
       
-      &__inherit{
+      .l-single-container{
         max-width: 343px;
         margin: 0 auto;
-      
-
-  label{
-    font-weight: 600;
-    font-size: 14px;
-    float: left;
-  }
-  .require{
-    background: #ea352d;
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;
-    float: left;
-    }
-  }
-}
-}
-}  
+        &__nickanme{
+          .label{
+            font-weight: 600;
+            font-size: 14px;
+            float: left;
+            }
+          .require{
+            background: #ea352d;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+            float: left;
+            }
+          }
+        }
+      }
+    }  
   }
 
 
@@ -197,5 +195,5 @@
     }
   }
 }
-}
 
+}
