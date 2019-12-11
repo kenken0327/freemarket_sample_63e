@@ -42,7 +42,7 @@
               %span.require-5
                 必須
               = f.collection_select :prefecture_id, Prefecture.all, :id, :name,class:"signup-panel-5__inherit__input-default"
-               = render partial: 'shared/error_messages', locals: {user: @address, column: "prefecture_id"}
+              = render partial: 'shared/error_messages', locals: {user: @address, column: "prefecture_id"}
               %label.new-user-create
                 市町村区
               %span.require-5
