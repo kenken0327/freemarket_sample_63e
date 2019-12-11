@@ -77,17 +77,18 @@
             %span.require
               必須
             🔻
-            = f.collection_select :year_id, Year.all, :id,:name, prompt: "---",class:"select"
+            .l-single-container__birthday__select
+              = f.collection_select :year_id, Year.all, :id,:name, prompt: "---",class:"select"
             年
             = render partial: 'shared/error_messages', locals: {user: @user, column: "year_id"}
-          .l-single-container__form
+            .l-single-container__birthday__select
+              = f.collection_select :month_id, Month.all, :id,:name, prompt: "---",class:"select"
             🔻
-            = f.collection_select :month_id, Month.all, :id,:name, prompt: "---",class:"select"
             月
             = render partial: 'shared/error_messages', locals: {user: @user, column: "month_id"}
-          .l-single-container__form
-            🔻
+            .l-single-container__birthday__select
             = f.collection_select :date_id, Day.all, :id, :name, prompt: "---",class:"select"
+            🔻
             日
             = render partial: 'shared/error_messages', locals: {user: @user, column: "date_id"}
             = f.submit"次へ進む",class:"next-current_page"
