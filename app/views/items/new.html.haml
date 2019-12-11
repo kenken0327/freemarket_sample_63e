@@ -19,15 +19,15 @@
               最大10枚までアップロードできます
 
             .main-container__sell__inner__box__upload
-              .main-container__sell__inner__box__upload__files
-                = f.file_field :image, id: "image-upload"
-                %pre.main-container__sell__inner__box__upload__files__text
-                  ドラックアンドドロップ
-                  またはクリックしてファイルをアップロード
-                %i.main-container__sell__inner__box__upload__files__camera.fas.fa-camera
-                - if @item.errors.any?
-                  %ul
-                    %li.formError= @item.errors.full_messages_for(:image).first
+              %label.main-container__sell__inner__box__upload__files
+                .image-click-content
+                  = f.file_field :image, class: "image-click",id: "image-upload"
+                  %pre.main-container__sell__inner__box__upload__files__text
+                    ドラックアンドドロップ
+                    またはクリックしてファイルをアップロード
+                  - if @item.errors.any?
+                    %ul
+                      %li.formError= @item.errors.full_messages_for(:image).first
 
           .main-container__sell__inner__form
             .main-container__sell__inner__form__content

@@ -40,12 +40,17 @@
         width: 620px;
         margin: 16px auto 0;
         &__files{
-          position: relative;
-          padding: 40px;
-          background-color: #f5f5f5;
-          min-height: 162px;
-          border: 1px dashed #ccc;
-          box-sizing: border-box;
+          .image-click-content{  
+            position: relative;
+            padding: 40px;
+            background-color: #f5f5f5;
+            min-height: 162px;
+            border: 1px dashed #ccc;
+            box-sizing: border-box;
+          }
+          .image-click{
+            display: none;
+          }
           &__text{
             position: absolute;
             top: 50%;
