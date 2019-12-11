@@ -4,14 +4,12 @@
       //ロゴ//
       .header-box__search__logo
         = link_to image_tag "/images/SVG/fmarket_logo_red.svg", alt: "Mercari", width: "140"
-      //検索フォーム//
-      %form#form01{action: "search"}
-        //検索欄//
-        %input#input01{type: "search", name: "keyword", placeholder: "何かお探しですか？"}
-          //検索ボタン//
-          %button#submit01
+      .header-box__search__text
+        = form_with url: search_items_path,method: :get, id:"form01",local: true  do |f|
+          = f.text_field :keyword ,placeholder:"商品名を入力して下さい",id:"input01"
+          = f.submit 
             = icon "fas", "search"
-        
+          
     .header-box__nav
       .header-box__nav__type
         .header-box__nav__type__ca

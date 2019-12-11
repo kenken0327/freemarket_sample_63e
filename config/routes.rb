@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     end
   end
   resources :items do
+    collection do
+      get 'search'
+    end
     member do
       patch 'add_buy_id'
     end

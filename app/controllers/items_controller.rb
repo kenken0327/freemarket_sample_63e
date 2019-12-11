@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_item, only: [:show,:edit,:update,:destroy,:add_buy_id]
-  before_action :set_user, only: [:index,:show]
+  before_action :set_user, only: [:index,:show,:search]
   before_action :set_category, only:[:new,:create,:edit,:update]
 
   def index
@@ -57,6 +57,10 @@ class ItemsController < ApplicationController
     else
       redirect_to done_card_path
     end
+  end
+
+  def search
+    @items = Item.search(params[:keyword])
   end
 
 
