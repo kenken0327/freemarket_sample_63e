@@ -33,16 +33,12 @@
         .signup-panel-5__inherit
           .signup-panel-5__inherit__form-group__end
             = form_for @address,url: address_create_regisrations_path, method: :post do |f|
-              - if @address.errors.any?
-                %h2= "#{@address.errors.full_messages.count}"
-                - @address.errors.full_messages.each do |message|
-                  %li= message
               %label.new-user-create
                 郵便番号
               %span.require-5
                 必須
               = f.text_field :post_no,placeholder: "例）123ー4567",class:"signup-panel-5__inherit__input-default"
-          
+              = render partial: 'shared/error_messages', locals: {user: @address, column: "post_no"}
               %label.new-user-create
                 都道府県
               %span.require-5
@@ -51,18 +47,20 @@
                 = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt: "---"},{class:"select__default-1"}
                 .expiration-date-icon-1
                   %i.fas.fa-angle-down
+                = render partial: 'shared/error_messages', locals: {user: @address, column: "prefecture_id"}
+
               %label.new-user-create
                 市町村区
               %span.require-5
                 必須
               = f.text_field :city,placeholder: "例）横浜市緑区",class:"signup-panel-5__inherit__input-default"
-
+              = render partial: 'shared/error_messages', locals: {user: @address, column: "city"}
               %label.new-user-create
                 番地
               %span.require-5
                 必須
               = f.text_field :town,placeholder:" 例）青山1-1-1",class:"signup-panel-5__inherit__input-default"
-
+              = render partial: 'shared/error_messages', locals: {user: @address, column: "town"}
               %label.new-user-create
                 建物名
               %span.any-5

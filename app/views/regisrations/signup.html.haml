@@ -52,6 +52,7 @@
                 必須
               = f.text_field :password,placeholder: "7文字以上",class:"signup-panel__inherit__input-default"
               = render partial: 'shared/error_messages', locals: {user: @user, column: "password"}
+
             .signup-panel__inherit__form-group__identification
               %h3.ident
                 本人確認
@@ -104,6 +105,10 @@
               日
               = render partial: 'shared/error_messages', locals: {user: @user, column: "date_id"}
             = f.submit"次へ進む",class:"next-current_page"
+
+              
+            
+
 
 
 %footer.user-footer

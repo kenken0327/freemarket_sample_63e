@@ -1,13 +1,17 @@
 class UsersController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_user, only: [:index,:show,:edit,:update]
+  before_action :set_user, only: [:index,:show,:edit,:update,:show_buy]
 
   def index
     @items = Item.where(saler: current_user.id)
   end
 
   def show
+  end
+
+  def show_buy
+    @items = Item.where(buyer: current_user.id)
   end
 
   def edit
