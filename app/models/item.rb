@@ -40,8 +40,8 @@ class Item < ApplicationRecord
   end
 
   validates :name, presence: true
-  validates :image, presence: { message: "画像がありません" }
+  validates :image, presence: { message: "がありません" }
   validates :description, length: { in: 1..1000}, presence: true
-  validates :prefecture_id, :category_id, :ship_way, :ship_price, :ship_date, :condition, presence: { message: "選択してください" }
-  validates :price ,presence: {message: "300以上9999999以下で入力してください"}, numericality: { only_integer: true, greater_than: 300, less_than: 9999999}
+  validates :prefecture_id, :category_id, :ship_way, :ship_price, :ship_date, :condition, presence: { message: "を選択してください" }
+  validates :price ,presence: {message: "価格 は300以上9999999以下で入力してください"}, numericality: { only_integer: true, greater_than: 299, less_than: 9999999}
 end
