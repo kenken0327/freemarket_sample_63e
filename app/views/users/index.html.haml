@@ -49,9 +49,6 @@
             
     %ul.mypage-pager
       %li.pager-button
-        =link_to "#" do
-          = icon "fas", "chevron-left", class: "chevron-left"
-      %li.pager-button
-        =link_to "#" do
+        =link_to show_buy_users_path do
           = icon "fas", "chevron-right", class: "chevron-right"
   = render 'users/shared/sidebar'
