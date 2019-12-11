@@ -33,7 +33,7 @@ class Item < ApplicationRecord
 
   def self.search(search)
     if search 
-      Item.where.not.(saler: current_user.id).where('name LIKE (?)', "%#{search}%")
+      Item.where('name LIKE (?)', "%#{search}%").where(buyer: nil)
     else
       Item.all
     end
