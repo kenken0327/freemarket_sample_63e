@@ -537,10 +537,12 @@ $color-lightgray: #f5f5f5;
       font-size: 14px;
       line-height: 1.2;
       a{
-        span:hover{
-          border-bottom: 1px solid #888;
-          color: #888;
-        }
+        color: #333;
+        font-weight: normal;
+      }
+      a:hover{
+        border-bottom: 1px solid #888;
+        color: #888;
       }
     }
     li:last-of-type{
