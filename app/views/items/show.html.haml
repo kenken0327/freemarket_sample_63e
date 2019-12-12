@@ -91,7 +91,7 @@
       (税込)
     %span.shipping-fee
       送料込み
-  - if user_signed_in? && current_user.id != @item.user_id
+  - if user_signed_in? && current_user.id != @item.user_id && @item.buyer = nil
     = link_to check_card_path(@item), class: "buy-button" do
       購入画面に進む
   - if user_signed_in? && current_user.id == @item.user_id
