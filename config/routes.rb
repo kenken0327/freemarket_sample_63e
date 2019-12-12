@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   end
   resources :regisrations ,only:[:show,:create] do
     collection do
-      get 'login'
       get 'signup'
       post 'signup_validates'
       get 'phone'
