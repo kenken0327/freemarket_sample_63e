@@ -35,7 +35,6 @@
             .signup-panel__inherit-2__form-group-2
               %label.phone-number
                 携帯電話の番号
-
               =f.text_field :tell_no,placeholder: "携帯電話の番号を入力",class:"signup-panel__inherit-2__input-default"
               = render partial: 'shared/error_messages', locals: {user: @user, column: "tell_no"}
 

@@ -1,108 +1,0 @@
-.single_container
-  %header.signup-header
-
-    .signup-header__containar
-      %h1
-        %a
-          = image_tag "/images/SVG/fmarket_logo_red.svg", alt: "Mercari"
-
-
-      %nav.signup-bar
-        %ol
-          %li.li--active
-            äźĺĄćĺ ą
-            .progress-status1
-          %li.li
-            éťčŠąçŞĺˇčŞč¨ź
-            .progress-status2
-          %li
-            ăĺąăĺä˝ćĺĽĺ
-            .progress-status3
-          %li
-            ćŻćăćšćł
-            .progress-status4
-          %li
-            ĺŽäş
-            .progress-status5
-  .signle-container
-    .main
-      %p.signup__title äźĺĄćĺ ąçťé˛
-      = form_for @user, url: signup_validates_regisrations_path,method: :post do |f|
-        .l-single-container
-          .l-single-container__nickname
-            %label
-              ăăăŻăăźă 
-            %span.require
-              ĺżé 
-            = f.text_field :nickname,placeholder: "äžďź ăăŞăĺ¤Şé",class:"text__input"
-            = render partial: 'shared/error_messages', locals: {user: @user, column: "nickname"}
-          .l-single-container__form
-            %label
-              ăĄăźăŤă˘ăăŹăš
-            %span.require
-              ĺżé 
-            = f.text_field :email, placeholder: "PCăťćşĺ¸ŻăŠăĄăă§ăĺŻ",class:"text__input"
-            = render partial: 'shared/error_messages', locals: {user: @user, column: "email"}
-          .l-single-container__form
-            %label
-              ăăšăŻăźă
-            %span.require
-              ĺżé 
-            = f.text_field :password,placeholder: "7ćĺ­äťĽä¸",class:"text__input"
-            = render partial: 'shared/error_messages', locals: {user: @user, column: "password"}
-
-          .l-single-container__form
-            %label
-              ăĺĺďźĺ¨č§ďź
-            %span.require
-              ĺżé 
-          = f.text_field :last_name,placeholder: "äžďźĺąąç°" ,class:"text__input"
-          = render partial: 'shared/error_messages', locals: {user: @user, column: "last_name"}
-          = f.text_field :first_name,placeholder: "äžďźĺ˝Š",class:"text__input"
-          = render partial: 'shared/error_messages', locals: {user: @user, column: "first_name"}
-          .l-single-container__form
-            %label.name
-              ăĺĺăŤăďźĺ¨č§ďź
-            %span.require
-              ĺżé 
-          = f.text_field :last_kana,placeholder: "äžďźă¤ăă",class:"text__input"
-          = render partial: 'shared/error_messages', locals: {user: @user, column: "last_kana"}
-          = f.text_field :first_kana,placeholder: "äžďźă˘ă¤",class:"text__input"
-          = render partial: 'shared/error_messages', locals: {user: @user, column: "first_kana"}
-
-          .l-single-container__birthday
-            %label.name
-              çĺš´ććĽ
-            %span.require
-              ĺżé 
-            đť
-            .l-single-container__birthday__select
-              = f.collection_select :year_id, Year.all, :id,:name, prompt: "---",class:"select"
-            ĺš´
-            = render partial: 'shared/error_messages', locals: {user: @user, column: "year_id"}
-            .l-single-container__birthday__select
-              = f.collection_select :month_id, Month.all, :id,:name, prompt: "---",class:"select"
-            ć
-            = render partial: 'shared/error_messages', locals: {user: @user, column: "month_id"}
-            .l-single-container__birthday__select
-              = f.collection_select :date_id, Day.all, :id, :name, prompt: "---",class:"select"
-            đť
-            ćĽ
-            = render partial: 'shared/error_messages', locals: {user: @user, column: "date_id"}
-            = f.submit"ćŹĄă¸é˛ă",class:"next-current_page"
-
-
-  %footer.user-footer
-    %nav
-      %ul
-        %li
-          %a ăăŠă¤ăăˇăźăăŞăˇăź 
-        %li
-          %a FmarketĺŠç¨čŚç´
-        %li
-          %a çšĺŽĺĺăŤé˘ăăčĄ¨č¨ 
-    %a
-      = link_to root_path do
-        = image_tag "/assets/SVG/logo_gray.svg", alt: "Mercari", width: "80", height: "60"  
-      %p 
-        %small ÂŠď¸2019 Fmarket
