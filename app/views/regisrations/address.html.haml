@@ -43,8 +43,7 @@
               %span.require
                 必須
               = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt: "---"},{class:"select__default-2"}
-              .expiration-date-icon-1
-                %i.fas.fa-angle-down
+              %i.fas.fa-angle-down#d
               = render partial: 'shared/error_messages', locals: {user: @address, column: "prefecture_id"}
           .l-single-container__form
             %label
