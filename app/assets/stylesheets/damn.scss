@@ -1,4 +1,6 @@
-@mixin status_bar($width,$color:#ccc) {
+//================================= MIXIN =================================//
+
+@mixin status_bar($width) {
   position: absolute;
   bottom: 5px;
   z-index: -1;
@@ -6,7 +8,7 @@
   content: '';
   width: $width;
   height: 2px;
-  background:$color;
+  background: #ccc;
  }
  @mixin status($color:#ccc){
   width: 12px;
@@ -16,20 +18,38 @@
   background:$color
 }
 
-.signup-header{
+@mixin birthday(){
+  margin-top: 8px;
+  width: 76px;
+  height: 48px;
+  padding: 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  position: relative;
+}
+
+//================================= STYLE =================================//
+
+.single_container{
+  padding: 0 0 220px;
+
+.signup-header {
   height: 128px;
   text-align: center;
   background-color: rgb(245, 245, 245);
   
   &__containar {
     display: inline-flex;
-    &__title{
+    h1 {
       padding: 40px 35px 0;
-      &__img{
+      a {
         width: 185px;
         height: 49px;
         line-height: 49px;
-        .sign-up_img{
+        img {
           width: 185px;
           height: 49px;
           margin: 0 auto;
@@ -37,60 +57,56 @@
       }
     }
 
-    .signup-bar-3 {
+    .signup-bar {
       border: 0;
       padding: 40px 0 0 24px;
 
-      &__to{
+      ol {
         display: inline-flex;
-        .li--active-3{
+        .li--active{
+          font-weight: 600;
           color: #ea352d;
+          }
+
+        li {
           position: relative;
-          margin: 0 40px 0 0;
           z-index: 1;
           display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
           font-size: 12px;
+          color: #888;
+          margin: 0 40px 0 0;
+          position: relative;
           min-width: 60px;
-          font-weight: 600;
-          .progress-status3-3{
+          font-size: 12px;
+
+          .progress-status1{
             @include status(#ea352d);
           }
-          .progress-status3-3::before{
+          .progress-status2{
+            @include status
+          }
+          .progress-status3{
+            @include status
+          }
+          .progress-status4{
+            @include status
+          }
+          .progress-status5{
+            @include status
+          }
+
+          .progress-status1::before{
+            @include status_bar(180%)
+          }
+          .progress-status2::before{
+            @include status_bar(175%)
+          }
+          .progress-status3::before{
             @include status_bar(125%)
           }
-        }
-
-          .signup-bar-3__to-do{
-            position: relative;
-            z-index: 1;
-            display: inline-block;
-            min-width: 40px;
-            font-size: 12px;
-            color: #888;
-            margin: 0 40px 0 0;
-            position: relative;
-
-          .progress-status1-3{
-            @include status(#ea352d);
-          }
-          .progress-status2-3{
-            @include status(#ea352d);
-          }
-          
-          .progress-status4-3{
-            @include status
-          }
-          .progress-status5-3{
-            @include status
-          }
-          .progress-status1-3::before{
-            @include status_bar(210%,#ea352d)
-          }
-          .progress-status2-3::before{
-            @include status_bar(175%,#ea352d)
-          }
-          
-          .progress-status4-3::before{
+          .progress-status4::before{
             @include status_bar(166%)
           }
         }
@@ -98,6 +114,7 @@
     }
   }
 }
+
 .single-container {
   display: block;
   .main {
@@ -111,24 +128,26 @@
         text-align: center;
 
       }
-      .new_address{
+      .new_user{
         padding: 24px 16px 40px;
         border-top: 1px solid #f5f5f5;
       
       .l-single-container{
         max-width: 343px;
         margin: 0 auto;
+        &__nickanme{
+          }
         &__form{
           margin: 24px 0 0;
           }
-        &__address{
-          margin-top:10px;
+        &__birthday{
+          margin-top:50px;
           &__select{
-            margin-top:50px;
+            margin-top:px;
             background-color: #fff;
             position:relative;
             
-            #address_prefecture_id{
+            #user_year_id{
               width:100%;
               position: relative;
               z-index: 2;
@@ -142,8 +161,36 @@
               width: 100%;
               -webkit-appearance: none;
               }
-            }
-          }
+            #user_month_id{
+              width:100%;
+              position: relative;
+              z-index: 2;
+              height: 48px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: 0;
+              font-size: 16px;
+              line-height: 1.5;
+              cursor: pointer;
+              width: 100%;
+              -webkit-appearance: none;
+              }
+              #user_date_id{
+                width:100%;
+                position: relative;
+                z-index: 2;
+                height: 48px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                width: 100%;
+                -webkit-appearance: none;
+                }
+               }
+              }
           .text__input{
             padding: 10px 16px 8px;
             border-radius: 4px;
@@ -159,17 +206,6 @@
             font-size: 14px;
             float: left;
             }
-          .any-5{
-            background: #ccc;
-            margin:8px 8px 8px;
-            padding: 2px 4px;
-            border-radius: 2px;
-            color: #fff;
-            font-size: 12px;
-            vertical-align: top;
-            display: flex;
-            width: 25px;
-          }
           .require{
             background: #ea352d;
             margin: 0 0 0 8px;
@@ -216,43 +252,41 @@
 .user-footer {
   background: rgb(245, 245, 245);
   text-align: center;
+  
   height: 220px;
   margin: 0 auto;
   padding: 40px 0;
-  .user-footer-container {
+  ul {
     list-style: none;
   }
-  .user-footer-menu{
+  li {
     display: inline-block;
     margin: 0 0 0 16px;
     font-size: 12px;
-    &__1{
+    a {
       text-decoration: none;
       color: black;
     }
   }
 
-  li:first-child {
+  & li:first-child {
     display: inline-block;
     margin: 0;
   }
-  .user-footer__link {
-    width: 80px;
-    height: 65px;
-    margin: 40px auto 0;
-    .user-footer-img{
+  a {
+    img {
       width: 80px;
       height: 65px;
       margin: 40px auto 0;
     }
   }
-  .user-footer__end{
-    margin: auto;
-    padding: 0;
-    width: 456px;
-    height: 14px;
-    .user-footer__year{
+  p {
+    margin: 8px 0 0;
+
+    small {
       font-size: 13px;
     }
   }
+}
+
 }
