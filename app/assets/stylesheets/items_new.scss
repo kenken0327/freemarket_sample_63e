@@ -47,6 +47,9 @@
           min-height: 162px;
           border: 1px dashed #ccc;
           box-sizing: border-box;
+          #image-upload{
+            display: none;
+          }
           &__text{
             position: absolute;
             top: 50%;
