@@ -2,20 +2,9 @@
 
 %nav.location
   %ul.location-pre
-    %li{itemscope: true, itemtype: "#"}
-      =link_to root_path, itemprop: "url" do
-        %span{itemprop: "title"}
-          Fマーケット
-    = icon "fas", "chevron-right"
-    %li{itemscope: true, itemtype: "#"}
-      =link_to user_path(@user), itemprop: "url" do
-        %span{itemprop: "title"}
-          マイページ
-    = icon "fas", "chevron-right"
-    %li{itemscope: true, itemtype: "#"}
-      =link_to show_buy_users_path,itemprop: "url" do
-        %span{itemprop: "title"}
-          出品中した商品-出品中
+    %li
+      - breadcrumb :user_show_index
+      = breadcrumbs separator: " &rsaquo; "
 
 %main.major
   .r-content
@@ -52,3 +41,5 @@
         =link_to show_buy_users_path do
           = icon "fas", "chevron-right", class: "chevron-right"
   = render 'users/shared/sidebar'
+
+= render "shared/item_footer"

@@ -190,5 +190,7 @@
 %nav.location-bottom
   %ul
     %li
-      - breadcrumb :items_show
+      - breadcrumb :items_show, @item
       = breadcrumbs separator: " &rsaquo; "
+
+= render "shared/item_footer"
