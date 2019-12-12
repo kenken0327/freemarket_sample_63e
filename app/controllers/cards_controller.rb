@@ -6,6 +6,7 @@ class CardsController < ApplicationController
 
 
   def check
+    @user = User.find(current_user.id)
     if @card.blank?
       redirect_to new_card_path
     else
