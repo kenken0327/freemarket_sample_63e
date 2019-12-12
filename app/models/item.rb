@@ -31,6 +31,7 @@ class Item < ApplicationRecord
                   "2~3日で発送":2,
                   "4~7日で発送":3}
 
+  
   def self.search(search)
     if search 
       Item.where('name LIKE (?)', "%#{search}%").where(buyer: nil)
