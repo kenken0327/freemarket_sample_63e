@@ -1,26 +1,37 @@
 ja:
   activerecord:
+    models:
     attributes:
-      user:
-        nickname: ニックネーム
-        password: パスワード
-        password_confirmation: パスワード確認
-        email: メールアドレス
-        last_name: 名字
-        first_name: 名前
-        last_kana: カナ（名字）
-        first_kana: カナ（名前）
-        year_id: 誕生日年
-        month_id: 誕生日月
-        date_id: 誕生日
-        tell_no: 電話番号
-      item:
-        name: "名前"
-      address:
-        post_no: 郵便番号
-        town: 市区町村
-        city: 番地
-        
+            user:
+              nickname: ニックネーム
+              password: パスワード
+              password_confirmation: パスワード確認
+              email: メールアドレス
+              last_name: 名字
+              first_name: 名前
+              last_kana: カナ（名字）
+              first_kana: カナ（名前）
+              year_id: ""
+              month_id: ""
+              date_id: ""
+              tell_no: 電話番号
+            item:
+              image: 画像
+              name: 商品名
+              text: 説明文
+              category_id: カテゴリー
+              condition: 商品の状態
+              description: 商品の説明
+              ship_price: 配送料の負担
+              ship_way: 配送方法
+              prefecture_id : 配送元の地域
+              ship_date : 配送までの日数
+              price: ""
+            address:
+              post_no: 郵便番号
+              town: 市区町村
+              city: 番地
+              prefecture_id: 都道府県
   errors:
     messages:
       not_found: "は見つかりませんでした"
@@ -31,6 +42,7 @@ ja:
 #      not_locked: "was not locked"
   devise:
     failure:
+      invalid: "入力に誤りがあります。"
       unauthenticated: 'ログインしてください。'
 #      unauthenticated: 'You need to sign in or sign up before continuing.'
       unconfirmed: '本登録を行ってください。'

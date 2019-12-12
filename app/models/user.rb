@@ -14,14 +14,8 @@ class User < ApplicationRecord
   belongs_to_active_hash :day
 
   validates :nickname, presence: true, uniqueness: true
-  validates :last_name, presence: true, format: {with: /\A[一-龥]+\z/}
-  validates :first_name, presence: true, format: {with: /\A[一-龥]+\z/}
-  validates :last_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/}
-  validates :first_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/}
-  validates :year_id, presence: true
-  validates :month_id, presence: true
-  validates :date_id, presence: true
+  validates :last_name,:first_name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/}
+  validates :last_kana,:first_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/}
+  validates :year_id,:month_id,:date_id,presence: {message:"選択して下さい"}
   validates :tell_no, presence: true, format: {with: /\A\d{3}[-]\d{4}[-]\d{4}\z/}
-
-
 end

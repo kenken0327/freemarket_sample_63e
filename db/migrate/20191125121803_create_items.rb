@@ -5,14 +5,14 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :name, null: false, index: true
       t.text :image, null: false
       t.integer :price, null: false
-      t.string :ship_way, null: false
-      t.string :ship_price, null: false
-      t.string :ship_date, null: false
-      t.string :condition, null: false
+      t.integer :ship_way, null: false
+      t.integer :ship_price, null: false
+      t.integer :ship_date, null: false
+      t.integer :condition, null: false
       t.integer :buyer
       t.integer :saler, null: false
       t.text :description, null: false
-      t.string :ship_place, null: false
+      t.integer :prefecture_id, null: false
       t.timestamps
     end
   end

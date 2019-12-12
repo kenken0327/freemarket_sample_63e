@@ -34,7 +34,7 @@
           %th
             出品者
           %td
-            =link_to @item.user.nickname
+            =@item.user.nickname
             %div
               .item-rating
                 = icon "fa", "laugh", class: "laugh"
@@ -53,17 +53,6 @@
             カテゴリー
           %td
             =link_to @item.category.name
-            =link_to "#" do
-              = icon "fa", "chevron-right", class: "chevron-right"
-              トップス 
-            =link_to "#" do
-              = icon "fa", "chevron-right", class: "chevron-right"
-              ニット/セーター
-        %tr
-          %th
-            ブランド
-          %td
-            =link_to "Only NY", "#", class: "table-bland"
         %tr
           %th
             商品のサイズ
@@ -73,28 +62,27 @@
           %th
             商品の状態
           %td
-            未使用・新品に近い
-            
+            = @item.condition
         %tr
           %th
             配送料の負担
           %td
-            送料込み(出品者負担)
+            = @item.ship_price
         %tr
           %th
             配送の方法
           %td
-            未定
+            = @item.ship_way
         %tr
           %th
             配送元地域
           %td
-            =link_to @item.ship_place, "#", class: "table-place"
+            =link_to @item.prefecture.name, "#", class: "table-place"
         %tr
           %th
             発送日の目安
           %td
-            2~3日で発送
+            = @item.ship_date
   .price-box
     %span.price-bold
       ¥
@@ -103,7 +91,7 @@
       (税込)
     %span.shipping-fee
       送料込み
-  - if user_signed_in? && current_user.id != @item.user_id
+  - if user_signed_in? && current_user.id != @item.user_id && @item.buyer = nil
     = link_to check_card_path(@item), class: "buy-button" do
       購入画面に進む
   - if user_signed_in? && current_user.id == @item.user_id

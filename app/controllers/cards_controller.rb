@@ -1,11 +1,12 @@
 class CardsController < ApplicationController
   require "payjp"
   before_action :set_card
+  before_action :set_item, only:[:check,:done]
 
 
 
   def check
-    @item = Item.find(params[:id])
+    @user = User.find(current_user.id)
     if @card.blank?
       redirect_to new_card_path
     else
@@ -22,7 +23,7 @@ class CardsController < ApplicationController
       :amount => item.price,
       :customer => @card.customer_id,
       :currency => 'jpy',)
-    redirect_to done_cards_path
+    redirect_to done_card_path
   end
 
   def done
@@ -35,8 +36,6 @@ class CardsController < ApplicationController
       redirect_to create_finish_regisration_index_path 
     end
   end
-
- 
 
   def create
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
@@ -65,4 +64,7 @@ class CardsController < ApplicationController
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
 
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end

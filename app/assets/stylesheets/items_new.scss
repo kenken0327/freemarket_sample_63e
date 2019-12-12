@@ -11,6 +11,7 @@
       padding: 36px 16px;
       font-size: 22px;
       text-align: center;
+      font-weight: bold;
     }
     &__sell__inner__box{
       width: 620px;
@@ -46,6 +47,9 @@
           min-height: 162px;
           border: 1px dashed #ccc;
           box-sizing: border-box;
+          #image-upload{
+            display: none;
+          }
           &__text{
             position: absolute;
             top: 50%;
@@ -244,7 +248,7 @@
     &__sell__inner__sell{ 
       padding: 40px;
       border-top: 1px solid #eee;
-      height: 450px;
+      height: 480px;
       &__top{
         float: left;
         color: #888;

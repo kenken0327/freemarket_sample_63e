@@ -18,7 +18,7 @@
             %p.main-container__sell__inner__box__content
               最大10枚までアップロードできます
 
-            .main-container__sell__inner__box__upload
+            %label.main-container__sell__inner__box__upload
               .main-container__sell__inner__box__upload__files
                 = f.file_field :image, id: "image-upload"
                 %pre.main-container__sell__inner__box__upload__files__text
@@ -116,11 +116,11 @@
                   %span.main-container__sell__inner__sell__form__box4__require
                     必須
                 .main-container__sell__inner__sell__form__box4__select
-                  = f.collection_select :ship_place, Prefecture.all, :id, :name, {prompt: "---"}, {class: "main-container__sell__inner__sell__form__box4__select__1"}
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: "main-container__sell__inner__sell__form__box4__select__1"}
                   %i.fas.fa-angle-down
                 - if @item.errors.any?
                   %ul
-                    %li.formError= @item.errors.full_messages_for(:ship_place).first
+                    %li.formError= @item.errors.full_messages_for(:prefecture_id).first
 
               .main-container__sell__inner__sell__form__box3
                 %label.main-container__sell__inner__sell__form__box3__label
