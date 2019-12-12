@@ -83,24 +83,24 @@
                 生年月日
               %span.require
                 必須
-              = f.collection_select :year_id, Year.all, :id,:name,{prompt: "---"},{class:"select__default-2"}
+              = f.collection_select :year_id, Year.all, :id,:name,{prompt: "---"}
               = render partial: 'shared/error_messages', locals: {user: @user, column: "year_id"}
-              .expiration-date-icon-1
-                %i.fas.fa-angle-down
-              年
-            .l-single-container__birthday__select
-              = f.collection_select :month_id, Month.all, :id,:name, {prompt: "---"},{class:"select__default-2"}
+              %i.fas.fa-angle-down#a
+              %span.ys
+                年
+            .l-single-container__birthday__select2
+              = f.collection_select :month_id, Month.all, :id,:name, {prompt: "---"}
               = render partial: 'shared/error_messages', locals: {user: @user, column: "month_id"}
-              .expiration-date-icon-1
-                %i.fas.fa-angle-down
-              月
+              %i.fas.fa-angle-down#b
+              %span.ms
+                月
              
-            .l-single-container__birthday__select
-              = f.collection_select :date_id, Day.all, :id, :name, {prompt: "---"},{class:"select__default-2"}
+            .l-single-container__birthday__select3
+              = f.collection_select :date_id, Day.all, :id, :name, {prompt: "---"}
               = render partial: 'shared/error_messages', locals: {user: @user, column: "year_id"}
-              .expiration-date-icon-1
-                %i.fas.fa-angle-down
-              日
+              %i.fas.fa-angle-down#c
+              %span.ds
+                日
               = f.submit"次へ進む",class:"next-current_page"
 
   %footer.user-footer
