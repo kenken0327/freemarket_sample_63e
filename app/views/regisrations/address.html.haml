@@ -36,13 +36,12 @@
               必須
             = f.text_field :post_no,placeholder: "例）123ー4567",class:"text__input"
             = render partial: 'shared/error_messages', locals: {user: @address, column: "post_no"}
-          .l-single-container__form
-            %label
-              都道府県
-            %span.require
-              必須
           .l-single-container__address
             .l-single-container__address__select
+              %label
+                都道府県
+              %span.require
+                必須
               = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt: "---"},{class:"select__default-2"}
               .expiration-date-icon-1
                 %i.fas.fa-angle-down

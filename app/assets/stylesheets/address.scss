@@ -126,7 +126,7 @@
         &__address{
           margin-top:50px;
           &__select{
-            margin-top:px;
+            margin-top:20px;
             background-color: #fff;
             position:relative;
             
@@ -161,6 +161,17 @@
             font-size: 14px;
             float: left;
             }
+          .any-5{
+            background: #ccc;
+            margin:8px 8px 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+            display: flex;
+            width: 25px;
+          }
           .require{
             background: #ea352d;
             margin: 0 0 0 8px;
