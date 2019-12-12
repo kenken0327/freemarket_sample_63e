@@ -224,6 +224,24 @@
             border: 1px solid #ea352d;
             color: #fff;
             }
+            .signup-panel__inherit__form-group__identification{
+              height: 87px;
+              width: 343px;
+              margin: 24px 0 0;
+              
+              .ident{
+                font-size: 16px;
+                margin: 0;
+                padding: 0;
+                text-align: initial;
+              }
+              .ident-text{
+                padding: 0;
+                text-align: initial;
+                font-size: 14px;
+                font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+              }
+            }
           }
         }
       }
