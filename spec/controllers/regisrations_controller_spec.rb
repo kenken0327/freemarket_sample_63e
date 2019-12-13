@@ -31,7 +31,6 @@ end
   end  
     
   describe 'POST #create' do
-  binding.pry
   let(:params) {{ user: attributes_for(:user) }}
 
   subject {
