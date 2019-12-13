@@ -15,19 +15,19 @@
         .sub-slide#mini-slide
           .mini-slide
             .slide-inner
-              = image_tag "/images/cloth.png", alt: "Unknown"
+              = image_tag @item.image.url, alt: "Unknown"
           .mini-slide
             .slide-inner
-              = image_tag "/images/cloth.png", alt: "Unknown"
+              = image_tag @item.image.url, alt: "Unknown"
           .mini-slide
             .slide-inner
-              = image_tag "/images/cloth.png", alt: "Unknown"
+              = image_tag @item.image.url, alt: "Unknown"
           .mini-slide
             .slide-inner
-              = image_tag "/images/cloth.png", alt: "Unknown"
+              = image_tag @item.image.url, alt: "Unknown"
           .mini-slide
             .slide-inner
-              = image_tag "/images/cloth.png", alt: "Unknown"
+              = image_tag @item.image.url, alt: "Unknown"
     %table.item-table
       %tbody
         %tr
@@ -158,7 +158,7 @@
       %section.a-items__box
         =link_to "#" do
           %figure.a-items__box__photo
-            = image_tag "/images/cloth.png", alt: "Mercari"
+            = image_tag @item.image.url, alt: "Mercari"
           .a-items__box__body
             %h3.another-name
               ニットパーカー
@@ -176,7 +176,7 @@
       %section.a-items__box
         =link_to "#" do
           %figure.a-items__box__photo
-            = image_tag "/images/cloth.png", alt: "Mercari"
+            = image_tag @item.image.url, alt: "Mercari"
           .a-items__box__body
             %h3.another-name
               ニットパーカー
