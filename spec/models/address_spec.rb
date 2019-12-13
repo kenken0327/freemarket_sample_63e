@@ -26,3 +26,4 @@ describe Address do
     expect(address.errors[:town]).to include("を入力してください")
     end
   end
+end
