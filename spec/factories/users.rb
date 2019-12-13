@@ -3,7 +3,7 @@ FactoryBot.define do
   factory :user do
     sequence(:nickname) {Faker::Name.name}
     sequence(:email) {Faker::Internet.email}
-    password              {"00000000"}
+    sequence(:password)     {Faker::Internet.password}
     last_name              {"伊藤"}
     first_name             {"航太"}
     last_kana             {"イトウ"}
