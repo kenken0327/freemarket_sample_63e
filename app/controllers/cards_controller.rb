@@ -4,7 +4,6 @@ class CardsController < ApplicationController
   before_action :set_item, only:[:check,:done]
 
 
-
   def check
     @user = User.find(current_user.id)
     if @card.blank?
