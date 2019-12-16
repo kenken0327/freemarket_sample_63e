@@ -35,16 +35,17 @@ class User < ApplicationRecord
       )
     end
   end
+
   def self.find_for_google(auth)
     user = User.find_by(email: auth.info.email)
 
     unless user
-      user = User.create(name:     auth.info.name,
-                        provider: auth.provider,
-                        uid:      auth.uid,
-                        token:    auth.credentials.token,
-                        password: Devise.friendly_token[0, 20],
-                        meta:     auth.to_yaml)
+      user = User.create( nickname: auth.info.name,
+                          provider: auth.provider,
+                          uid:      auth.uid,
+                          token:    auth.credentials.token,
+                          password: Devise.friendly_token[0, 20],
+                          meta:     auth.to_yaml)
     end
   end
 end

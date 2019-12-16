@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 2019_11_29_081733) do
     t.string "provider"
     t.string "meta"
     t.string "token"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addresses", "users"
