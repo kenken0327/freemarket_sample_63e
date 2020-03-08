@@ -31,10 +31,14 @@ end
   end  
     
   describe 'POST #create' do
-  let(:user) { create(:user) }
-  it "データベースに新しいユーザーが登録されること" do
-  expect{
-    post :create, params: { nickname:"ジャバ"}}.to change(User, :count).by(1)
+  let(:params) {{ user: attributes_for(:user) }}
+
+  subject {
+    post :create,
+    params: params
+  }
+  it "新しいユーザーが登録されるか" do
+    expect{ subject }.to change(User,:count).by(1)
     end
   end
 end
